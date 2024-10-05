@@ -14,7 +14,19 @@ config/name="ludum_dare_56"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://src/autoloads/Global.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[layer_names]
+
+2d_physics/layer_1="wall"
+2d_physics/layer_2="healthy"
+2d_physics/layer_3="infected"
+2d_physics/layer_4="goal"
+2d_physics/layer_5="purify"
