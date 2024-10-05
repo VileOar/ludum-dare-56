@@ -4,68 +4,99 @@
 [ext_resource type="Script" path="res://src/ui/HUD/time.gd" id="2_iwpux"]
 
 [node name="Hud" type="MarginContainer"]
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -232.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
 script = ExtResource("1_lx3u3")
 
 [node name="Time" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_iwpux")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 128
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="CityStats" type="GridContainer" parent="HBoxContainer"]
 layout_mode = 2
-alignment = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 16
+columns = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="LabelCityTotal" type="Label" parent="HBoxContainer/CityStats"]
 layout_mode = 2
-theme_override_constants/margin_top = 125
-theme_override_constants/margin_right = 60
+text = "Total:"
 
-[node name="CityVBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="CityTotal" type="Label" parent="HBoxContainer/CityStats"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Total" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer"]
-layout_mode = 2
-text = "Total: "
-
-[node name="Infected" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer"]
+[node name="LabelCityInfected" type="Label" parent="HBoxContainer/CityStats"]
 layout_mode = 2
 text = "Infected:"
 
-[node name="Good" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer"]
+[node name="CityInfected" type="Label" parent="HBoxContainer/CityStats"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelCityGood" type="Label" parent="HBoxContainer/CityStats"]
 layout_mode = 2
 text = "Healthy:"
 
-[node name="Death" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer"]
-layout_mode = 2
-text = "Death:"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/margin_top = 150
-theme_override_constants/margin_right = 60
-
-[node name="SoupVBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/MarginContainer"]
+[node name="CityGood" type="Label" parent="HBoxContainer/CityStats"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Time" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer"]
+[node name="LabelCityDeath" type="Label" parent="HBoxContainer/CityStats"]
 layout_mode = 2
-text = "Time: "
+text = "Dead:"
 
-[node name="Total" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer"]
+[node name="CityDeath" type="Label" parent="HBoxContainer/CityStats"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Total: "
 
-[node name="Infected" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer"]
+[node name="CityStats2" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="LabelSoupTotal" type="Label" parent="HBoxContainer/CityStats2"]
+layout_mode = 2
+text = "Total:"
+
+[node name="SoupTotal" type="Label" parent="HBoxContainer/CityStats2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelSoupInfected" type="Label" parent="HBoxContainer/CityStats2"]
 layout_mode = 2
 text = "Infected:"
 
-[node name="Good" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer"]
+[node name="SoupInfected" type="Label" parent="HBoxContainer/CityStats2"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Good:"
+
+[node name="LabelSoupGood" type="Label" parent="HBoxContainer/CityStats2"]
+layout_mode = 2
+text = "Healthy:"
+
+[node name="SoupGood" type="Label" parent="HBoxContainer/CityStats2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelCityTime" type="Label" parent="HBoxContainer/CityStats2"]
+layout_mode = 2
+text = "Time:"
+
+[node name="SoupTime" type="Label" parent="HBoxContainer/CityStats2"]
+unique_name_in_owner = true
+layout_mode = 2

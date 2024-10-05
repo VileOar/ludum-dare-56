@@ -12,19 +12,19 @@ const DEATH_TOOL_STR = "Death: "
 #const HEALTHY_SOUP_STR = "Healthy: "
 
 # UI
-@onready var time_label: Label = $HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer/Time
-@onready var timer_logic = $Time
+@onready var time_label: Label = %SoupTime
+@onready var timer_logic = %Time
 
 # City
-@onready var total_population: Label = $HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer/Total
-@onready var healthy: Label = $HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer/Good
-@onready var infected: Label = $HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer/Infected
-@onready var death_toll: Label = $HBoxContainer/VBoxContainer/MarginContainer/CityVBoxContainer/Death
+@onready var total_population: Label = %CityTotal
+@onready var infected: Label = %CityInfected
+@onready var healthy: Label = %CityGood
+@onready var death_toll: Label = %CityDeath
 
 # Soup
-@onready var total_soup: Label = $HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer/Total
-@onready var healthy_soup: Label = $HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer/Good
-@onready var infected_soup: Label = $HBoxContainer/VBoxContainer2/MarginContainer/SoupVBoxContainer/Infected
+@onready var total_soup: Label = %SoupTotal
+@onready var infected_soup: Label = %SoupInfected
+@onready var healthy_soup: Label = %SoupGood
 
 
 func _ready() -> void:
