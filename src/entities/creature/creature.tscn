@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu1smsxi2dc5g"]
+[gd_scene load_steps=10 format=3 uid="uid://bu1smsxi2dc5g"]
 
 [ext_resource type="Script" path="res://src/entities/creature/base_controller.gd" id="1_euc34"]
 [ext_resource type="Script" path="res://src/entities/creature/creature.gd" id="1_on0e4"]
-[ext_resource type="Script" path="res://src/entities/creature/wander_state.gd" id="2_ua7dj"]
-[ext_resource type="Script" path="res://src/entities/creature/idle_state.gd" id="3_bs3bk"]
-[ext_resource type="Script" path="res://src/entities/creature/rush_state.gd" id="4_sqeli"]
+[ext_resource type="Script" path="res://src/entities/creature/states/wander_state.gd" id="2_ua7dj"]
+[ext_resource type="Script" path="res://src/entities/creature/states/idle_state.gd" id="3_bs3bk"]
+[ext_resource type="Script" path="res://src/entities/creature/states/rush_state.gd" id="4_sqeli"]
+[ext_resource type="Script" path="res://src/entities/creature/states/clear_state.gd" id="6_r888y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yq3s"]
 size = Vector2(45.2548, 45.2548)
@@ -12,8 +13,12 @@ size = Vector2(45.2548, 45.2548)
 [sub_resource type="CircleShape2D" id="CircleShape2D_em1cj"]
 radius = 192.167
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpyr1"]
+radius = 24.0
+
 [node name="Creature" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_on0e4")
 
@@ -22,7 +27,6 @@ polygon = PackedVector2Array(0, -32, -32, 0, 0, 32, 32, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4yq3s")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -30,7 +34,8 @@ unique_name_in_owner = true
 
 [node name="Detector" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 shape = SubResource("CircleShape2D_em1cj")
@@ -47,4 +52,17 @@ script = ExtResource("3_bs3bk")
 
 [node name="RushState" type="Node" parent="Controller"]
 script = ExtResource("4_sqeli")
+STATE_DURATION = 0.75
 SPEED_MULTIPLIER = 3.0
+
+[node name="ClearState" type="Node" parent="Controller"]
+script = ExtResource("6_r888y")
+
+[node name="GoalDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector"]
+shape = SubResource("CircleShape2D_cpyr1")
+
+[connection signal="area_entered" from="GoalDetector" to="Controller" method="_on_goal_detector_area_entered"]

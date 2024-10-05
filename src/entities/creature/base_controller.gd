@@ -2,7 +2,7 @@
 extends StackStateMachine
 class_name BaseController
 
-@onready var body: CharacterBody2D = get_parent() as CharacterBody2D
+@onready var body: Creature = get_parent() as Creature
 
 @onready var sprite: AnimatedSprite2D = %Sprite
 @onready var detector: Area2D = %Detector
@@ -23,3 +23,9 @@ func rush_towards(direction: Vector2):
 
 func set_can_cross_gate(can_cross: bool):
 	_can_cross_gate = can_cross
+
+
+## when it detects the goal
+func _on_goal_detector_area_entered(_area: Area2D) -> void:
+	if _can_cross_gate:
+		replace_state("ClearState")

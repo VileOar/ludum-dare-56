@@ -11,24 +11,31 @@ config_version=5
 [application]
 
 config/name="ludum_dare_56"
-run/main_scene="res://src/ui/menus/MainMenu.tscn"
+run/main_scene="res://stomp.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://src/autoloads/Global.gd"
+Signals="*res://src/autoloads/Signals.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [input]
 
 mouse1={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+mouse2={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(108, 14),"global_position":Vector2(117, 60),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 
@@ -38,3 +45,4 @@ mouse1={
 2d_physics/layer_2="creatures"
 2d_physics/layer_3="healthy"
 2d_physics/layer_4="infected"
+2d_physics/layer_5="goal"
