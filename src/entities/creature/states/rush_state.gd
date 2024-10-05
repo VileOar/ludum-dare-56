@@ -20,8 +20,8 @@ func deactivate():
 	_controller.set_can_cross_gate(false)
 
 
-func allow_next_state(_state: String) -> bool:
-	return !_moving
+func allow_next_state(state: String) -> bool:
+	return !_moving or state == "ClearState"
 
 
 func set_rush_direction(direction: Vector2):

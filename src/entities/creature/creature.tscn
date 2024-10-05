@@ -1,16 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu1smsxi2dc5g"]
+[gd_scene load_steps=10 format=3 uid="uid://bu1smsxi2dc5g"]
 
 [ext_resource type="Script" path="res://src/entities/creature/base_controller.gd" id="1_euc34"]
 [ext_resource type="Script" path="res://src/entities/creature/creature.gd" id="1_on0e4"]
 [ext_resource type="Script" path="res://src/entities/creature/states/wander_state.gd" id="2_ua7dj"]
 [ext_resource type="Script" path="res://src/entities/creature/states/idle_state.gd" id="3_bs3bk"]
 [ext_resource type="Script" path="res://src/entities/creature/states/rush_state.gd" id="4_sqeli"]
+[ext_resource type="Script" path="res://src/entities/creature/states/clear_state.gd" id="6_r888y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yq3s"]
 size = Vector2(45.2548, 45.2548)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_em1cj"]
 radius = 192.167
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpyr1"]
+radius = 24.0
 
 [node name="Creature" type="CharacterBody2D"]
 collision_layer = 2
@@ -50,3 +54,15 @@ script = ExtResource("3_bs3bk")
 script = ExtResource("4_sqeli")
 STATE_DURATION = 0.75
 SPEED_MULTIPLIER = 3.0
+
+[node name="ClearState" type="Node" parent="Controller"]
+script = ExtResource("6_r888y")
+
+[node name="GoalDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector"]
+shape = SubResource("CircleShape2D_cpyr1")
+
+[connection signal="area_entered" from="GoalDetector" to="Controller" method="_on_goal_detector_area_entered"]

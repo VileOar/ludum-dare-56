@@ -6,3 +6,17 @@ class_name Creature
 signal got_infected(position)
 
 @onready var controller: BaseController = %Controller
+
+var _is_infected = false
+
+
+func die():
+	queue_free()
+
+
+func set_infected(infected: bool):
+	_is_infected = infected
+
+
+func get_infected() -> bool:
+	return _is_infected

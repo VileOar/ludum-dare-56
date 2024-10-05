@@ -25,8 +25,8 @@ func _physics_process(delta: float) -> void:
 		_mov_dir = Vector2.from_angle(randf() * 2 * PI) # choose random direction vector
 
 
-func allow_next_state(_state: String) -> bool:
-	return !_moving
+func allow_next_state(state: String) -> bool:
+	return !_moving or state == "ClearState"
 
 
 func set_source_position(pos: Vector2):

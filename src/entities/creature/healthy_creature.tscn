@@ -20,7 +20,7 @@ script = ExtResource("2_miuyg")
 STATE_DURATION = 3.0
 SPEED_MULTIPLIER = 5.0
 
-[node name="PanicState" type="Node" parent="Controller" index="3"]
+[node name="PanicState" type="Node" parent="Controller" index="4"]
 script = ExtResource("2_g46bi")
 
 [node name="Hurtbox" type="Area2D" parent="." index="5"]

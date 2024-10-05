@@ -23,3 +23,9 @@ func rush_towards(direction: Vector2):
 
 func set_can_cross_gate(can_cross: bool):
 	_can_cross_gate = can_cross
+
+
+## when it detects the goal
+func _on_goal_detector_area_entered(_area: Area2D) -> void:
+	if _can_cross_gate:
+		replace_state("ClearState")

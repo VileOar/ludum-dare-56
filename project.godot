@@ -39,3 +39,4 @@ mouse1={
 2d_physics/layer_2="creatures"
 2d_physics/layer_3="healthy"
 2d_physics/layer_4="infected"
+2d_physics/layer_5="goal"

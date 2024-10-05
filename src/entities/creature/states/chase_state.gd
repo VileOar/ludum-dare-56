@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 		_controller.replace_state("IdleState")
 
 
-func allow_next_state(_state: String) -> bool:
-	return !_aggroing
+func allow_next_state(state: String) -> bool:
+	return !_aggroing or state == "ClearState"
 
 
 func set_target(target: Creature):

@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _spawn_creature(pos: Vector2, infected: bool = true):
 	var scene = infected_scene if infected else healthy_scene
-	var new_creature = scene.instantiate()
+	var new_creature = scene.instantiate() as Creature
 	new_creature.position = pos
+	new_creature.set_infected(infected)
 	creatures.call_deferred("add_child", new_creature)
