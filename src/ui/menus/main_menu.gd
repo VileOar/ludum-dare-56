@@ -1,15 +1,15 @@
 class_name MainMenu
 extends Control
 
-@onready var start_game_button : Button = $MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/PlayButton
-@onready var options_menu_button : Button = $MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/OptionsButton
+@export var game_scene: PackedScene
+
+@onready var start_game_button : Button = %PlayButton
+@onready var options_menu_button : Button = %OptionsButton
 #@onready var options_menu_node : OptionsMenu = $OptionsMenu
 #@onready var credits = $Credits
 #@onready var how_to_play = $HowToPlay
 
-@onready var exit_button : Button = $MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/ExitButton
-
-@onready var game_scene : PackedScene = preload("res://src/ui/tmp_game.tscn")
+@onready var exit_button : Button = %ExitButton
 
 
 func _ready():

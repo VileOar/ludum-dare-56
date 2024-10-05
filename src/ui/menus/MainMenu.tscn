@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbqsnbw7blhf2"]
+[gd_scene load_steps=7 format=3 uid="uid://bbqsnbw7blhf2"]
 
 [ext_resource type="Script" path="res://src/ui/menus/main_menu.gd" id="1_1gw4v"]
+[ext_resource type="PackedScene" uid="uid://e7jihf677gx2" path="res://src/stage/stage.tscn" id="2_07hcq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36kx8"]
 
@@ -19,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1gw4v")
+game_scene = ExtResource("2_07hcq")
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -103,6 +105,7 @@ theme_override_constants/separation = 432
 theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
 
 [node name="PlayButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
 focus_neighbor_top = NodePath("../ExitButton")
@@ -141,6 +144,7 @@ text = "How to play"
 alignment = 0
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")

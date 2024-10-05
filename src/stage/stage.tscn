@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu6hx"]
-size = Vector2(64, 720)
+size = Vector2(64, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmtja"]
-size = Vector2(1280, 64)
+size = Vector2(1920, 64)
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_iaxbk")
@@ -24,16 +24,15 @@ collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
-position = Vector2(0, 360)
+position = Vector2(0, 540)
 shape = SubResource("RectangleShape2D_hu6hx")
 
 [node name="Wall2" type="StaticBody2D" parent="Walls"]
-position = Vector2(1280, 0)
+position = Vector2(1920, 0)
 collision_mask = 0
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
-position = Vector2(0, 360)
+position = Vector2(0, 540)
 shape = SubResource("RectangleShape2D_hu6hx")
 
 [node name="Wall3" type="StaticBody2D" parent="Walls"]
@@ -41,16 +40,16 @@ collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
-position = Vector2(640, 0)
+position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_gmtja")
 
 [node name="Wall4" type="StaticBody2D" parent="Walls"]
-position = Vector2(0, 720)
+position = Vector2(0, 1080)
 collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
-position = Vector2(640, 0)
+position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_gmtja")
 
 [node name="Creatures" type="Node" parent="."]
@@ -60,4 +59,4 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Goal" parent="." instance=ExtResource("5_27dnd")]
-position = Vector2(1120, 360)
+position = Vector2(1760, 544)
