@@ -59,6 +59,11 @@ func deactivate():
 	pass
 
 
+## whether a new state can be pushed on top of this one
+func allow_next_state(_state: String) -> bool:
+	return true
+
+
 # ---------------------------------------
 #
 # || --- SHORTCUTS FOR FSM METHODS --- ||

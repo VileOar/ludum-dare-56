@@ -10,11 +10,13 @@ class_name WanderState
 @onready var _controller: BaseController = _fsm as BaseController
 
 var _mov_dir: Vector2 = Vector2.RIGHT
+var _moving = false # whether still moving
 
 
 func activate():
 	get_tree().create_timer(STATE_DURATION).timeout.connect(_on_timer_timeout)
 	_mov_dir = Vector2.from_angle(randf() * 2 * PI) # choose random direction vector
+	_moving = true
 
 
 func _physics_process(delta: float) -> void:
@@ -26,6 +28,7 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	if !can_process():
 		return
+	_moving = false
 	# has chance to move again (making it move in a different direction) or go to idle
 	var next_state = "WanderState" if randf() < REPEAT_CHANCE else "IdleState"
 	_controller.replace_state(next_state)

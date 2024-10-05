@@ -22,7 +22,6 @@ polygon = PackedVector2Array(0, -32, -32, 0, 0, 32, 32, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4yq3s")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -47,4 +46,5 @@ script = ExtResource("3_bs3bk")
 
 [node name="RushState" type="Node" parent="Controller"]
 script = ExtResource("4_sqeli")
+STATE_DURATION = 0.75
 SPEED_MULTIPLIER = 3.0
