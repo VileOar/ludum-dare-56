@@ -12,6 +12,8 @@ size = Vector2(45.2548, 45.2548)
 radius = 192.167
 
 [node name="Creature" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 29
 motion_mode = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -27,6 +29,7 @@ unique_name_in_owner = true
 
 [node name="Detector" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 shape = SubResource("CircleShape2D_em1cj")

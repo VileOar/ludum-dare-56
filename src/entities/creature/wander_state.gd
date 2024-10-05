@@ -17,13 +17,14 @@ func activate():
 
 
 func _physics_process(delta: float) -> void:
-	_controller.body.move_and_collide(SPEED * _mov_dir * delta)
+	var collision_info = _controller.body.move_and_collide(SPEED * _mov_dir * delta)
+	if collision_info:
+		_mov_dir = _mov_dir.bounce(collision_info.get_normal())
 
 
 func _on_timer_timeout() -> void:
 	if !can_process():
 		return
-	print_debug(process_mode)
 	# has chance to move again (making it move in a different direction) or go to idle
 	var next_state = "WanderState" if randf() < REPEAT_CHANCE else "IdleState"
 	_controller.replace_state(next_state)
