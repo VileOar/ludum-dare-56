@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://6f3hygpsdmwo"]
+[gd_scene load_steps=4 format=3 uid="uid://6f3hygpsdmwo"]
 
 [ext_resource type="Script" path="res://src/entities/player/player.gd" id="1_40d6q"]
+[ext_resource type="PackedScene" uid="uid://dl4l2iyufxhx5" path="res://src/entities/player/stomp.tscn" id="2_3cbko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ow4od"]
 radius = 128.25
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_40d6q")
+_stomp_scene = ExtResource("2_3cbko")
 
 [node name="Detector" type="Area2D" parent="."]
 unique_name_in_owner = true
