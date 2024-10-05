@@ -6,8 +6,12 @@
 extends Node
 class_name StackStateMachine
 
-## called after pop operation leaves the machine empty
+## sent after pop operation leaves the machine empty
 signal stack_emptied
+## sent when any state notifies being activated
+signal state_activated(state)
+## sent when any state notifies being deactivated
+signal state_deactivated(state)
 
 ## the stack of all states pushed down; only contains the string id of the states
 var state_stack : Array[String] = []
@@ -17,6 +21,8 @@ var state_stack : Array[String] = []
 func _ready():
 	for child in get_children():
 		child.process_mode = Node.PROCESS_MODE_DISABLED # deactivate all nodes at first
+		child.activated.connect(_state_activated)
+		child.deactivated.connect(_state_deactivated)
 
 
 ## return the state node currently at the top of stack
@@ -100,3 +106,13 @@ func replace_state(state : StringName, pop_until : Array[String] = []):
 ## check if current head can transition to specified new state
 func _can_push_state(state: StringName) -> bool:
 	return current_state() == null or current_state().allow_next_state(state)
+
+
+## callback for when a new state is activated
+func _state_activated(state: StringName):
+	state_activated.emit(state)
+
+
+## callback for when a new state is deactivated
+func _state_deactivated(state: StringName):
+	state_deactivated.emit(state)

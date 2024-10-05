@@ -4,6 +4,9 @@
 extends Node
 class_name StackState
 
+signal activated(name)
+signal deactivated(name)
+
 ## reference to the parent state machine
 @onready var _fsm : StackStateMachine = get_parent()
 
@@ -39,6 +42,7 @@ func exit():
 ## this one should not be overriden
 func base_activate():
 	active = true
+	activated.emit(name)
 	activate()
 
 
@@ -51,6 +55,7 @@ func activate():
 ## this one should not be overriden
 func base_deactivate():
 	active = false
+	deactivated.emit(name)
 	deactivate()
 
 

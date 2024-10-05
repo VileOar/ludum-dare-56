@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=7 format=3 uid="uid://e7jihf677gx2"]
 
-[ext_resource type="PackedScene" uid="uid://bu1smsxi2dc5g" path="res://src/entities/creature/creature.tscn" id="1_i01hk"]
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
+[ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
 [ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="3_haygi"]
+[ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu6hx"]
 size = Vector2(64, 720)
@@ -12,7 +13,8 @@ size = Vector2(1280, 64)
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_iaxbk")
-creature_scene = ExtResource("1_i01hk")
+healthy_scene = ExtResource("2_dpvoq")
+infected_scene = ExtResource("3_yguvu")
 
 [node name="Walls" type="Node" parent="."]
 

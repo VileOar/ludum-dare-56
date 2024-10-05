@@ -5,6 +5,7 @@ var _dir_changed = false ## whether direction was already changed
 
 
 func _ready() -> void:
+	STATE_DURATION = 0.75
 	SPEED_MULTIPLIER = 3.0
 
 
