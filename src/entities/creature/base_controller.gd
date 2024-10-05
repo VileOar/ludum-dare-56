@@ -2,7 +2,7 @@
 extends StackStateMachine
 class_name BaseController
 
-@onready var body: CharacterBody2D = get_parent() as CharacterBody2D
+@onready var body: Creature = get_parent() as Creature
 
 @onready var sprite: AnimatedSprite2D = %Sprite
 @onready var detector: Area2D = %Detector

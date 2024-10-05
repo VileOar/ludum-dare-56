@@ -6,8 +6,12 @@
 extends Node
 class_name StackStateMachine
 
-## called after pop operation leaves the machine empty
+## sent after pop operation leaves the machine empty
 signal stack_emptied
+## sent when any state notifies being activated
+signal state_activated(state)
+## sent when any state notifies being deactivated
+signal state_deactivated(state)
 
 ## the stack of all states pushed down; only contains the string id of the states
 var state_stack : Array[String] = []
@@ -17,15 +21,21 @@ var state_stack : Array[String] = []
 func _ready():
 	for child in get_children():
 		child.process_mode = Node.PROCESS_MODE_DISABLED # deactivate all nodes at first
+		child.activated.connect(_state_activated)
+		child.deactivated.connect(_state_deactivated)
 
 
 ## return the state node currently at the top of stack
-func current_state() -> Node:
+func current_state() -> StackState:
 	return null if state_stack.is_empty() else get_node(state_stack.back())
 
 
 ## push a new state down the stack, deactivating the previous head and activating the pushed one
 func push_state(state : String):
+	# if new state is not allowed, do not perform operation
+	if !_can_push_state(state):
+		return
+	
 	var new_head = get_node(state)
 	if new_head != null: # if valid state name
 		var old_head = current_state()
@@ -81,9 +91,28 @@ func _pop_state(pop_until : Array[String] = []):
 
 ## shorthand to pop and push in one call
 func replace_state(state : StringName, pop_until : Array[String] = []):
+	# if new state is not allowed, do not perform operation
+	if !_can_push_state(state):
+		return
+	
 	_pop_state(pop_until) # call the internal pop, so that the empty stack signal is never emitted
 	push_state(state)
 	
 	if state_stack.is_empty(): # failsafe, in case the push operation fails
 		stack_emptied.emit()
 		push_warning("State Stack is empty after replace operation. New state was likely not pushed.")
+
+
+## check if current head can transition to specified new state
+func _can_push_state(state: StringName) -> bool:
+	return current_state() == null or current_state().allow_next_state(state)
+
+
+## callback for when a new state is activated
+func _state_activated(state: StringName):
+	state_activated.emit(state)
+
+
+## callback for when a new state is deactivated
+func _state_deactivated(state: StringName):
+	state_deactivated.emit(state)

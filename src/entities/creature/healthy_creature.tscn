@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0bxiobvelbs0"]
+
+[ext_resource type="PackedScene" uid="uid://bu1smsxi2dc5g" path="res://src/entities/creature/creature.tscn" id="1_ys2to"]
+[ext_resource type="Script" path="res://src/entities/creature/states/panic_state.gd" id="2_g46bi"]
+[ext_resource type="Script" path="res://src/entities/creature/healthy_controller.gd" id="2_miuyg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftksm"]
+radius = 32.0
+
+[node name="HealthyCreature" instance=ExtResource("1_ys2to")]
+collision_layer = 6
+
+[node name="Polygon2D" parent="." index="0"]
+color = Color(0.2, 1, 0.2, 1)
+
+[node name="Controller" parent="." index="4"]
+script = ExtResource("2_miuyg")
+
+[node name="RushState" parent="Controller" index="2"]
+STATE_DURATION = 3.0
+SPEED_MULTIPLIER = 5.0
+
+[node name="PanicState" type="Node" parent="Controller" index="3"]
+script = ExtResource("2_g46bi")
+
+[node name="Hurtbox" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_ftksm")
+
+[connection signal="body_entered" from="Detector" to="Controller" method="_on_detector_body_entered"]
+[connection signal="body_exited" from="Detector" to="Controller" method="_on_detector_body_exited"]
+[connection signal="body_entered" from="Hurtbox" to="Controller" method="_on_hurtbox_body_entered"]
