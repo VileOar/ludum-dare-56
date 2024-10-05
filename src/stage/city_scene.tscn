@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqkcad7t71pwt"]
+
+[ext_resource type="PackedScene" uid="uid://70tnm6qqnlwq" path="res://assets/building.fbx" id="1_37uj4"]
+[ext_resource type="Script" path="res://src/stage/city_scene.gd" id="1_wd5oc"]
+[ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="2_oi6yw"]
+
+[node name="CityScene" type="Node3D"]
+script = ExtResource("1_wd5oc")
+
+[node name="Buildings" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Building" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Building2" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.606941, 0, 0)
+
+[node name="Building3" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.606941, 0, -0.551774)
+
+[node name="Building4" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.0516933, 0, -0.551774)
+
+[node name="Building5" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.39643, 0, -0.463732)
+
+[node name="Building6" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.39643, 0, -0.0310071)
+
+[node name="Building7" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.403239, 1.19209e-07, -1.52366)
+
+[node name="Building8" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.40485, 1.19209e-07, -1.92502)
+
+[node name="Building9" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.4046, 2.38419e-07, -2.65993)
+
+[node name="Building10" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.470101, 0.00424135, -2.77071)
+
+[node name="Building11" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.378529, 2.38419e-07, -2.76608)
+
+[node name="Building12" parent="Buildings" instance=ExtResource("1_37uj4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.0368128, 0.00243592, -2.76925)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.482075, 0, -0.452837)
+visible = false
+modulate = Color(0.772549, 0.847059, 0.811765, 0.713726)
+texture = ExtResource("2_oi6yw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.3, 0)
+fov = 64.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0.212834)
+omni_range = 200.0
