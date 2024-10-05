@@ -6,3 +6,7 @@ class_name Creature
 signal got_infected(position)
 
 @onready var controller: BaseController = %Controller
+
+
+func die():
+	queue_free()

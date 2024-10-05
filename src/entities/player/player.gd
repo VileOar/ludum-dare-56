@@ -1,6 +1,8 @@
 extends Node2D
 class_name Player
 
+@export var _stomp_scene: PackedScene
+
 const STARTUP_DURATION: float = 0.2 ## (sec) time it takes for startup animation
 const MAX_RADIUS: int = 128
 
@@ -31,11 +33,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		_radius = 0
 		if _tween:
 			_tween.kill()
+	elif event.is_action_pressed("mouse2"):
+		_execute_stomp()
 
 
 func _send_rush():
 	for creature in _detector.get_overlapping_bodies():
 		creature.controller.rush_towards(Vector2.from_angle(_arrow.rotation))
+
+
+func _execute_stomp():
+	var stomp = _stomp_scene.instantiate()
+	stomp.position = get_global_mouse_position()
+	get_parent().add_child(stomp)
 
 
 func _draw() -> void:

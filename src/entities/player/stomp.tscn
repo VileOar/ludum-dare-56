@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl4l2iyufxhx5"]
+
+[ext_resource type="Script" path="res://src/entities/player/stomp.gd" id="1_bhk33"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwtfa"]
+radius = 128.0
+
+[node name="Stomp" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_bhk33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uwtfa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
