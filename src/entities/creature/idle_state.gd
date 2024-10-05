@@ -1,8 +1,8 @@
 extends StackState
 class_name IdleState
 
-const IDLE_MIN_DURATION: float = 1.0 # sec
-const IDLE_MAX_DURATION: float = 3.0 # sec
+@export var IDLE_MIN_DURATION: float = 1.0 # sec
+@export var IDLE_MAX_DURATION: float = 3.0 # sec
 
 @onready var _controller: BaseController = _fsm as BaseController
 

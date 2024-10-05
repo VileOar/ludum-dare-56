@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu1smsxi2dc5g"]
+[gd_scene load_steps=8 format=3 uid="uid://bu1smsxi2dc5g"]
 
 [ext_resource type="Script" path="res://src/entities/creature/base_controller.gd" id="1_euc34"]
+[ext_resource type="Script" path="res://src/entities/creature/creature.gd" id="1_on0e4"]
 [ext_resource type="Script" path="res://src/entities/creature/wander_state.gd" id="2_ua7dj"]
-[ext_resource type="Script" path="res://src/tools/stack_state_machine/stack_state.gd" id="3_01wsa"]
 [ext_resource type="Script" path="res://src/entities/creature/idle_state.gd" id="3_bs3bk"]
+[ext_resource type="Script" path="res://src/entities/creature/rush_state.gd" id="4_sqeli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yq3s"]
 size = Vector2(45.2548, 45.2548)
@@ -13,8 +14,8 @@ radius = 192.167
 
 [node name="Creature" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 29
 motion_mode = 1
+script = ExtResource("1_on0e4")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(0, -32, -32, 0, 0, 32, 32, 0)
@@ -35,6 +36,7 @@ visible = false
 shape = SubResource("CircleShape2D_em1cj")
 
 [node name="Controller" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("1_euc34")
 
 [node name="WanderState" type="Node" parent="Controller"]
@@ -44,4 +46,5 @@ script = ExtResource("2_ua7dj")
 script = ExtResource("3_bs3bk")
 
 [node name="RushState" type="Node" parent="Controller"]
-script = ExtResource("3_01wsa")
+script = ExtResource("4_sqeli")
+SPEED_MULTIPLIER = 3.0

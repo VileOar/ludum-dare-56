@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://6f3hygpsdmwo"]
+
+[ext_resource type="Script" path="res://src/entities/player/player.gd" id="1_40d6q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ow4od"]
+radius = 128.25
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_40d6q")
+
+[node name="Detector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("CircleShape2D_ow4od")
+
+[node name="Arrow" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(0, -16, 256, -16, 256, 16, 0, 16)

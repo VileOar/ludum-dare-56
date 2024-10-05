@@ -2,9 +2,10 @@
 extends StackState
 class_name WanderState
 
-const SPEED: int = 60 # px/sec
-const WANDER_DURATION: float = 2.0 # sec
-const REPEAT_CHANCE: float = 0.5 # chance to repeat wander state on timer end
+@export var SPEED: int = 60 # px/sec
+@export var STATE_DURATION: float = 2.0 # sec
+@export var REPEAT_CHANCE: float = 0.5 # chance to repeat wander state on timer end
+@export var SPEED_MULTIPLIER = 1.0
 
 @onready var _controller: BaseController = _fsm as BaseController
 
@@ -12,12 +13,12 @@ var _mov_dir: Vector2 = Vector2.RIGHT
 
 
 func activate():
-	get_tree().create_timer(WANDER_DURATION).timeout.connect(_on_timer_timeout)
+	get_tree().create_timer(STATE_DURATION).timeout.connect(_on_timer_timeout)
 	_mov_dir = Vector2.from_angle(randf() * 2 * PI) # choose random direction vector
 
 
 func _physics_process(delta: float) -> void:
-	var collision_info = _controller.body.move_and_collide(SPEED * _mov_dir * delta)
+	var collision_info = _controller.body.move_and_collide(SPEED_MULTIPLIER * SPEED * _mov_dir * delta)
 	if collision_info:
 		_mov_dir = _mov_dir.bounce(collision_info.get_normal())
 
