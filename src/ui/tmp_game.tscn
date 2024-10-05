@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2iym81du3uwl"]
+
+[ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="1_m614w"]
+
+[node name="TmpGame" type="Node2D"]
+
+[node name="Hud" parent="." instance=ExtResource("1_m614w")]

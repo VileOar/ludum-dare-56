@@ -1,0 +1,208 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbqsnbw7blhf2"]
+
+[ext_resource type="Script" path="res://src/ui/menus/main_menu.gd" id="1_1gw4v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36kx8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twdcm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oo7in"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67424"]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1gw4v")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_36kx8")
+
+[node name="ForDummies" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForDummies"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="ForDummies/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 461
+theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ForDummies/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="ForDummies/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 448
+theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
+
+[node name="Title2" type="Label" parent="ForDummies/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 223
+theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 78
+theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HorizontalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 76
+
+[node name="VButtonsContainer" type="VBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 432
+theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
+
+[node name="PlayButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath(".")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oo7in")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
+text = "Play Game
+"
+flat = true
+alignment = 0
+
+[node name="HowToPlayButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
+text = "How to play"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
+text = "Options
+"
+alignment = 0
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 2
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../OptionsButton")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
+text = "Credits"
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 2
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
+text = "Quit"
+alignment = 0
+
+[node name="Effects" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1666.0
+offset_top = 837.0
+offset_right = 1706.0
+offset_bottom = 877.0
+
+[connection signal="pressed" from="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
