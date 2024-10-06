@@ -1,16 +1,9 @@
 extends BaseController
 class_name InfectedController
 
-const COOLDOWN = 1.0
-
 
 func _ready() -> void:
 	super._ready()
-	
-	# wait for a bit before being able to infect
-	body.set_collision_layer_value(4, false)
-	await get_tree().create_timer(COOLDOWN).timeout
-	body.set_collision_layer_value(4, true)
 	
 	set_can_cross_gate(true)
 

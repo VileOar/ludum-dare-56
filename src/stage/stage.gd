@@ -10,7 +10,7 @@ const CREATURE_NUM = 10
 
 
 func _ready() -> void:
-	Signals.spawn_infected_request.connect(_spawn_creature)
+	Signals.spawn_creature_request.connect(_spawn_creature)
 	
 	var rect = get_viewport_rect()
 	for i in CREATURE_NUM:

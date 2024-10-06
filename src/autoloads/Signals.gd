@@ -8,7 +8,7 @@ signal toplevel_ready
 
 ## emited by a creature to request spawning a new infected creature
 @warning_ignore("unused_signal")
-signal spawn_infected_request(position)
+signal spawn_creature_request(position, infected)
 
 ## emited to spawn a 3d object
 @warning_ignore("unused_signal")

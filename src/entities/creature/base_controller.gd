@@ -2,6 +2,8 @@
 extends StackStateMachine
 class_name BaseController
 
+const COOLDOWN = 0.5
+
 @onready var body: Creature = get_parent() as Creature
 
 @onready var sprite: AnimatedSprite2D = %Sprite
@@ -16,6 +18,13 @@ var _can_cross_gate:= false ## whether this creature can cross the gate
 func _ready() -> void:
 	super._ready()
 	push_state("IdleState")
+	
+	await body.ready
+	
+	# wait for a bit before being able to infect
+	body.enable_collision(false)
+	await get_tree().create_timer(COOLDOWN).timeout
+	body.enable_collision(true)
 
 
 ## called externally to force creatures into rush state
