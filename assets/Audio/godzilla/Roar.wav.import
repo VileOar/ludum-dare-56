@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://djpcy6imvmlpc"
-path="res://.godot/imported/Scream2.wav-223507f26b0e97e0e62478b7e7be635d.sample"
+uid="uid://dtli26m5gi821"
+path="res://.godot/imported/Roar.wav-73dea1151963f94486a2a88389ecc223.sample"
 
 [deps]
 
-source_file="res://assets/Audio/creatures/Scream2.wav"
-dest_files=["res://.godot/imported/Scream2.wav-223507f26b0e97e0e62478b7e7be635d.sample"]
+source_file="res://assets/Audio/godzilla/Roar.wav"
+dest_files=["res://.godot/imported/Roar.wav-73dea1151963f94486a2a88389ecc223.sample"]
 
 [params]
 
