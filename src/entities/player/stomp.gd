@@ -10,9 +10,9 @@ const SHAKE_INTESITY = 1
 var _start_mouse_pos: Vector2 = Vector2.ZERO
 var _offscreen_pos: Vector2 = Vector2.ZERO
 
-@onready var _collision: CollisionShape2D = %CollisionShape2D
 @onready var _smoke_particles: GPUParticles2D = %SmokeParticles
 @onready var _rubble_particles: GPUParticles2D = %RubbleParticles
+@onready var _collision: CollisionShape2D = %CollisionShape2D
 
 
 
