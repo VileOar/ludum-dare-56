@@ -1,126 +1,192 @@
-[gd_scene load_steps=3 format=3 uid="uid://6ghh3v87x3px"]
+[gd_scene load_steps=5 format=3 uid="uid://6ghh3v87x3px"]
 
 [ext_resource type="Script" path="res://src/ui/HUD/hud_controller.gd" id="1_lx3u3"]
 [ext_resource type="Script" path="res://src/ui/HUD/time.gd" id="2_iwpux"]
+[ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_wvp4g"]
+[ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="3_x0o83"]
 
 [node name="Hud" type="MarginContainer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -232.0
+offset_top = -200.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
 script = ExtResource("1_lx3u3")
 
 [node name="Time" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_iwpux")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.819608, 0.819608, 0.819608, 1)
 layout_mode = 2
-theme_override_constants/separation = 128
+texture = ExtResource("3_x0o83")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_right = 250
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
-text = "City"
-horizontal_alignment = 1
+theme_override_constants/margin_left = 20
 
-[node name="CityStats" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wvp4g")
+text = "Pause"
+
+[node name="Button2" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wvp4g")
+text = "How-to"
+
+[node name="Button3" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wvp4g")
+text = "Menu
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wvp4g")
+theme_override_font_sizes/font_size = 100
+text = "CITY
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CityStats" type="GridContainer" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="LabelCityTotal" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Total:"
 
-[node name="CityTotal" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityInfected" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Infected:"
 
-[node name="CityInfected" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityGood" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Healthy:"
 
-[node name="CityGood" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityDeath" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityDeath" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Dead:"
 
-[node name="CityDeath" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityDeath" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_wvp4g")
+theme_override_font_sizes/font_size = 100
+text = "SOUP"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Soup"
-horizontal_alignment = 1
-
-[node name="CityStats2" type="GridContainer" parent="HBoxContainer/VBoxContainer2"]
+[node name="CityStats2" type="GridContainer" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="LabelSoupTotal" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="LabelSoupTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Total:"
 
-[node name="SoupTotal" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="SoupTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelSoupInfected" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="LabelSoupInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Infected:"
 
-[node name="SoupInfected" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="SoupInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelSoupGood" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="LabelSoupGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Healthy:"
 
-[node name="SoupGood" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="SoupGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityTime" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="LabelCityTime" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 text = "Time:"
 
-[node name="SoupTime" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
+[node name="SoupTime" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2

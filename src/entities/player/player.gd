@@ -35,6 +35,8 @@ func _process(_delta: float) -> void:
 	%FullCircle.scale.x = _radius
 	%FullCircle.scale.y = _radius
 	_arrow.rotation = Vector2.RIGHT.direction_to(get_local_mouse_position()).angle()
+	
+	queue_redraw()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -76,6 +78,18 @@ func _end_stomp_cooldown():
 
 
 func _draw() -> void:
-	var color = Color.YELLOW
-	color.a = 0.3
-	draw_circle(Vector2.ZERO, _radius, color)
+	if _stomp_timer.time_left > 0:
+		var segment_portion = _stomp_timer.time_left*360.0/STOMP_COOLDOWN
+		draw_circle_arc_poly(Vector2.ZERO, (_radius/2)*%FullCircle.texture.get_width(), -segment_portion, -360, Color(Color.RED, 0.6))
+
+
+func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
+	var nb_points = 32
+	var points_arc = PackedVector2Array()
+	points_arc.push_back(center)
+	var colors = PackedColorArray([color])
+	
+	for i in range(nb_points + 1):
+		var angle_point = deg_to_rad(angle_from + i * (angle_to - angle_from) / nb_points - 90)
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
+	draw_polygon(points_arc, colors)
