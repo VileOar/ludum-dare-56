@@ -1,12 +1,23 @@
 extends Node3D
+class_name CityScene
 
-@onready var cam : Camera3D = $Camera3D
+@export var building_asset: PackedScene
+
+@onready var cam : Camera3D = %Camera3D
+@onready var cam_anchor: Node3D = %CamAnchor
+@onready var buildings: Node3D = %Buildings
 
 
 func _ready():
-	Signals.cam_has_moved.connect(set_cam_pos)
+	Signals.spawn_3d_asset.connect(_spawn_3d_object)
 
 
-func set_cam_pos(new_pos : Vector2):
-	var temp_vec3 = Vector3(new_pos.x, 0, new_pos.y)
-	cam.position = cam.position + temp_vec3.normalized() * 0.04
+## this script is the proxy between 3d and 2d
+func _spawn_3d_object(pos2d: Vector2):
+	var building = building_asset.instantiate()
+	building.position = Vector3(pos2d.x, 0, pos2d.y) / 100.0
+	buildings.add_child(building)
+
+
+func set_cam_position(pos: Vector3):
+	cam_anchor.position = pos

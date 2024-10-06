@@ -17,6 +17,8 @@ func _ready() -> void:
 		var infected = i == CREATURE_NUM - 1
 		var pos = Vector2(randf_range(rect.position.x + 64, rect.end.x - 64), randf_range(rect.position.y + 64, rect.end.y - 64))
 		_spawn_creature(pos, infected)
+	
+	Signals.toplevel_ready.emit()
 
 
 func _spawn_creature(pos: Vector2, infected: bool = true):

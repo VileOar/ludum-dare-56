@@ -12,7 +12,6 @@ const MIN_RADIUS: float = 0.2
 
 var _radius: float = MIN_RADIUS
 var _tween
-var _tween_circle
 var _pressing = false
 var _dotted_circle_speed: float = 1.0
 
@@ -33,7 +32,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse1"):
 		%HideElement.show()
 		_tween = get_tree().create_tween()
-		_tween_circle = get_tree().create_tween()
 		_radius = MIN_RADIUS
 		_tween.tween_property(self, "_radius", MAX_RADIUS, STARTUP_DURATION)
 		_pressing = true

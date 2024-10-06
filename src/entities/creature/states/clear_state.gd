@@ -9,6 +9,7 @@ const ANIM_DURATION = 1.0
 
 
 func activate():
+	_controller.body.enable_collision(false)
 	get_tree().create_timer(ANIM_DURATION).timeout.connect(_destroy)
 	AudioManager.play_audio("Yippee")
 
