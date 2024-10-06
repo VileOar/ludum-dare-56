@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://vnjk3m0lopu1"]
+
+[ext_resource type="Script" path="res://src/autoloads/AudioManager.gd" id="1_asmxu"]
+[ext_resource type="AudioStream" uid="uid://bolso7kn3wjf2" path="res://assets/Audio/ui/ButtonHover.wav" id="1_krhah"]
+[ext_resource type="AudioStream" uid="uid://gi0x3qcnuw43" path="res://assets/Audio/ui/ButtonPress.wav" id="2_6kj28"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_asmxu")
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_krhah")
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6kj28")

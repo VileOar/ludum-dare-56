@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://src/autoloads/Global.gd"
 Signals="*res://src/autoloads/Signals.gd"
+AudioManager="*res://src/autoloads/audio_manager.tscn"
 
 [display]
 
