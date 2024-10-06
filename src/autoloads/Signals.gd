@@ -12,3 +12,6 @@ signal stat_update(stat, new_value)
 
 @warning_ignore("unused_signal")
 signal screen_shake(intesity)
+
+@warning_ignore("unused_signal")
+signal round_end

@@ -1,37 +1,10 @@
 extends MarginContainer
 
-# UI NAMES
-const TIME_STR = "Time: "
-const TOTAL_POPULATION_STR = "Total: "
-const INFECTED_STR = "Infected: "
-const HEALTHY_STR = "Healthy: "
-const DEATH_TOOL_STR = "Death: "
-
-#const TOTAL_POPULATION_SOUP_STR = "Total: "
-#const INFECTED_SOUP_STR = "Infected: "
-#const HEALTHY_SOUP_STR = "Healthy: "
-
-# UI
-@onready var timer_logic = %Time
-
-## City
-#@onready var total_city: Label = %CityTotal
-#@onready var infected_city: Label = %CityInfected
-#@onready var healthy_city: Label = %CityGood
-#@onready var death_city: Label = %CityDeath
-#
-## Soup
-#@onready var total_soup: Label = %SoupTotal
-#@onready var infected_soup: Label = %SoupInfected
-#@onready var healthy_soup: Label = %SoupGood
-#@onready var time_label: Label = %SoupTime
 
 ##Godzilla
 var _tween
 const MOVEMENT_START :float = 75.0
 const MOVEMENT_END :float = 1630.0
-var _movementX :float = MOVEMENT_START
-var _time :float = 60.0
 
 @onready var stat_labels:= {
 	GameData.GameStats.CITY_INFECTED: %CityInfected,
@@ -43,35 +16,12 @@ var _time :float = 60.0
 
 
 func _ready() -> void:
-	# Connects signal from time script
-	timer_logic.time_tick.connect(_progress_time)
-	# TODO signal that updates game data
-	#game_logic.game_data_update(_update_data)
-	#_update_data()
-	
 	Signals.stat_update.connect(_on_stat_update)
-	_tween = get_tree().create_tween()
-	_tween.tween_property(self, "_movementX", MOVEMENT_END, _time)	
 
-## Updates time in UI
-func _progress_time(total_seconds : int) -> void:
-	pass#time_label.text = TIME_STR + str(total_seconds) + " s"
 
 func _process(_delta: float) -> void:
-	%GodzillaPosition.position.x = _movementX
-	
-	
-## Updates game data in UI
-# might not be the most efficient way to update the ui
-#func _update_data() -> void:
-	#total_population.text = TOTAL_POPULATION_STR + str(Global.total_population)
-	#healthy.text = HEALTHY_STR + str(Global.healthy_population)
-	#infected.text = INFECTED_STR + str(Global.infected_population)
-	#death_toll.text = DEATH_TOOL_STR + str(Global.death_toll)
-	#
-	#total_soup.text = TOTAL_POPULATION_STR + str(Global.total_population_soup)
-	#healthy_soup.text = HEALTHY_STR + str(Global.healthy_soup)
-	#infected_soup.text = INFECTED_STR + str(Global.infected_soup)
+	var weight = (GameData.ROUND_TIME - GameData.get_remaining_time()) / GameData.ROUND_TIME
+	%GodzillaPosition.position.x = lerp(MOVEMENT_START, MOVEMENT_END, weight)
 
 
 ## callback for when a stat is updated[br]
@@ -85,4 +35,3 @@ func _on_stat_update(stat, new_value):
 	var soup_healthy = GameData.get_game_stat(GameData.GameStats.SOUP_HEALTHY)
 	%CityTotal.text = str(city_healthy + city_infected)
 	%SoupTotal.text = str(soup_healthy + soup_infected)
-	

@@ -1,6 +1,8 @@
 extends Node
 
 
+const ROUND_TIME = 60.0
+
 ## Stat IDs
 enum GameStats {
 	CITY_INFECTED,
@@ -12,12 +14,34 @@ enum GameStats {
 ## dict holding data
 var _game_stats = {}
 
+var _timer : Timer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# init all stats at 0
 	for stat in GameStats.values():
 		_game_stats[stat] = 0
+	
+	_timer = Timer.new()
+	_timer.wait_time = ROUND_TIME
+	_timer.one_shot = true
+	_timer.autostart = false
+	add_child(_timer)
+	
+	_timer.timeout.connect(_on_timer_end)
+
+
+func start_timer(time = ROUND_TIME):
+	_timer.start(time)
+
+
+func get_remaining_time() -> float:
+	return _timer.time_left
+
+
+func _on_timer_end():
+	Signals.round_end.emit()
 
 
 func get_game_stat(stat: int) -> int:

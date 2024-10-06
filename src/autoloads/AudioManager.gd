@@ -29,6 +29,8 @@ func _ready():
 	add_to_sound_player_dictionary("Stomp", $Godzilla/Stomp)		
 	add_to_sound_player_dictionary("Throw", $Godzilla/Throw)	
 	add_to_sound_player_dictionary("Vomit", $Godzilla/Vomit)	
+	#Music
+	add_to_sound_player_dictionary("Music1", $Music/Music1)
 	
 	
 func play_audio(audio_name):
@@ -38,7 +40,14 @@ func play_audio(audio_name):
 	
 	if audio_node != null:
 			audio_node.play()
-	
+
+
+func stop_audio(audio_name):
+	var audio_node = _sound_player_by_name.get(audio_name)
+	if audio_node != null:
+		audio_node.stop()
+
+
 func play_audio_Restricted(audio_name):
 # Get the "audio_name" node if it exists and is an AudioStreamPlayer
 	var audio_node = _sound_player_by_name.get(audio_name)

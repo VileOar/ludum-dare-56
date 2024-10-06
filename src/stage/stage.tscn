@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=14 format=3 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
 [ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="3_haygi"]
 [ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
+[ext_resource type="Script" path="res://src/stage/unpausable.gd" id="4_4iknr"]
 [ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
@@ -26,6 +27,10 @@ viewport_path = NodePath("SubViewport")
 script = ExtResource("1_iaxbk")
 healthy_scene = ExtResource("2_dpvoq")
 infected_scene = ExtResource("3_yguvu")
+
+[node name="Unpausable" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("4_4iknr")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -70,5 +75,18 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [editable path="CameraController"]

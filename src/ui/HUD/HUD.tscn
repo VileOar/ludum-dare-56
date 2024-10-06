@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://6ghh3v87x3px"]
+[gd_scene load_steps=9 format=3 uid="uid://6ghh3v87x3px"]
 
 [ext_resource type="Script" path="res://src/ui/HUD/hud_controller.gd" id="1_lx3u3"]
-[ext_resource type="Script" path="res://src/ui/HUD/time.gd" id="2_iwpux"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_wvp4g"]
 [ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="3_x0o83"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_cb35d"]
@@ -55,10 +54,6 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_lx3u3")
-
-[node name="Time" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("2_iwpux")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.819608, 0.819608, 0.819608, 1)
@@ -221,12 +216,14 @@ theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
 [node name="LabelCityTime" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Time:"
 
 [node name="SoupTime" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2

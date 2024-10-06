@@ -18,6 +18,7 @@ func _ready() -> void:
 		var pos = Vector2(randf_range(rect.position.x + 64, rect.end.x - 64), randf_range(rect.position.y + 64, rect.end.y - 64))
 		spawn_creature(pos, infected)
 	
+	GameData.start_timer()
 	Signals.toplevel_ready.emit()
 
 
