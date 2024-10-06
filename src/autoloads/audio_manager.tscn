@@ -65,6 +65,7 @@ max_polyphony = 10
 
 [node name="Demolition" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("10_4fa5v")
+volume_db = -10.0
 max_polyphony = 10
 
 [node name="FireBreath" type="AudioStreamPlayer" parent="Godzilla"]

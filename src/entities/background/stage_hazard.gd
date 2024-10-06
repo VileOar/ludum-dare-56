@@ -15,5 +15,6 @@ func set_asset(asset: Node3D):
 
 func stomped():
 	# TODO: do something else
+	AudioManager.play_audio("Demolition")
 	_asset.queue_free()
 	queue_free()
