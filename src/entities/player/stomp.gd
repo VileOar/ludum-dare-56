@@ -10,7 +10,10 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.die()
+	if body is Creature:
+		body.die()
+	elif body is StaticBody2D:
+		body.queue_free()
 
 
 func _on_lifespan_end():
