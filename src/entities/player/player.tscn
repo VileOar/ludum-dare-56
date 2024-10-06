@@ -20,7 +20,6 @@ texture = ExtResource("3_1dsxc")
 
 [node name="HideElement" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Detector" type="Area2D" parent="HideElement"]
 unique_name_in_owner = true
@@ -32,8 +31,10 @@ shape = SubResource("CircleShape2D_ow4od")
 
 [node name="Arrow" type="Polygon2D" parent="HideElement"]
 unique_name_in_owner = true
-color = Color(1, 0, 1, 1)
-polygon = PackedVector2Array(0, -16, 256, -16, 256, 16, 0, 16)
+position = Vector2(-1.13687e-13, -3.55271e-15)
+scale = Vector2(2.99778, 1)
+color = Color(1, 0.682353, 0.254902, 1)
+polygon = PackedVector2Array(40.3632, -64, 56.0414, 3.55271e-15, 40.3632, 65, 44.0325, 3.55271e-15)
 
 [node name="FullCircle" type="Sprite2D" parent="HideElement"]
 unique_name_in_owner = true
