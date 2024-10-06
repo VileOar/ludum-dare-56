@@ -7,6 +7,7 @@ var _source_position: Vector2
 
 
 func activate():
+	AudioManager.play_audio("Scream")
 	super.activate()
 	# move away from source position
 	var dir = _source_position.direction_to(_controller.body.position)

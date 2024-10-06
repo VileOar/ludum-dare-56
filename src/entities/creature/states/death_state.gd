@@ -9,6 +9,7 @@ const ANIM_DURATION = 0.3
 
 
 func activate():
+	AudioManager.play_audio("Dying")
 	_controller.body.enable_collision(false)
 	var tween = create_tween()
 	await tween.tween_property(_controller.body, "modulate", Color(Color.WHITE, 0), ANIM_DURATION).finished

@@ -30,7 +30,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("3_haygi")]
-visible = false
 
 [node name="Goal" parent="." instance=ExtResource("5_27dnd")]
 position = Vector2(728, 0)
