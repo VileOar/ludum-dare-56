@@ -7,6 +7,9 @@ class_name BaseController
 @onready var sprite: AnimatedSprite2D = %Sprite
 @onready var detector: Area2D = %Detector
 
+## states to which any state can ALWAYS transition to
+var whitelist_states = ["ClearState", "DeathState"]
+
 var _can_cross_gate:= false ## whether this creature can cross the gate
 
 

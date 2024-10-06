@@ -3,14 +3,16 @@ extends Control
 
 @export var game_scene: PackedScene
 
+#Buttons
 @onready var start_game_button : Button = %PlayButton
+@onready var how_to_play_button : Button = %HowToPlayButton
 @onready var options_menu_button : Button = %OptionsButton
+@onready var credits_button : Button = %CreditsButton
+@onready var exit_button : Button = %ExitButton
+
 #@onready var options_menu_node : OptionsMenu = $OptionsMenu
 #@onready var credits = $Credits
 #@onready var how_to_play = $HowToPlay
-
-@onready var exit_button : Button = %ExitButton
-
 
 func _ready():
 	#options_menu_node.visible = false
@@ -19,12 +21,22 @@ func _ready():
 	start_game_button.button_down.connect(_on_start_pressed)
 	options_menu_button.button_down.connect(_on_options_pressed)
 	exit_button.button_down.connect(_on_exit_pressed)
-
+	
+	#button hover audio
+	start_game_button.mouse_entered.connect(_play_hover_sfx)
+	how_to_play_button.mouse_entered.connect(_play_hover_sfx)
+	options_menu_button.mouse_entered.connect(_play_hover_sfx)
+	credits_button.mouse_entered.connect(_play_hover_sfx)
+	exit_button.mouse_entered.connect(_play_hover_sfx)
+	
 
 func _play_click_sfx() -> void:
-	#SoundManager.instance.play_click_sfx()
+	AudioManager.play_audio("ButtonPress")
 	pass
 
+func _play_hover_sfx() -> void:
+	AudioManager.play_audio("ButtonHover")
+	pass
 
 # Starts game
 func _on_start_pressed() -> void:

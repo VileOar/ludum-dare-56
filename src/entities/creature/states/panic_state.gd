@@ -6,12 +6,8 @@ const CHANGE_DIRECTION_CHANCE: float = 0.1
 var _source_position: Vector2
 
 
-func _ready() -> void:
-	STATE_DURATION = 3.0
-	SPEED_MULTIPLIER = 5.0
-
-
 func activate():
+	AudioManager.play_audio("Scream")
 	super.activate()
 	# move away from source position
 	var dir = _source_position.direction_to(_controller.body.position)
@@ -26,7 +22,7 @@ func _physics_process(delta: float) -> void:
 
 
 func allow_next_state(state: String) -> bool:
-	return !_moving or state == "ClearState"
+	return !_moving or state in _controller.whitelist_states
 
 
 func set_source_position(pos: Vector2):

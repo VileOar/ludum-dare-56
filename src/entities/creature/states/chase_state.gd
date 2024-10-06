@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 
 
 func allow_next_state(state: String) -> bool:
-	return !_aggroing or state == "ClearState"
+	return !_aggroing or state in _controller.whitelist_states
 
 
 func set_target(target: Creature):
