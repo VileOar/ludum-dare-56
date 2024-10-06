@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs4iqpyosk5ls"]
+
+[ext_resource type="Texture2D" uid="uid://er60vgoncty0" path="res://assets/vfx/rubble.png" id="1_bcen5"]
+
+[sub_resource type="Curve" id="Curve_krlse"]
+min_value = 0.6
+max_value = 1.2
+_data = [Vector2(0.373333, 0.6), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_trh3i"]
+curve = SubResource("Curve_krlse")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mifwb"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(30, 30, 30)
+emission_shape = 1
+emission_sphere_radius = 2.0
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 8.0
+angular_velocity_min = -20.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -25.0
+radial_accel_max = 25.0
+scale_min = 0.6
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_trh3i")
+turbulence_enabled = true
+turbulence_noise_strength = 2.47
+turbulence_influence_min = 0.322
+turbulence_influence_max = 0.65
+
+[node name="RubbleParticles" type="GPUParticles2D"]
+scale = Vector2(2, 2)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_mifwb")
+texture = ExtResource("1_bcen5")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
