@@ -12,7 +12,6 @@ func activate():
 	get_tree().create_timer(ANIM_DURATION).timeout.connect(_destroy)
 	AudioManager.play_audio("Yippee")
 
-
 func _physics_process(delta: float) -> void:
 	(_controller.body.get_node("Polygon2D") as Polygon2D).rotate(2*PI*delta)
 	_controller.body.move_and_collide(Vector2.RIGHT * 32 * delta)
