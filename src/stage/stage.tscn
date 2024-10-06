@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=13 format=3 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
 [ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="3_haygi"]
 [ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
+[ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
+[ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
+[ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/camera_controller.tscn" id="8_mnsto"]
+[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/stage/stage_hazard.tscn" id="8_sj7rg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu6hx"]
 size = Vector2(64, 1080)
@@ -13,10 +17,20 @@ size = Vector2(64, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmtja"]
 size = Vector2(1920, 64)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_imohd"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_iaxbk")
 healthy_scene = ExtResource("2_dpvoq")
 infected_scene = ExtResource("3_yguvu")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="CityScene" parent="SubViewport" instance=ExtResource("4_7q7vx")]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -69,3 +83,36 @@ offset_top = 821.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(520, 249)
+scale = Vector2(2.47912, 2.47912)
+texture = ExtResource("6_f6d4e")
+
+[node name="Hazards" type="Node2D" parent="Background"]
+
+[node name="StageHazard" parent="Background/Hazards" instance=ExtResource("8_sj7rg")]
+position = Vector2(96.4052, 95.5985)
+scale = Vector2(3.5279, 3.68321)
+
+[node name="StageHazard2" parent="Background/Hazards" instance=ExtResource("8_sj7rg")]
+position = Vector2(41.547, -27.0258)
+scale = Vector2(6.43216, 1.61796)
+
+[node name="StageHazard3" parent="Background/Hazards" instance=ExtResource("8_sj7rg")]
+position = Vector2(-92.775, -21.3786)
+scale = Vector2(2.22099, 2.26335)
+
+[node name="StageHazard4" parent="Background/Hazards" instance=ExtResource("8_sj7rg")]
+position = Vector2(-93.5817, 57.2784)
+scale = Vector2(2.22099, 2.26335)
+
+[node name="CameraController" parent="." instance=ExtResource("8_mnsto")]
+position = Vector2(640, 360)
+
+[node name="3DSprite" parent="CameraController/CameraAnchor" index="1"]
+z_index = 1
+texture = SubResource("ViewportTexture_imohd")
+
+[editable path="CameraController"]

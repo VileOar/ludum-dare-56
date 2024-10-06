@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbd54mtbluw6e"]
+
+[ext_resource type="Script" path="res://src/camera_controller.gd" id="1_2adib"]
+
+[node name="CameraController" type="Node2D"]
+script = ExtResource("1_2adib")
+
+[node name="CameraAnchor" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="CameraAnchor"]
+
+[node name="3DSprite" type="Sprite2D" parent="CameraAnchor"]
