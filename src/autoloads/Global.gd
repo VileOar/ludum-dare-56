@@ -7,6 +7,9 @@ const INFECTED_SPAWN_ADDITIONAL = 1
 ## a global scope RNG
 var rng := RandomNumberGenerator.new()
 
+
+var viewport_size = Vector2.ZERO
+
 ## Game Variables
 # In City
 var total_population : int = 0
@@ -23,3 +26,5 @@ var healthy_soup : int = 0
 func _ready():
 	randomize() # randomise the global-scope random functions
 	rng.randomize() # randomise the RNG instance
+
+	viewport_size = get_viewport().get_visible_rect().size

@@ -5,13 +5,20 @@ class_name Player
 
 const STARTUP_DURATION: float = 0.2 ## (sec) time it takes for startup animation
 const MAX_RADIUS: int = 128
+const STOMP_COOLDOWN: float = 4.0
 
 @onready var _detector: Area2D = %Detector
 @onready var _arrow: Polygon2D = %Arrow
+@onready var _stomp_timer: Timer = %StompTimer
 
 var _radius: int = 0
-
 var _tween
+var _can_stomp: bool = true
+
+
+func _ready():
+	_stomp_timer.wait_time = STOMP_COOLDOWN
+	_stomp_timer.timeout.connect(_end_stomp_cooldown)
 
 
 func _process(_delta: float) -> void:
@@ -34,7 +41,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if _tween:
 			_tween.kill()
 	elif event.is_action_pressed("mouse2"):
-		_execute_stomp()
+		if _can_stomp:
+			_execute_stomp()
 
 
 func _send_rush():
@@ -44,8 +52,15 @@ func _send_rush():
 
 func _execute_stomp():
 	var stomp = _stomp_scene.instantiate()
-	stomp.position = get_global_mouse_position()
+	stomp.set_init_pos(get_global_mouse_position())
 	get_parent().add_child(stomp)
+
+	_can_stomp = false
+	_stomp_timer.start()
+
+
+func _end_stomp_cooldown():
+	_can_stomp = true
 
 
 func _draw() -> void:
