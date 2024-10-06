@@ -1,12 +1,39 @@
-[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://clk4v1j183x8o"]
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://clk4v1j183x8o"]
+
+[sub_resource type="Curve" id="Curve_04wm3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.693578, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_185tv"]
+curve = SubResource("Curve_04wm3")
+
+[sub_resource type="Gradient" id="Gradient_ybhxh"]
+colors = PackedColorArray(0.804743, 0.804743, 0.804743, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_phnx4"]
+gradient = SubResource("Gradient_ybhxh")
+
+[sub_resource type="Curve" id="Curve_c3oj5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.231938), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hscdw"]
+curve = SubResource("Curve_c3oj5")
 
 [resource]
+lifetime_randomness = 0.42
 particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
 inherit_velocity_ratio = 1.0
 direction = Vector3(0, 0, 0)
 spread = 180.0
-initial_velocity_min = 45.0
-initial_velocity_max = 50.0
-radial_velocity_min = -2.23517e-05
-radial_velocity_max = 25.0
+initial_velocity_min = 276.0
+initial_velocity_max = 630.0
 gravity = Vector3(0, 0, 0)
+damping_min = 0.3
+damping_max = 0.3
+scale_min = 0.8
+scale_max = 1.7
+scale_curve = SubResource("CurveTexture_hscdw")
+color_initial_ramp = SubResource("GradientTexture1D_phnx4")
+alpha_curve = SubResource("CurveTexture_185tv")

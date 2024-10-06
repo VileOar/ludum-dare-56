@@ -58,17 +58,19 @@ disabled = true
 
 [node name="SmokeParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(2, 2)
+position = Vector2(0, 60)
 emitting = false
-amount = 40
+amount = 30
 process_material = ExtResource("3_qrbmq")
 texture = ExtResource("4_n71yo")
-lifetime = 3.0
+lifetime = 0.8
 one_shot = true
 explosiveness = 1.0
+draw_order = 0
 
 [node name="RubbleParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(2, 2)
 emitting = false
 amount = 20
