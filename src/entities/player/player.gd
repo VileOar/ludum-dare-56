@@ -42,11 +42,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _send_rush():
+	AudioManager.play_audio("Throw")
 	for creature in _detector.get_overlapping_bodies():
 		creature.controller.rush_towards(Vector2.from_angle(_arrow.rotation))
 
 
 func _execute_stomp():
+	AudioManager.play_audio("Stomp")
 	var stomp = _stomp_scene.instantiate()
 	stomp.position = get_global_mouse_position()
 	get_parent().add_child(stomp)
