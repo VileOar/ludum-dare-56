@@ -42,16 +42,6 @@ unique_name_in_owner = true
 [node name="Goal" parent="." instance=ExtResource("5_27dnd")]
 position = Vector2(728, 0)
 
-[node name="Hud" parent="." instance=ExtResource("6_thxyv")]
-anchors_preset = 15
-anchor_top = 0.0
-offset_left = -960.0
-offset_top = 281.0
-offset_right = 960.0
-offset_bottom = 540.0
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(2.67029e-05, 1.52588e-05)
@@ -70,5 +60,15 @@ noise = SubResource("FastNoiseLite_3iao6")
 
 [node name="3DSprite" parent="CameraController/CameraAnchor" index="1"]
 texture = SubResource("ViewportTexture_elk8j")
+
+[node name="Hud" parent="CameraController/CameraAnchor" index="2" instance=ExtResource("6_thxyv")]
+anchors_preset = 15
+anchor_top = 0.0
+offset_left = -960.0
+offset_top = 281.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [editable path="CameraController"]

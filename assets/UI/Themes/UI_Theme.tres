@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://6uaa4ea3yn5x"]
+
+[ext_resource type="FontFile" uid="uid://df10sbt8qnbo3" path="res://assets/UI/Fonts/CourierPrime-Regular.ttf" id="1_ng622"]
+[ext_resource type="StyleBox" uid="uid://p3edh0ygrvp6" path="res://assets/UI/Themes/ButtonNormalColor.tres" id="2_l2ylr"]
+
+[resource]
+default_base_scale = 1.0
+default_font = ExtResource("1_ng622")
+default_font_size = 24
+Button/colors/font_color = Color(0.819608, 0.819608, 0.819608, 1)
+Button/constants/align_to_largest_stylebox = 1
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_ng622")
+Button/styles/normal = ExtResource("2_l2ylr")
+Label/colors/font_color = Color(0.31802, 0.31802, 0.31802, 1)

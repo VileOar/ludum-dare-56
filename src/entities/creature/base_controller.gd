@@ -24,6 +24,10 @@ func rush_towards(direction: Vector2):
 	get_node("RushState").set_rush_direction(direction)
 
 
+func get_can_cross_gate() -> bool:
+	return _can_cross_gate
+
+
 func set_can_cross_gate(can_cross: bool):
 	_can_cross_gate = can_cross
 

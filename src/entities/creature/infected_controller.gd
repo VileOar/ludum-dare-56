@@ -11,6 +11,8 @@ func _ready() -> void:
 	body.set_collision_layer_value(4, false)
 	await get_tree().create_timer(COOLDOWN).timeout
 	body.set_collision_layer_value(4, true)
+	
+	set_can_cross_gate(true)
 
 
 ## whenever a new state is deactivated, check detector's overlapping bodies and, if any, go to chase
