@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@export var scene3d: CityScene
+
 var screen_size
 var screen_size_pan_margins
 var margin_rate = 10
@@ -38,5 +40,6 @@ func _physics_process(_delta: float) -> void:
 	elif mouse_border["top"]:
 		cam_move_direction.y -= 1
 
-	Signals.cam_has_moved.emit(cam_move_direction)
-	cam_anchor.position = cam_anchor.position + cam_move_direction.normalized() * 10
+	#Signals.cam_has_moved.emit(cam_move_direction)
+	cam_anchor.position = cam_anchor.position + cam_move_direction.normalized() * pan_speed
+	scene3d.set_cam_position(Vector3(cam_anchor.position.x, 0, cam_anchor.position.y)/100)
