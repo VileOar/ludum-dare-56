@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://vnjk3m0lopu1"]
+[gd_scene load_steps=19 format=3 uid="uid://vnjk3m0lopu1"]
 
 [ext_resource type="Script" path="res://src/autoloads/AudioManager.gd" id="1_asmxu"]
 [ext_resource type="AudioStream" uid="uid://bolso7kn3wjf2" path="res://assets/Audio/ui/ButtonHover.wav" id="1_krhah"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://d28w1t764rb6a" path="res://assets/Audio/godzilla/Stomp.wav" id="15_bg4nw"]
 [ext_resource type="AudioStream" uid="uid://bfgbj2vpqt41j" path="res://assets/Audio/godzilla/Throw.wav" id="16_ivv08"]
 [ext_resource type="AudioStream" uid="uid://bd1rroxrgkro4" path="res://assets/Audio/godzilla/vomit.wav" id="17_m1why"]
+[ext_resource type="AudioStream" uid="uid://c2ax0ccnew4xq" path="res://assets/Audio/Music/music1.ogg" id="18_dhi7n"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_asmxu")
@@ -76,3 +77,10 @@ stream = ExtResource("16_ivv08")
 
 [node name="Vomit" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("17_m1why")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Music1" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("18_dhi7n")
+volume_db = -10.0
+autoplay = true
