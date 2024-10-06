@@ -78,9 +78,6 @@ func _end_stomp_cooldown():
 
 
 func _draw() -> void:
-	#var color = Color.YELLOW
-	#color.a = 0.3
-	#draw_circle(Vector2.ZERO, _radius, color)
 	if _stomp_timer.time_left > 0:
 		var segment_portion = _stomp_timer.time_left*360.0/STOMP_COOLDOWN
 		draw_circle_arc_poly(Vector2.ZERO, (_radius/2)*%FullCircle.texture.get_width(), -segment_portion, -360, Color(Color.RED, 0.6))

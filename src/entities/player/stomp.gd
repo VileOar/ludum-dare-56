@@ -34,8 +34,8 @@ func set_init_pos(mouse_pos : Vector2):
 func _on_body_entered(body: Node2D) -> void:
 	if body is Creature:
 		body.die()
-	elif body is StaticBody2D:
-		body.queue_free()
+	elif body is StageHazard:
+		body.stomped()
 
 
 func _on_lifespan_end():
