@@ -9,7 +9,8 @@ const ANIM_DURATION = 1.0
 
 
 func activate():
-	get_tree().create_timer(ANIM_DURATION).timeout.connect(_destroy())
+	get_tree().create_timer(ANIM_DURATION).timeout.connect(_destroy)
+	AudioManager.play_audio("Yippee")
 
 
 func _physics_process(delta: float) -> void:

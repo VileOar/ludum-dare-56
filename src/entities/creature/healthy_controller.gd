@@ -17,6 +17,7 @@ func _on_detector_body_exited(other: Node2D) -> void:
 
 
 func _on_hurtbox_body_entered(_other: Node2D) -> void:
+	AudioManager.play_audio("Infect")
 	body.got_infected.emit(body.position)
 	body.die()
 	var pos = body.position

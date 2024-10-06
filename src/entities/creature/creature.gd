@@ -29,7 +29,7 @@ func destroy():
 
 func set_infected(infected: bool):
 	_is_infected = infected
-
+		
 
 func get_infected() -> bool:
 	return _is_infected
