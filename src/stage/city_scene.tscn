@@ -1,60 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqkcad7t71pwt"]
+[gd_scene load_steps=5 format=3 uid="uid://cqkcad7t71pwt"]
 
-[ext_resource type="PackedScene" uid="uid://70tnm6qqnlwq" path="res://assets/building.fbx" id="1_37uj4"]
 [ext_resource type="Script" path="res://src/stage/city_scene.gd" id="1_wd5oc"]
-[ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="2_oi6yw"]
+[ext_resource type="PackedScene" uid="uid://clfywg86h6e32" path="res://assets/ingame_building.tscn" id="2_ef1f0"]
+[ext_resource type="PackedScene" uid="uid://e7jihf677gx2" path="res://src/stage/stage.tscn" id="2_jtdt4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_h52xv"]
+viewport_path = NodePath("SubViewport")
 
 [node name="CityScene" type="Node3D"]
 script = ExtResource("1_wd5oc")
+building_asset = ExtResource("2_ef1f0")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1920, 1080)
+
+[node name="Offset" type="Node2D" parent="SubViewport"]
+position = Vector2(960, 540)
+
+[node name="Stage" parent="SubViewport/Offset" instance=ExtResource("2_jtdt4")]
+unique_name_in_owner = true
 
 [node name="Buildings" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-
-[node name="Building" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
-
-[node name="Building2" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.606941, 0, 0)
-
-[node name="Building3" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.606941, 0, -0.551774)
-
-[node name="Building4" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.0516933, 0, -0.551774)
-
-[node name="Building5" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.39643, 0, -0.463732)
-
-[node name="Building6" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.39643, 0, -0.0310071)
-
-[node name="Building7" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.403239, 1.19209e-07, -1.52366)
-
-[node name="Building8" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.40485, 1.19209e-07, -1.92502)
-
-[node name="Building9" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1.4046, 2.38419e-07, -2.65993)
-
-[node name="Building10" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.470101, 0.00424135, -2.77071)
-
-[node name="Building11" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.378529, 2.38419e-07, -2.76608)
-
-[node name="Building12" parent="Buildings" instance=ExtResource("1_37uj4")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.0368128, 0.00243592, -2.76925)
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.482075, 0, -0.452837)
-visible = false
-modulate = Color(0.772549, 0.847059, 0.811765, 0.713726)
-texture = ExtResource("2_oi6yw")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.3, 0)
-fov = 64.0
+unique_name_in_owner = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
@@ -62,3 +29,14 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0.212834)
 omni_range = 200.0
+
+[node name="CamAnchor" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="CamAnchor"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7, 0)
+
+[node name="Scene2D" type="Sprite3D" parent="CamAnchor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+texture = SubResource("ViewportTexture_h52xv")
