@@ -3,17 +3,33 @@ class_name StageHazard
 
 var _asset: Node3D
 
+const SPAWN_OFFSET = 64
+
+var unbroken = true
+
 
 func _ready() -> void:
 	await Signals.toplevel_ready
-	Signals.spawn_3d_asset.emit(position, self)
-
-
-func set_asset(asset: Node3D):
-	_asset = asset
+	_asset = Locator.factory_assets3d.spawn_3d_object(position)
 
 
 func stomped():
 	# TODO: do something else
-	_asset.queue_free()
-	queue_free()
+	AudioManager.play_audio("Demolition")
+
+	if unbroken:
+		unbroken = false
+		_spawn_creatures()
+
+
+func _spawn_creatures():
+	var num = Global.rng.randi_range(Global.MIN_CREATURES_PER_BUILDING, Global.MAX_CREATURES_PER_BUILDING)
+	for i in num:
+		var infected = randf() < Global.BUILDING_INFECTED_CHANCE
+		var angle = PI*randf() + (PI if infected else 0.0)
+		var pos = position + Vector2.from_angle(angle) * SPAWN_OFFSET
+		var new_creature: Creature = Locator.factory_creature.spawn_creature(pos, infected) as Creature
+		while !new_creature.is_node_ready():
+			await new_creature.ready
+		
+		new_creature.controller.rush_towards(position.direction_to(new_creature.position))

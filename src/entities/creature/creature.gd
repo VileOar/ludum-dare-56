@@ -36,4 +36,4 @@ func get_infected() -> bool:
 
 
 func enable_collision(en = true):
-	_shape.set_deferred("disabled", en)
+	_shape.set_deferred("disabled", !en)

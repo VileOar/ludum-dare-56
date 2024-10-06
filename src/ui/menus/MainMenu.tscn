@@ -1,15 +1,102 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbqsnbw7blhf2"]
+[gd_scene load_steps=12 format=3 uid="uid://bbqsnbw7blhf2"]
 
 [ext_resource type="Script" path="res://src/ui/menus/main_menu.gd" id="1_1gw4v"]
 [ext_resource type="PackedScene" uid="uid://e7jihf677gx2" path="res://src/stage/stage.tscn" id="2_07hcq"]
+[ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="3_825hc"]
+[ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_bo5u3"]
+[ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_5b668"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36kx8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twdcm"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67424"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oo7in"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67424"]
+[sub_resource type="Animation" id="Animation_8oue4"]
+resource_name = "MainMenuGodzilla"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.5, 3, 3.9, 4.16667, 4.5, 4.8, 5, 5.5, 5.8, 6, 6.5, 6.8, 7, 7.5, 7.8, 8, 8.5, 8.8, 9, 9.5, 9.8, 10, 10.5, 10.8, 11, 11.5, 12, 13, 14, 15.5333, 16, 17.0667, 18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(952, 1349), Vector2(952, 1053), Vector2(952, 1053), Vector2(952, 1349), Vector2(-261, 1352), Vector2(-269, 931), Vector2(-94, 864), Vector2(68, 945), Vector2(68, 945), Vector2(250, 855), Vector2(387, 940), Vector2(387, 940), Vector2(594, 848), Vector2(747, 946), Vector2(747, 946), Vector2(954, 861), Vector2(1098, 944), Vector2(1098, 944), Vector2(1281, 869), Vector2(1405, 931), Vector2(1405, 931), Vector2(1584, 864), Vector2(1703, 938), Vector2(1703, 938), Vector2(1861, 842), Vector2(1978, 937), Vector2(1978, 937), Vector2(2083, 848), Vector2(2263, -387), Vector2(933, -293), Vector2(952, 0), Vector2(952, 0), Vector2(952, -500), Vector2(-435, -375), Vector2(-354, 1327)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.7, 1.9, 2.1, 14.5, 14.7, 14.9, 15.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 12.2333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_05uts"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(806, 1349)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jf46x"]
+_data = {
+"MainMenuGodzilla": SubResource("Animation_8oue4"),
+"RESET": SubResource("Animation_05uts")
+}
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -28,83 +115,46 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_36kx8")
 
-[node name="ForDummies" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ForDummies"]
+[node name="TextureRect" type="TextureRect" parent="Background"]
+modulate = Color(0.819608, 0.819608, 0.819608, 1)
 layout_mode = 2
+texture = ExtResource("3_825hc")
+expand_mode = 1
 
-[node name="HSeparator" type="HSeparator" parent="ForDummies/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 461
-theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ForDummies/VBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="ForDummies/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 448
-theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
-
-[node name="Title2" type="Label" parent="ForDummies/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+[node name="Title2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -235.0
+offset_top = 222.0
+offset_right = 235.0
+offset_bottom = 305.0
+grow_horizontal = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_bo5u3")
 theme_override_font_sizes/font_size = 60
+text = "GODZILLA SOUP"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 223
-theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 78
-theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
-
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="HorizontalContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HorizontalContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 76
-
-[node name="VButtonsContainer" type="VBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = -6
+[node name="VButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -148.0
+offset_right = 200.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 432
-theme_override_styles/separator = SubResource("StyleBoxEmpty_twdcm")
-
-[node name="PlayButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+[node name="PlayButton" type="Button" parent="VButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
@@ -112,20 +162,11 @@ focus_neighbor_top = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../OptionsButton")
 focus_next = NodePath("../OptionsButton")
 focus_previous = NodePath(".")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_oo7in")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
+theme = ExtResource("3_bo5u3")
 text = "Play Game
 "
-flat = true
-alignment = 0
 
-[node name="HowToPlayButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+[node name="HowToPlayButton" type="Button" parent="VButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
@@ -133,18 +174,12 @@ focus_neighbor_top = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../CreditsButton")
 focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../PlayButton")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme = ExtResource("3_bo5u3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
 text = "How to play"
-alignment = 0
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+[node name="OptionsButton" type="Button" parent="VButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
@@ -152,19 +187,13 @@ focus_neighbor_top = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../CreditsButton")
 focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../PlayButton")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme = ExtResource("3_bo5u3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
 text = "Options
 "
-alignment = 0
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+[node name="CreditsButton" type="Button" parent="VButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
@@ -172,18 +201,12 @@ focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../OptionsButton")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme = ExtResource("3_bo5u3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
 text = "Credits"
-alignment = 0
 
-[node name="ExitButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+[node name="ExitButton" type="Button" parent="VButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
@@ -191,16 +214,10 @@ focus_neighbor_top = NodePath("../CreditsButton")
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_hover_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.831373, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.882353, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme = ExtResource("3_bo5u3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_67424")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_oo7in")
 text = "Quit"
-alignment = 0
 
 [node name="Effects" type="Control" parent="."]
 layout_mode = 3
@@ -210,5 +227,18 @@ offset_top = 837.0
 offset_right = 1706.0
 offset_bottom = 877.0
 
-[connection signal="pressed" from="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(806, 1349)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_5b668")
+flip_v = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_jf46x")
+}
+autoplay = "MainMenuGodzilla"
+
+[connection signal="pressed" from="VButtonsContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="VButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
