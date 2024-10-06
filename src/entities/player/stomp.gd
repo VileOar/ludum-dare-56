@@ -43,6 +43,7 @@ func _on_lifespan_end():
 
 
 func _activate_col():
+	AudioManager.play_audio("Stomp")
 	_collision.disabled = false;
 
 

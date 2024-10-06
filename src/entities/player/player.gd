@@ -63,7 +63,6 @@ func _send_rush():
 
 
 func _execute_stomp():
-	AudioManager.play_audio("Stomp")
 	var stomp = _stomp_scene.instantiate()
 	stomp.set_init_pos(get_global_mouse_position())
 	get_parent().add_child(stomp)
