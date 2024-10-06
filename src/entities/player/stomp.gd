@@ -5,6 +5,7 @@ const LIFESPAN = 1.2
 const COL_ACTIVATION_TIME = 0.4 ## (sec) time it takes to enable stomp collision
 const SPAWN_Y_OFFSET = 100
 const TWEEN_DURATION = 0.5
+const SHAKE_INTESITY = 1
 
 var _start_mouse_pos: Vector2 = Vector2.ZERO
 var _offscreen_pos: Vector2 = Vector2.ZERO
@@ -45,6 +46,7 @@ func _on_lifespan_end():
 func _activate_col():
 	AudioManager.play_audio("Stomp")
 	_collision.disabled = false;
+	Signals.screen_shake.emit(SHAKE_INTESITY)
 
 
 func _on_tween_step(idx:int):

@@ -19,4 +19,4 @@ signal spawn_3d_asset(pos2d)
 signal stat_update(stat, new_value)
 
 @warning_ignore("unused_signal")
-signal cam_has_moved(mov_vec)
+signal screen_shake(intesity)
