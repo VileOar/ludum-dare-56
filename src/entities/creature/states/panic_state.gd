@@ -6,11 +6,6 @@ const CHANGE_DIRECTION_CHANCE: float = 0.1
 var _source_position: Vector2
 
 
-func _ready() -> void:
-	STATE_DURATION = 3.0
-	SPEED_MULTIPLIER = 5.0
-
-
 func activate():
 	super.activate()
 	# move away from source position
@@ -26,7 +21,7 @@ func _physics_process(delta: float) -> void:
 
 
 func allow_next_state(state: String) -> bool:
-	return !_moving or state == "ClearState"
+	return !_moving or state in _controller.whitelist_states
 
 
 func set_source_position(pos: Vector2):

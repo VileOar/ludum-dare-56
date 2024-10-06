@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=9 format=3 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
 [ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="3_haygi"]
 [ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
+[ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu6hx"]
 size = Vector2(64, 1080)
@@ -60,3 +61,11 @@ visible = false
 
 [node name="Goal" parent="." instance=ExtResource("5_27dnd")]
 position = Vector2(1760, 544)
+
+[node name="Hud" parent="." instance=ExtResource("6_thxyv")]
+anchors_preset = 15
+anchor_top = 0.0
+offset_top = 821.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_vertical = 2

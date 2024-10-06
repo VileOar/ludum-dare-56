@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu1smsxi2dc5g"]
+[gd_scene load_steps=11 format=3 uid="uid://bu1smsxi2dc5g"]
 
 [ext_resource type="Script" path="res://src/entities/creature/base_controller.gd" id="1_euc34"]
 [ext_resource type="Script" path="res://src/entities/creature/creature.gd" id="1_on0e4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/entities/creature/states/idle_state.gd" id="3_bs3bk"]
 [ext_resource type="Script" path="res://src/entities/creature/states/rush_state.gd" id="4_sqeli"]
 [ext_resource type="Script" path="res://src/entities/creature/states/clear_state.gd" id="6_r888y"]
+[ext_resource type="Script" path="res://src/entities/creature/states/death_state.gd" id="7_2b6as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yq3s"]
 size = Vector2(45.2548, 45.2548)
@@ -26,6 +27,7 @@ script = ExtResource("1_on0e4")
 polygon = PackedVector2Array(0, -32, -32, 0, 0, 32, 32, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_4yq3s")
 
@@ -57,6 +59,9 @@ SPEED_MULTIPLIER = 3.0
 
 [node name="ClearState" type="Node" parent="Controller"]
 script = ExtResource("6_r888y")
+
+[node name="DeathState" type="Node" parent="Controller"]
+script = ExtResource("7_2b6as")
 
 [node name="GoalDetector" type="Area2D" parent="."]
 collision_layer = 0

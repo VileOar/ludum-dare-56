@@ -16,11 +16,7 @@ color = Color(0.2, 1, 0.2, 1)
 [node name="Controller" parent="." index="4"]
 script = ExtResource("2_miuyg")
 
-[node name="RushState" parent="Controller" index="2"]
-STATE_DURATION = 3.0
-SPEED_MULTIPLIER = 5.0
-
-[node name="PanicState" type="Node" parent="Controller" index="4"]
+[node name="PanicState" type="Node" parent="Controller" index="5"]
 script = ExtResource("2_g46bi")
 
 [node name="Hurtbox" type="Area2D" parent="." index="5"]

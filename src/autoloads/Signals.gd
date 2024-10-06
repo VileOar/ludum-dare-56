@@ -6,6 +6,6 @@ extends Node
 @warning_ignore("unused_signal")
 signal spawn_infected_request(position)
 
-## sent by a creature when they cross the goal
+## sent when a game stat is altered
 @warning_ignore("unused_signal")
-signal creature_clear(is_infected)
+signal stat_update(stat, new_value)

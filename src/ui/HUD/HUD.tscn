@@ -25,78 +25,102 @@ script = ExtResource("2_iwpux")
 layout_mode = 2
 theme_override_constants/separation = 128
 
-[node name="CityStats" type="GridContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "City"
+horizontal_alignment = 1
+
+[node name="CityStats" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="LabelCityTotal" type="Label" parent="HBoxContainer/CityStats"]
+[node name="LabelCityTotal" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 text = "Total:"
 
-[node name="CityTotal" type="Label" parent="HBoxContainer/CityStats"]
+[node name="CityTotal" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="LabelCityInfected" type="Label" parent="HBoxContainer/CityStats"]
+[node name="LabelCityInfected" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 text = "Infected:"
 
-[node name="CityInfected" type="Label" parent="HBoxContainer/CityStats"]
+[node name="CityInfected" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="LabelCityGood" type="Label" parent="HBoxContainer/CityStats"]
+[node name="LabelCityGood" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 text = "Healthy:"
 
-[node name="CityGood" type="Label" parent="HBoxContainer/CityStats"]
+[node name="CityGood" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="LabelCityDeath" type="Label" parent="HBoxContainer/CityStats"]
+[node name="LabelCityDeath" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 text = "Dead:"
 
-[node name="CityDeath" type="Label" parent="HBoxContainer/CityStats"]
+[node name="CityDeath" type="Label" parent="HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="CityStats2" type="GridContainer" parent="HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Soup"
+horizontal_alignment = 1
+
+[node name="CityStats2" type="GridContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="LabelSoupTotal" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="LabelSoupTotal" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 layout_mode = 2
 text = "Total:"
 
-[node name="SoupTotal" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="SoupTotal" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="LabelSoupInfected" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="LabelSoupInfected" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 layout_mode = 2
 text = "Infected:"
 
-[node name="SoupInfected" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="SoupInfected" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="LabelSoupGood" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="LabelSoupGood" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 layout_mode = 2
 text = "Healthy:"
 
-[node name="SoupGood" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="SoupGood" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="LabelCityTime" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="LabelCityTime" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 layout_mode = 2
 text = "Time:"
 
-[node name="SoupTime" type="Label" parent="HBoxContainer/CityStats2"]
+[node name="SoupTime" type="Label" parent="HBoxContainer/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 2

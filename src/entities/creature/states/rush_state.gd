@@ -4,11 +4,6 @@ class_name RushState
 var _dir_changed = false ## whether direction was already changed
 
 
-func _ready() -> void:
-	STATE_DURATION = 0.75
-	SPEED_MULTIPLIER = 3.0
-
-
 func activate():
 	super.activate()
 	_dir_changed = false
@@ -21,7 +16,7 @@ func deactivate():
 
 
 func allow_next_state(state: String) -> bool:
-	return !_moving or state == "ClearState"
+	return !_moving or state in _controller.whitelist_states
 
 
 func set_rush_direction(direction: Vector2):

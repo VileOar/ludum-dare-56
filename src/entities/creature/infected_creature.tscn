@@ -13,7 +13,7 @@ color = Color(1, 0.6, 0.2, 1)
 [node name="Controller" parent="." index="4"]
 script = ExtResource("2_2puis")
 
-[node name="ChaseState" type="Node" parent="Controller" index="4"]
+[node name="ChaseState" type="Node" parent="Controller" index="5"]
 script = ExtResource("2_fp84w")
 
 [connection signal="state_activated" from="Controller" to="Controller" method="_on_state_activated"]
