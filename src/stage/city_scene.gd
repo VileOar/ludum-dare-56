@@ -9,17 +9,16 @@ class_name CityScene
 
 
 func _ready():
-	Signals.spawn_3d_asset.connect(_spawn_3d_object)
+	Locator.factory_assets3d = self
 
 
 ## this script is the proxy between 3d and 2d
-func _spawn_3d_object(pos2d: Vector2, caller):
+func spawn_3d_object(pos2d: Vector2) -> Node3D:
 	var building = building_asset.instantiate()
 	building.position = Vector3(pos2d.x, 0, pos2d.y) / 100.0
-	buildings.add_child(building)
+	buildings.call_deferred("add_child", building)
 	
-	# this is very bad code, don't care
-	(caller as StageHazard).set_asset(building)
+	return building
 
 
 func set_cam_position(pos: Vector3):

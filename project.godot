@@ -21,6 +21,7 @@ Global="*res://src/autoloads/Global.gd"
 Signals="*res://src/autoloads/Signals.gd"
 AudioManager="*res://src/autoloads/audio_manager.tscn"
 GameData="*res://src/autoloads/GameData.gd"
+Locator="*res://src/autoloads/Locator.gd"
 
 [display]
 
