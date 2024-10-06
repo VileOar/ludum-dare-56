@@ -3,7 +3,7 @@ class_name StageHazard
 
 var _asset: Node3D
 
-const SPAWN_OFFSET = 192
+const SPAWN_OFFSET = 64
 
 var unbroken = true
 
@@ -28,4 +28,8 @@ func _spawn_creatures():
 		var infected = randf() < Global.BUILDING_INFECTED_CHANCE
 		var angle = PI*randf() + (PI if infected else 0.0)
 		var pos = position + Vector2.from_angle(angle) * SPAWN_OFFSET
-		var new_creature = Locator.factory_creature.spawn_creature(pos, infected)
+		var new_creature: Creature = Locator.factory_creature.spawn_creature(pos, infected) as Creature
+		while !new_creature.is_node_ready():
+			await new_creature.ready
+		
+		new_creature.controller.rush_towards(position.direction_to(new_creature.position))
