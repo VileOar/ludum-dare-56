@@ -13,6 +13,8 @@ var _radius: int = 0
 
 var _tween
 
+var _pressing = false
+
 
 func _process(_delta: float) -> void:
 	queue_redraw()
@@ -27,12 +29,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		_tween = get_tree().create_tween()
 		_radius = 0
 		_tween.tween_property(self, "_radius", MAX_RADIUS, STARTUP_DURATION)
-	elif event.is_action_released("mouse1"):
+		_pressing = true
+	elif event.is_action_released("mouse1") and _pressing:
 		_send_rush()
 		hide()
 		_radius = 0
 		if _tween:
 			_tween.kill()
+		_pressing = false
 	elif event.is_action_pressed("mouse2"):
 		_execute_stomp()
 
