@@ -21,6 +21,6 @@ func _on_hurtbox_body_entered(_other: Node2D) -> void:
 	body.got_infected.emit(body.position)
 	body.destroy()
 	var pos = body.position
-	Signals.spawn_creature_request.emit(pos, true)
+	Locator.factory_creature.spawn_creature(pos, true)
 	for _i in Global.INFECTED_SPAWN_ADDITIONAL:
-		Signals.spawn_creature_request.emit(pos + 64 * Vector2.from_angle(randf() * 2 * PI), true)
+		Locator.factory_creature.spawn_creature(pos + 64 * Vector2.from_angle(randf() * 2 * PI), true)

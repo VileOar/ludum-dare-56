@@ -10,11 +10,7 @@ var unbroken = true
 
 func _ready() -> void:
 	await Signals.toplevel_ready
-	Signals.spawn_3d_asset.emit(position, self)
-
-
-func set_asset(asset: Node3D):
-	_asset = asset
+	_asset = Locator.factory_assets3d.spawn_3d_object(position)
 
 
 func stomped():
@@ -32,4 +28,4 @@ func _spawn_creatures():
 		var infected = randf() < Global.BUILDING_INFECTED_CHANCE
 		var angle = PI*randf() + (PI if infected else 0.0)
 		var pos = position + Vector2.from_angle(angle) * SPAWN_OFFSET
-		Signals.spawn_creature_request.emit(pos, infected)
+		var new_creature = Locator.factory_creature.spawn_creature(pos, infected)
