@@ -18,7 +18,7 @@ func _on_detector_body_exited(other: Node2D) -> void:
 
 func _on_hurtbox_body_entered(_other: Node2D) -> void:
 	body.got_infected.emit(body.position)
-	body.die()
+	body.destroy()
 	var pos = body.position
 	Signals.spawn_infected_request.emit(pos)
 	for _i in Global.INFECTED_SPAWN_ADDITIONAL:
