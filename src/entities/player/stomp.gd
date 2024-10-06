@@ -10,12 +10,15 @@ var _start_mouse_pos: Vector2 = Vector2.ZERO
 var _offscreen_pos: Vector2 = Vector2.ZERO
 
 @onready var _collision: CollisionShape2D = %CollisionShape2D
+@onready var _smoke_particles: GPUParticles2D = %SmokeParticles
+@onready var _rubble_particles: GPUParticles2D = %RubbleParticles
+
 
 
 func _ready() -> void:
 	var timer = get_tree().create_timer(LIFESPAN)
 	timer.timeout.connect(_on_lifespan_end)
-
+	
 	var col_timer = get_tree().create_timer(COL_ACTIVATION_TIME)
 	col_timer.timeout.connect(_activate_col)
 	
@@ -44,6 +47,8 @@ func _on_lifespan_end():
 
 func _activate_col():
 	AudioManager.play_audio("Stomp")
+	_smoke_particles.emitting = true
+	_rubble_particles.emitting = true
 	_collision.disabled = false;
 
 

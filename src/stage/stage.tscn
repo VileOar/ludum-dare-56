@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
 [ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="3_haygi"]
 [ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
-[ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
+[ext_resource type="PackedScene" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
 [ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
-[ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
+[ext_resource type="PackedScene" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
 [ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard.tscn" id="8_sj7rg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_elk8j"]
