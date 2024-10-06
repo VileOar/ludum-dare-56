@@ -14,7 +14,7 @@
 
 [sub_resource type="Animation" id="Animation_8oue4"]
 resource_name = "MainMenuGodzilla"
-length = 15.0
+length = 20.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -23,10 +23,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2.5, 3, 3.9, 4.16667, 4.5, 4.8, 5, 5.5, 5.8, 6, 6.5, 6.8, 7, 7.5, 7.8, 8, 8.5, 8.8, 9, 9.5, 9.8, 10, 10.5, 10.8, 11, 11.5, 13.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2.5, 3, 3.9, 4.16667, 4.5, 4.8, 5, 5.5, 5.8, 6, 6.5, 6.8, 7, 7.5, 7.8, 8, 8.5, 8.8, 9, 9.5, 9.8, 10, 10.5, 10.8, 11, 11.5, 12, 13, 14, 15.5333, 16, 17.0667, 18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(952, 1349), Vector2(952, 1053), Vector2(952, 1053), Vector2(952, 1349), Vector2(-261, 1352), Vector2(-269, 931), Vector2(-94, 864), Vector2(68, 945), Vector2(68, 945), Vector2(250, 855), Vector2(387, 940), Vector2(387, 940), Vector2(594, 848), Vector2(747, 946), Vector2(747, 946), Vector2(954, 861), Vector2(1098, 944), Vector2(1098, 944), Vector2(1281, 869), Vector2(1405, 931), Vector2(1405, 931), Vector2(1584, 864), Vector2(1703, 938), Vector2(1703, 938), Vector2(1861, 842), Vector2(1978, 937), Vector2(1978, 937), Vector2(2083, 848), Vector2(2010, 1363)]
+"values": [Vector2(952, 1349), Vector2(952, 1053), Vector2(952, 1053), Vector2(952, 1349), Vector2(-261, 1352), Vector2(-269, 931), Vector2(-94, 864), Vector2(68, 945), Vector2(68, 945), Vector2(250, 855), Vector2(387, 940), Vector2(387, 940), Vector2(594, 848), Vector2(747, 946), Vector2(747, 946), Vector2(954, 861), Vector2(1098, 944), Vector2(1098, 944), Vector2(1281, 869), Vector2(1405, 931), Vector2(1405, 931), Vector2(1584, 864), Vector2(1703, 938), Vector2(1703, 938), Vector2(1861, 842), Vector2(1978, 937), Vector2(1978, 937), Vector2(2083, 848), Vector2(2263, -387), Vector2(933, -293), Vector2(952, 0), Vector2(952, 0), Vector2(952, -500), Vector2(-435, -375), Vector2(-354, 1327)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -35,10 +35,22 @@ tracks/1/path = NodePath(".:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.7, 1.9, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.5, 1.7, 1.9, 2.1, 14.5, 14.7, 14.9, 15.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false, true, false]
+"values": [false, true, false, true, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 12.2333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_05uts"]
@@ -66,6 +78,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jf46x"]
@@ -208,6 +232,7 @@ z_index = 1
 position = Vector2(806, 1349)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_5b668")
+flip_v = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {

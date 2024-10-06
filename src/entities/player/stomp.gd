@@ -1,11 +1,12 @@
 extends Area2D
 class_name Stomp
 
-const LIFESPAN = 1.2
+const LIFESPAN = 2.0
 const COL_ACTIVATION_TIME = 0.4 ## (sec) time it takes to enable stomp collision
 const SPAWN_Y_OFFSET = 100
 const TWEEN_DURATION = 0.5
-const SHAKE_INTESITY = 1
+const BETWEEN_TWEEN_DURATION = 0.5
+const SHAKE_INTESITY = 1 ## between 0 and 1
 
 var _start_mouse_pos: Vector2 = Vector2.ZERO
 var _offscreen_pos: Vector2 = Vector2.ZERO
@@ -25,7 +26,7 @@ func _ready() -> void:
 	
 	var pos_tween = create_tween().set_trans(Tween.TRANS_EXPO)
 	pos_tween.tween_property(self, "position", _start_mouse_pos, TWEEN_DURATION)
-	pos_tween.tween_property(self, "position", _offscreen_pos, TWEEN_DURATION)
+	pos_tween.tween_property(self, "position", _offscreen_pos, TWEEN_DURATION).set_delay(BETWEEN_TWEEN_DURATION)
 	pos_tween.step_finished.connect(_on_tween_step)
 
 	

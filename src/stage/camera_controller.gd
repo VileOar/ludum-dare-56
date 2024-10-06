@@ -22,9 +22,9 @@ var _allow_mouse_cam = false
 # Screen shake vars
 var trauma := 0.0
 
-@export var trauma_reduction_rate := 1.7
-@export var max_x := 70
-@export var max_y := 70
+@export var trauma_reduction_rate := 1.6
+@export var max_x := 60
+@export var max_y := 60
 
 @export var noise : FastNoiseLite
 @export var noise_speed := 700
