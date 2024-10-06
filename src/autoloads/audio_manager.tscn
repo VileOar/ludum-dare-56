@@ -29,6 +29,7 @@ max_polyphony = 10
 
 [node name="ButtonPress" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource("2_6kj28")
+max_polyphony = 10
 
 [node name="Creatures" type="Node" parent="."]
 
@@ -37,42 +38,58 @@ stream = ExtResource("4_nel7w")
 
 [node name="Infect" type="AudioStreamPlayer" parent="Creatures"]
 stream = ExtResource("5_efc23")
+volume_db = -20.0
+max_polyphony = 10
 
 [node name="Multiply" type="AudioStreamPlayer" parent="Creatures"]
 stream = ExtResource("6_l10bl")
+max_polyphony = 10
 
 [node name="Scream" type="AudioStreamPlayer" parent="Creatures"]
 stream = ExtResource("7_dujt0")
 volume_db = -10.0
+max_polyphony = 10
 
 [node name="Trip" type="AudioStreamPlayer" parent="Creatures"]
 stream = ExtResource("8_ch7do")
+max_polyphony = 10
 
 [node name="Yippee" type="AudioStreamPlayer" parent="Creatures"]
 stream = ExtResource("9_ym5b7")
+volume_db = -10.0
+max_polyphony = 10
 
 [node name="Godzilla" type="Node" parent="."]
 
 [node name="Demolition" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("10_4fa5v")
+max_polyphony = 10
 
 [node name="FireBreath" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("11_irqod")
+max_polyphony = 10
 
 [node name="GoodSoup" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("12_vqrwy")
+max_polyphony = 10
 
 [node name="Roar" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("13_r0fbn")
+max_polyphony = 10
 
 [node name="SoupSlurp" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("14_12t8x")
+max_polyphony = 10
 
 [node name="Stomp" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("15_bg4nw")
+max_polyphony = 10
 
 [node name="Throw" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("16_ivv08")
+volume_db = -10.0
+max_polyphony = 10
 
 [node name="Vomit" type="AudioStreamPlayer" parent="Godzilla"]
 stream = ExtResource("17_m1why")
+max_polyphony = 10
