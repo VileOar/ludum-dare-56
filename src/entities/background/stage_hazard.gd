@@ -19,6 +19,8 @@ func set_asset(asset: Node3D):
 
 func stomped():
 	# TODO: do something else
+	AudioManager.play_audio("Demolition")
+
 	if unbroken:
 		unbroken = false
 		_spawn_creatures()

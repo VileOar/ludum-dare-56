@@ -8,6 +8,7 @@ script = ExtResource("1_2adib")
 [node name="CameraAnchor" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Camera2D" type="Camera2D" parent="CameraAnchor"]
+[node name="MainCam" type="Camera2D" parent="CameraAnchor"]
+unique_name_in_owner = true
 
 [node name="3DSprite" type="Sprite2D" parent="CameraAnchor"]

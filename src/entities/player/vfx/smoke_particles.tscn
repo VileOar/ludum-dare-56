@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75cd4rdcjdam"]
+
+[ext_resource type="Material" uid="uid://clk4v1j183x8o" path="res://assets/vfx/smoke_stomp_particles.tres" id="1_kiwxv"]
+[ext_resource type="Texture2D" uid="uid://btpgnp8t3o8ot" path="res://assets/vfx/smoke.png" id="2_mqhsn"]
+
+[node name="SmokeParticles" type="GPUParticles2D"]
+scale = Vector2(2, 2)
+emitting = false
+amount = 40
+process_material = ExtResource("1_kiwxv")
+texture = ExtResource("2_mqhsn")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
