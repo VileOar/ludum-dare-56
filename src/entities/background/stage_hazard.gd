@@ -20,6 +20,7 @@ func stomped():
 
 	if unbroken:
 		AudioManager.play_audio("Demolition")
+		_asset.ravage_building()
 		unbroken = false
 		_spawn_creatures()
 

@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://rdmn1erq005w"]
+[gd_scene load_steps=4 format=3 uid="uid://rdmn1erq005w"]
 
 [ext_resource type="PackedScene" uid="uid://c641inq6xe6mw" path="res://assets/models/buildings/3D_Building_8.fbx" id="1_p0jlj"]
+[ext_resource type="Script" path="res://src/entities/background/buildings/ingame_building.gd" id="1_xjyhm"]
+[ext_resource type="PackedScene" uid="uid://cjdn873fu17c4" path="res://assets/models/rubble/3D_Building_Destroyed_7.fbx" id="3_1j6e2"]
 
 [node name="IngameBuilding" type="Node3D"]
+script = ExtResource("1_xjyhm")
 
-[node name="3D_Building_8" parent="." instance=ExtResource("1_p0jlj")]
+[node name="Building" parent="." instance=ExtResource("1_p0jlj")]
+unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Rubble" parent="." instance=ExtResource("3_1j6e2")]
+unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
