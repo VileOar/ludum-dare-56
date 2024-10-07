@@ -10,11 +10,7 @@
 
 [node name="CityScene" type="Node3D"]
 script = ExtResource("1_wd5oc")
-building_asset1 = ExtResource("2_ef1f0")
-building_asset2 = ExtResource("3_mbtlx")
-building_asset3 = ExtResource("4_sajdq")
-building_asset4 = ExtResource("5_ff4w1")
-building_asset5 = ExtResource("6_gr7yt")
+building_assets = Array[PackedScene]([ExtResource("2_ef1f0"), ExtResource("3_mbtlx"), ExtResource("4_sajdq"), ExtResource("5_ff4w1"), ExtResource("6_gr7yt")])
 
 [node name="Buildings" type="Node3D" parent="."]
 unique_name_in_owner = true
