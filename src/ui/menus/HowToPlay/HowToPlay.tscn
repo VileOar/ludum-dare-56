@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ri0jiysecba4"]
+[gd_scene load_steps=6 format=3 uid="uid://ri0jiysecba4"]
 
 [ext_resource type="Script" path="res://src/ui/menus/HowToPlay/how_to_play.gd" id="1_qyepd"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="2_kfron"]
-[ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="2_ugg6g"]
+[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_tahii"]
+[ext_resource type="Texture2D" uid="uid://beqir4r578dfj" path="res://assets/UI/Backgrounds/how_to_2.png" id="3_hl2rd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goe55"]
 
@@ -21,10 +22,14 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_goe55")
 
-[node name="TextureRect" type="TextureRect" parent="Background"]
-modulate = Color(0.819608, 0.819608, 0.819608, 1)
+[node name="TextureRect3" type="TextureRect" parent="Background"]
 layout_mode = 2
-texture = ExtResource("2_ugg6g")
+texture = ExtResource("2_tahii")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Background"]
+layout_mode = 2
+texture = ExtResource("3_hl2rd")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
