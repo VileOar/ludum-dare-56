@@ -9,6 +9,7 @@ size = Vector2(92, 64)
 size = Vector2(35.5, 54)
 
 [node name="StageHazard5" instance=ExtResource("1_jb5ge")]
+obj_type = 4
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(7, -11)
