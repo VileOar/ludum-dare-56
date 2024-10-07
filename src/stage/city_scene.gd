@@ -13,7 +13,7 @@ func _ready():
 
 
 ## this script is the proxy between 3d and 2d
-func spawn_3d_object(pos2d: Vector2, rot2d: float, obj_type: int) -> Node3D:
+func spawn_3d_object(pos2d: Vector2, rot2d: float, obj_type: int) -> IngameBuilding:
 
 	var asset_to_use = building_assets[obj_type]
 

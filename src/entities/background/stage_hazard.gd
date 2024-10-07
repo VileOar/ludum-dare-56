@@ -7,12 +7,21 @@ const SPAWN_OFFSET = 96
 
 @export var obj_type: int = 0
 
+@onready var _collision_poly: CollisionPolygon2D = %CollisionPolygon2D
+
 var unbroken = true
 
 
 func _ready() -> void:
 	await Signals.toplevel_ready
 	_asset = Locator.factory_assets3d.spawn_3d_object(position, rotation, obj_type)
+	while !_asset.is_node_ready():
+		await _asset.ready
+	if _collision_poly:
+		var polygon = _asset.get_polygon()
+		for i in polygon.size():
+			polygon[i] *= 100
+		_collision_poly.polygon = polygon
 
 
 func stomped():
