@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="3_haygi"]
 [ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
 [ext_resource type="Script" path="res://src/stage/unpausable.gd" id="4_4iknr"]
-[ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
+[ext_resource type="PackedScene" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
 [ext_resource type="TileSet" uid="uid://du2hqtx4h3wu0" path="res://assets/tileset/tileset.tres" id="4_jnxcs"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
 [ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
-[ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
-[ext_resource type="PackedScene" uid="uid://n0vg7anii1dg" path="res://src/entities/background/stage_hazard_2.tscn" id="9_6o73i"]
-[ext_resource type="PackedScene" uid="uid://my63wpi3ni73" path="res://src/entities/background/stage_hazard_3.tscn" id="11_ljxg4"]
-[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard_base.tscn" id="11_lqvrt"]
-[ext_resource type="PackedScene" uid="uid://dehm0o5fr6fkq" path="res://src/entities/background/stage_hazard_4.tscn" id="12_h5e6d"]
-[ext_resource type="PackedScene" uid="uid://b1r7wdy6b1upp" path="res://src/entities/background/stage_hazard_5.tscn" id="13_wml2a"]
+[ext_resource type="PackedScene" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
+[ext_resource type="PackedScene" path="res://src/entities/background/stage_hazard_2.tscn" id="9_6o73i"]
+[ext_resource type="PackedScene" path="res://src/entities/background/stage_hazard_3.tscn" id="11_ljxg4"]
+[ext_resource type="PackedScene" path="res://src/entities/background/stage_hazard_base.tscn" id="11_lqvrt"]
+[ext_resource type="PackedScene" path="res://src/entities/background/stage_hazard_4.tscn" id="12_h5e6d"]
+[ext_resource type="PackedScene" path="res://src/entities/background/stage_hazard_5.tscn" id="13_wml2a"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3iao6"]
 noise_type = 3
@@ -66,6 +66,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("3_haygi")]
+COOLDOWN_COLOUR = Color(1, 0, 0, 0.6)
 
 [node name="Goal" parent="." instance=ExtResource("5_27dnd")]
 position = Vector2(1720, -80)

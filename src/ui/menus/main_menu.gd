@@ -11,7 +11,7 @@ extends Control
 @onready var exit_button : Button = %ExitButton
 
 @onready var options_menu_node: OptionsMenu = $OptionsMenu
-@onready var credits = $Credits
+@onready var credits: Control = $Credits
 @onready var how_to_play = $HowToPlay
 
 func _ready():

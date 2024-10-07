@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce02e8qy3qo3n"]
+[gd_scene load_steps=8 format=3 uid="uid://ce02e8qy3qo3n"]
 
 [ext_resource type="Script" path="res://src/ui/menus/Credits/credits.gd" id="1_kdji2"]
+[ext_resource type="Texture2D" uid="uid://chhqppvwhukok" path="res://assets/UI/Backgrounds/Artboard_1.png" id="2_56ik5"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="2_kfron"]
 [ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="2_ugg6g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goe55"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds7vb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efrrf"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -22,25 +27,218 @@ offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_goe55")
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+visible = false
+modulate = Color(0.819608, 0.819608, 0.819608, 1)
+layout_mode = 2
+texture = ExtResource("2_56ik5")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
 modulate = Color(0.819608, 0.819608, 0.819608, 1)
 layout_mode = 2
 texture = ExtResource("2_ugg6g")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 913
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
-[node name="HorizontalContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ds7vb")
+
+[node name="MainTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 60
+text = "YOU'VE JUST BEEN SOUPED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ds7vb")
+
+[node name="LudumDare" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 60
+text = "for Ludum Dare 56"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="BackMenuButton" type="Button" parent="MarginContainer/HorizontalContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Art_animation" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 55
+text = "ART & ANIMATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 57
+theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
+
+[node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 40
+text = "Inês Pinto"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="3D_Artist" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 50
+text = "BACKGROUND DESIGN
+& 3D MODELS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = -155
+theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
+
+[node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 40
+text = "Miguel Neto"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Devs" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 50
+text = "DEVELOPERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
+
+[node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 40
+text = "Francisco Pinto"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name2" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 40
+text = "Luís Chaves"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name3" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 40
+text = "Pedro Valério"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name4" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 40
+text = "Tomás Longo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UI" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 55
+text = "USER INTERFACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
+
+[node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_kfron")
+theme_override_font_sizes/font_size = 40
+text = "Inês Pinto
+Tomás Longo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackMenuButton" type="Button" parent="VBoxContainer/MarginContainer/HorizontalContainer"]
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
 theme = ExtResource("2_kfron")
@@ -50,7 +248,7 @@ theme_override_colors/font_pressed_color = Color(1, 0.568627, 0.192157, 1)
 theme_override_colors/font_focus_color = Color(1, 0.568627, 0.192157, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
-text = "Back to Main Menu
+text = "Back
 "
 
-[connection signal="pressed" from="MarginContainer/HorizontalContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HorizontalContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
