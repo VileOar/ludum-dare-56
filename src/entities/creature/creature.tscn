@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bu1smsxi2dc5g"]
+[gd_scene load_steps=38 format=3 uid="uid://bu1smsxi2dc5g"]
 
 [ext_resource type="Script" path="res://src/entities/creature/base_controller.gd" id="1_euc34"]
 [ext_resource type="Script" path="res://src/entities/creature/creature.gd" id="1_on0e4"]
@@ -8,6 +8,14 @@
 [ext_resource type="Script" path="res://src/entities/creature/states/rush_state.gd" id="4_sqeli"]
 [ext_resource type="Script" path="res://src/entities/creature/states/clear_state.gd" id="6_r888y"]
 [ext_resource type="Script" path="res://src/entities/creature/states/death_state.gd" id="7_2b6as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1ogi"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(0, 3600, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4of3"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(400, 3600, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_733r4"]
 atlas = ExtResource("2_ed6ug")
@@ -40,6 +48,30 @@ region = Rect2(2000, 1200, 400, 400)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u60rs"]
 atlas = ExtResource("2_ed6ug")
 region = Rect2(2400, 1200, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la5vg"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(0, 3200, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y64ml"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(400, 3200, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv6a4"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(800, 3200, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmmfy"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(1200, 3200, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t7b7"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(1600, 3200, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj7sp"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(2000, 3200, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6ukm"]
 atlas = ExtResource("2_ed6ug")
@@ -81,6 +113,17 @@ region = Rect2(2000, 2000, 400, 400)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_i1ogi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4of3")
+}],
+"loop": true,
+"name": &"clear",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_733r4")
 }],
 "loop": false,
@@ -112,6 +155,29 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la5vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y64ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv6a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmmfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t7b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj7sp")
+}],
+"loop": true,
+"name": &"panic",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -156,7 +222,7 @@ radius = 24.0
 height = 112.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_em1cj"]
-radius = 192.167
+radius = 768.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wddjy"]
 radius = 16.0
@@ -178,7 +244,8 @@ unique_name_in_owner = true
 position = Vector2(-2, -24)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_q2xou")
-animation = &"death"
+animation = &"clear"
+frame_progress = 0.398685
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

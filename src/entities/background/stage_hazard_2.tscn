@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://n0vg7anii1dg"]
+
+[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard_base.tscn" id="1_31h2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdxgj"]
+size = Vector2(80, 70)
+
+[node name="StageHazard2" instance=ExtResource("1_31h2q")]
+obj_type = 1
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_pdxgj")

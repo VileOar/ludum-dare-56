@@ -12,6 +12,7 @@ func activate():
 	_controller.body.enable_collision(false)
 	get_tree().create_timer(ANIM_DURATION).timeout.connect(_destroy)
 	AudioManager.play_audio("Yippee")
+	_controller.sprite.play("clear")
 
 
 func _physics_process(delta: float) -> void:

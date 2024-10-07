@@ -3,7 +3,7 @@ class_name ChaseState
 
 @export var SPEED: int = 60 # px/sec
 @export var SPEED_MULTIPLIER = 1.0
-@export var GIVEUP_RANGE = 256
+@export var GIVEUP_RANGE = 512
 
 @onready var _controller: BaseController = _fsm as BaseController
 
@@ -14,6 +14,7 @@ var _aggroing = true
 
 func acivate():
 	_aggroing = true
+	_controller.sprite.play("chase")
 
 
 func _physics_process(delta: float) -> void:
@@ -23,6 +24,10 @@ func _physics_process(delta: float) -> void:
 		var diff_vector = _target.position - _controller.body.position
 		_controller.body.move_and_collide(SPEED_MULTIPLIER * SPEED * diff_vector.normalized() * delta)
 		_controller.set_hdir(1 if diff_vector.x >= 0 else -1)
+		
+		# dunno why this is needed, but oh well
+		if _controller.sprite.animation != "chase":
+			_controller.sprite.play("chase")
 		
 		# if a certain distance from target, give up
 		if diff_vector.length() >= GIVEUP_RANGE:

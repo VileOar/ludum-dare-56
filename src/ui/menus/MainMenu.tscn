@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbqsnbw7blhf2"]
+[gd_scene load_steps=13 format=3 uid="uid://bbqsnbw7blhf2"]
 
 [ext_resource type="Script" path="res://src/ui/menus/main_menu.gd" id="1_1gw4v"]
 [ext_resource type="PackedScene" uid="uid://e7jihf677gx2" path="res://src/stage/stage.tscn" id="2_07hcq"]
 [ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="3_825hc"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_bo5u3"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_5b668"]
+[ext_resource type="PackedScene" uid="uid://bg420r4xdcc8c" path="res://src/ui/menus/Options/options_menu.tscn" id="6_m5jxg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36kx8"]
 
@@ -239,6 +240,9 @@ libraries = {
 "": SubResource("AnimationLibrary_jf46x")
 }
 autoplay = "MainMenuGodzilla"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("6_m5jxg")]
+visible = false
 
 [connection signal="pressed" from="VButtonsContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="VButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

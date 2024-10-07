@@ -9,11 +9,13 @@ func _on_infected_nearby(position):
 
 
 func _on_detector_body_entered(other: Node2D) -> void:
-	other.got_infected.connect(_on_infected_nearby)
+	if other != body:
+		other.got_infected.connect(_on_infected_nearby)
 
 
 func _on_detector_body_exited(other: Node2D) -> void:
-	other.got_infected.disconnect(_on_infected_nearby)
+	if other != body:
+		other.got_infected.disconnect(_on_infected_nearby)
 
 
 func _on_hurtbox_body_entered(_other: Node2D) -> void:
