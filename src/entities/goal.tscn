@@ -21,6 +21,7 @@ shape = SubResource("CircleShape2D_le42r")
 unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowAnchor"]
+unique_name_in_owner = true
 modulate = Color(1, 0.6, 0.2, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("2_vj5kp")

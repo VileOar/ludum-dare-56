@@ -105,7 +105,9 @@ func _get_noise_from_seed(_seed : int) -> float:
 	return noise.get_noise_1d(time * noise_speed)
 
 
-func get_map_rect() -> Rect2:
+func get_map_rect(account_hud: bool = false) -> Rect2:
 	var viewport_rect = get_viewport_rect()
 	viewport_rect.position = cam_anchor.global_position - viewport_rect.size/2
+	if account_hud:
+		viewport_rect.end.y -= HUD_HEIGHT
 	return viewport_rect
