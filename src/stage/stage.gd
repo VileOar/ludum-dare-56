@@ -7,6 +7,8 @@ class_name Stage
 const CREATURE_NUM = 10
 
 @onready var creatures: Node = %Creatures
+@onready var _spawn_area: TileMapLayer = %SpawnArea
+
 
 
 func _ready() -> void:
