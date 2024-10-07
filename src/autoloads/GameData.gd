@@ -1,7 +1,7 @@
 extends Node
 
 
-const ROUND_TIME = 180.0
+const ROUND_TIME = 10.0
 const INFECTED_PENALTY = 3
 
 var score: int = 0

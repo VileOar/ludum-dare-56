@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/ui/menus/main_menu.gd" id="1_1gw4v"]
 [ext_resource type="PackedScene" uid="uid://e7jihf677gx2" path="res://src/stage/stage.tscn" id="2_07hcq"]
-[ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="3_825hc"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_bo5u3"]
+[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="3_enqbl"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_5b668"]
 [ext_resource type="PackedScene" uid="uid://bg420r4xdcc8c" path="res://src/ui/menus/Options/options_menu.tscn" id="6_m5jxg"]
 
@@ -117,9 +117,8 @@ offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_36kx8")
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-modulate = Color(0.819608, 0.819608, 0.819608, 1)
 layout_mode = 2
-texture = ExtResource("3_825hc")
+texture = ExtResource("3_enqbl")
 expand_mode = 1
 
 [node name="Title2" type="Label" parent="."]
