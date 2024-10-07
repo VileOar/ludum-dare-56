@@ -2,16 +2,16 @@ extends Node
 
 
 const ROUND_TIME = 120.0
-const INFECTED_PENALTY = 3
+const INFECTED_PENALTY = 1
 
 var score: int = 0
 
 var score_thresholds = {
 	0: "D",
-	25: "C",
-	60: "B",
-	100: "A",
-	150: "S",
+	15: "C",
+	30: "B",
+	50: "A",
+	75: "S",
 }
 
 ## Stat IDs

@@ -47,7 +47,7 @@ func rush_towards(direction: Vector2):
 
 
 func get_can_cross_gate() -> bool:
-	return _can_cross_gate
+	return true # fuck it
 
 
 func set_can_cross_gate(can_cross: bool):
