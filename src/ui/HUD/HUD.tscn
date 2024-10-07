@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://6ghh3v87x3px"]
 
 [ext_resource type="Script" path="res://src/ui/HUD/hud_controller.gd" id="1_lx3u3"]
+[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_ajc0p"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_wvp4g"]
-[ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="3_x0o83"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_cb35d"]
 [ext_resource type="Texture2D" uid="uid://dl7hnhnly77cm" path="res://assets/UI/Illustration51_14.png" id="6_dvoap"]
 
@@ -56,10 +56,38 @@ grow_vertical = 0
 script = ExtResource("1_lx3u3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.819608, 0.819608, 0.819608, 1)
 layout_mode = 2
-texture = ExtResource("3_x0o83")
+texture = ExtResource("2_ajc0p")
 expand_mode = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="TextureRect"]
+position = Vector2(0, -73)
+texture = ExtResource("2_ajc0p")
+polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
+
+[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D"]
+position = Vector2(418.84, 0.75)
+scale = Vector2(1.02594, 1)
+texture = ExtResource("2_ajc0p")
+polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
+
+[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D/Polygon2D"]
+position = Vector2(418.84, 0.75)
+scale = Vector2(1.02594, 1)
+texture = ExtResource("2_ajc0p")
+polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
+
+[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D/Polygon2D/Polygon2D"]
+position = Vector2(418.84, 0.75)
+scale = Vector2(1.02594, 1)
+texture = ExtResource("2_ajc0p")
+polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
+
+[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D/Polygon2D/Polygon2D/Polygon2D"]
+position = Vector2(418.84, 0.75)
+scale = Vector2(1.02594, 1)
+texture = ExtResource("2_ajc0p")
+polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
