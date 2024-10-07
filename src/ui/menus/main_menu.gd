@@ -11,8 +11,8 @@ extends Control
 @onready var exit_button : Button = %ExitButton
 
 @onready var options_menu_node: OptionsMenu = $OptionsMenu
-#@onready var credits = $Credits
-#@onready var how_to_play = $HowToPlay
+@onready var credits: Control = $Credits
+@onready var how_to_play = $HowToPlay
 
 func _ready():
 	#options_menu_node.visible = false
@@ -46,7 +46,7 @@ func _on_start_pressed() -> void:
 
 func _on_how_to_play_button_pressed():
 	_play_click_sfx()
-	#how_to_play.visible = true
+	how_to_play.visible = true
 
 func _on_options_pressed() -> void:
 	_play_click_sfx()
@@ -54,7 +54,7 @@ func _on_options_pressed() -> void:
 	
 func _on_credits_button_pressed():
 	_play_click_sfx()
-	#credits.visible = true
+	credits.visible = true
 	
 	
 # Exists game

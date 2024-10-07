@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwkkf34eu5n86"]
+[gd_scene load_steps=9 format=3 uid="uid://bwkkf34eu5n86"]
 
 [ext_resource type="Script" path="res://src/ui/menus/end_menu.gd" id="1_1deu0"]
+[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_71h88"]
+[ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_sp466"]
+[ext_resource type="Texture2D" uid="uid://81fvptf1yi3y" path="res://assets/UI/BadEnding.png" id="4_h8t8l"]
+[ext_resource type="Texture2D" uid="uid://nldv6e8o5fph" path="res://assets/UI/GoodEnding.png" id="5_ejx25"]
+
+[sub_resource type="Animation" id="Animation_j4wdo"]
+resource_name = "Points"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(5, 5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bhhm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6orrr"]
+_data = {
+"Points": SubResource("Animation_j4wdo"),
+"RESET": SubResource("Animation_bhhm4")
+}
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +51,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1deu0")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_71h88")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -18,13 +64,108 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = 134.0
+offset_top = -319.0
+offset_right = 441.0
+offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_sp466")
 theme_override_font_sizes/font_size = 64
 text = "THE END
 GO HOME"
 horizontal_alignment = 1
+
+[node name="CityStats2" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 1175.0
+offset_top = 396.0
+offset_right = 1322.0
+offset_bottom = 488.0
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="LabelSoupTotal" type="Label" parent="CityStats2"]
+layout_mode = 2
+theme = ExtResource("3_sp466")
+text = "Total:"
+
+[node name="SoupTotal" type="Label" parent="CityStats2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_sp466")
+horizontal_alignment = 2
+
+[node name="LabelSoupInfected" type="Label" parent="CityStats2"]
+layout_mode = 2
+theme = ExtResource("3_sp466")
+text = "Infected:"
+
+[node name="SoupInfected" type="Label" parent="CityStats2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_sp466")
+horizontal_alignment = 2
+
+[node name="LabelSoupGood" type="Label" parent="CityStats2"]
+layout_mode = 2
+theme = ExtResource("3_sp466")
+text = "Healthy:"
+
+[node name="SoupGood" type="Label" parent="CityStats2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_sp466")
+horizontal_alignment = 2
+
+[node name="LabelCityTime" type="Label" parent="CityStats2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_sp466")
+text = "Time:"
+
+[node name="SoupTime" type="Label" parent="CityStats2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("3_sp466")
+horizontal_alignment = 2
+
+[node name="Rank" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 122.0
+offset_top = -41.0
+offset_right = 521.0
+offset_bottom = 521.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.146608
+theme = ExtResource("3_sp466")
+theme_override_font_sizes/font_size = 500
+text = "S"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rank"]
+libraries = {
+"": SubResource("AnimationLibrary_6orrr")
+}
+autoplay = "Points"
+
+[node name="BadEnding" type="Sprite2D" parent="."]
+position = Vector2(427, 526)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_h8t8l")
+
+[node name="GoodEnding" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(568, 517)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_ejx25")
+flip_h = true
