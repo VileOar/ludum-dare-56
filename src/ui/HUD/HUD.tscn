@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_ajc0p"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_wvp4g"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_cb35d"]
+[ext_resource type="PackedScene" uid="uid://ri0jiysecba4" path="res://src/ui/menus/HowToPlay/HowToPlay.tscn" id="6_1a15e"]
 [ext_resource type="Texture2D" uid="uid://dl7hnhnly77cm" path="res://assets/UI/Illustration51_14.png" id="6_dvoap"]
-[ext_resource type="PackedScene" uid="uid://ce02e8qy3qo3n" path="res://src/ui/menus/HowToPlay/HowToPlay.tscn" id="6_vwuwl"]
 
 [sub_resource type="Animation" id="Animation_24tve"]
 length = 0.001
@@ -279,13 +279,12 @@ position = Vector2(1807, -92)
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_dvoap")
 
-[node name="HowToPlay" parent="." instance=ExtResource("6_vwuwl")]
+[node name="HowToPlay" parent="." instance=ExtResource("6_1a15e")]
 unique_name_in_owner = true
 visible = false
-z_index = 5
 layout_mode = 1
-offset_top = -848.0
-offset_bottom = -848.0
+offset_top = -856.0
+offset_bottom = -856.0
 
 [connection signal="pressed" from="Hud/MarginContainer/MarginContainer/VBoxContainer/BtnPause" to="Hud" method="_on_btn_pause_pressed"]
 [connection signal="pressed" from="Hud/MarginContainer/MarginContainer/VBoxContainer/BtnQuit" to="Hud" method="_on_btn_quit_pressed"]

@@ -8,6 +8,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goe55"]
 
 [node name="HowToPlay" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
