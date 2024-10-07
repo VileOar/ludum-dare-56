@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://cqkcad7t71pwt"]
 
 [ext_resource type="Script" path="res://src/stage/city_scene.gd" id="1_wd5oc"]
-[ext_resource type="PackedScene" uid="uid://yestpm3j7kr8" path="res://src/entities/background/buildings/ingame_building_1.tscn" id="2_2nspr"]
+[ext_resource type="PackedScene" uid="uid://clfywg86h6e32" path="res://src/entities/background/buildings/ingame_building1.tscn" id="2_ef1f0"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="2_oi6yw"]
-[ext_resource type="PackedScene" uid="uid://c0lbhjrcglupw" path="res://src/entities/background/buildings/ingame_building_2.tscn" id="3_f86hw"]
-[ext_resource type="PackedScene" uid="uid://th1hl8riqgfo" path="res://src/entities/background/buildings/ingame_building_3.tscn" id="4_o5j5r"]
-[ext_resource type="PackedScene" uid="uid://oep5xjivp7ld" path="res://src/entities/background/buildings/ingame_building_4.tscn" id="5_l2xaj"]
-[ext_resource type="PackedScene" uid="uid://dlaw80flkpn2q" path="res://src/entities/background/buildings/ingame_building_5.tscn" id="6_3sfvu"]
+[ext_resource type="PackedScene" uid="uid://rdmn1erq005w" path="res://src/entities/background/buildings/ingame_building2.tscn" id="3_mbtlx"]
+[ext_resource type="PackedScene" uid="uid://dfnvetwl6nqmv" path="res://src/entities/background/buildings/ingame_building3.tscn" id="4_sajdq"]
+[ext_resource type="PackedScene" uid="uid://dq3f2f7pkhvxm" path="res://src/entities/background/buildings/ingame_building4.tscn" id="5_ff4w1"]
+[ext_resource type="PackedScene" uid="uid://c37tt3am2anll" path="res://src/entities/background/buildings/ingame_building5.tscn" id="6_gr7yt"]
 
 [node name="CityScene" type="Node3D"]
 script = ExtResource("1_wd5oc")
-building_assets = Array[PackedScene]([ExtResource("2_2nspr"), ExtResource("3_f86hw"), ExtResource("4_o5j5r"), ExtResource("5_l2xaj"), ExtResource("6_3sfvu")])
+building_assets = Array[PackedScene]([ExtResource("2_ef1f0"), ExtResource("3_mbtlx"), ExtResource("4_sajdq"), ExtResource("5_ff4w1"), ExtResource("6_gr7yt")])
 
 [node name="Buildings" type="Node3D" parent="."]
 unique_name_in_owner = true
