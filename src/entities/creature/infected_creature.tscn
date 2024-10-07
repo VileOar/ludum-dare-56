@@ -1,9 +1,41 @@
-[gd_scene load_steps=23 format=3 uid="uid://b7qdnfpx0cdak"]
+[gd_scene load_steps=31 format=3 uid="uid://b7qdnfpx0cdak"]
 
 [ext_resource type="PackedScene" uid="uid://bu1smsxi2dc5g" path="res://src/entities/creature/creature.tscn" id="1_n7jtd"]
 [ext_resource type="Script" path="res://src/entities/creature/infected_controller.gd" id="2_2puis"]
 [ext_resource type="Texture2D" uid="uid://cldfkhhvrm8ll" path="res://assets/spreadsheet.png" id="2_8nuoh"]
 [ext_resource type="Script" path="res://src/entities/creature/states/chase_state.gd" id="2_fp84w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfgu3"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(0, 2400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82hv8"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(400, 2400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e582"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(800, 2400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh7vl"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(1200, 2400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1flkx"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(1600, 2400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxopd"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(2000, 2400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hrew"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(0, 2800, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf80t"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(400, 2800, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lsl71"]
 atlas = ExtResource("2_8nuoh")
@@ -75,6 +107,40 @@ region = Rect2(2000, 800, 400, 400)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_li4iy"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfgu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82hv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e582")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh7vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1flkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxopd")
+}],
+"loop": true,
+"name": &"chase",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hrew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf80t")
+}],
+"loop": true,
+"name": &"clear",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lsl71")
@@ -155,11 +221,14 @@ color = Color(1, 0.6, 0.2, 1)
 
 [node name="Sprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_li4iy")
+animation = &"wander"
+frame_progress = 0.0
 
 [node name="Controller" parent="." index="4"]
 script = ExtResource("2_2puis")
 
 [node name="ChaseState" type="Node" parent="Controller" index="5"]
 script = ExtResource("2_fp84w")
+SPEED_MULTIPLIER = 1.5
 
 [connection signal="state_activated" from="Controller" to="Controller" method="_on_state_activated"]

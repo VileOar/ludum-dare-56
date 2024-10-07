@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfml2s5pah8fq" path="res://assets/UI/PlayerCircleFull.png" id="4_hlnl2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ow4od"]
-radius = 128.25
+radius = 248.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_40d6q")
@@ -28,14 +28,13 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HideElement/Detector"]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_ow4od")
 
 [node name="Arrow" type="Polygon2D" parent="HideElement"]
 unique_name_in_owner = true
-position = Vector2(-1.13687e-13, -3.55271e-15)
-scale = Vector2(2.99778, 1)
 color = Color(1, 0.682353, 0.254902, 1)
-polygon = PackedVector2Array(40.3632, -64, 56.0414, 3.55271e-15, 40.3632, 65, 44.0325, 3.55271e-15)
+polygon = PackedVector2Array(208, -192, 336, 0, 208, 192, 264, 0)
 
 [node name="FullCircle" type="Sprite2D" parent="HideElement"]
 unique_name_in_owner = true

@@ -12,6 +12,7 @@ func activate():
 	# move away from source position
 	var dir = _source_position.direction_to(_controller.body.position)
 	_mov_dir = dir.rotated(randf_range(-PI/4.0, PI/4.0))
+	_controller.sprite.play("panic")
 
 
 func _physics_process(delta: float) -> void:

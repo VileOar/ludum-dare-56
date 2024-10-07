@@ -6,15 +6,17 @@ class_name Player
 const STARTUP_DURATION: float = 0.2 ## (sec) time it takes for startup animation
 const STOMP_COOLDOWN: float = 4.0
 const MAX_RADIUS: float = 0.51
-const MIN_RADIUS: float = 0.2
+const MIN_RADIUS: float = 0.15
+
+const RADIUS_STEP: float = 0.04
 
 @onready var _detector: Area2D = %Detector
 @onready var _arrow: Polygon2D = %Arrow
 @onready var _stomp_timer: Timer = %StompTimer
+@onready var _detector_shape: CollisionShape2D = %CollisionShape2D
 
 
 var _radius: float = MIN_RADIUS
-var _tween
 var _can_stomp: bool = true
 var _pressing = false
 var _dotted_circle_speed: float = 1.0
@@ -32,6 +34,10 @@ func _process(_delta: float) -> void:
 	%DottedCircle.scale.x = _radius
 	%DottedCircle.scale.y = _radius
 	
+	_arrow.scale = Vector2.ONE * _radius
+	
+	_detector_shape.scale = Vector2.ONE * _radius
+	
 	%FullCircle.scale.x = _radius
 	%FullCircle.scale.y = _radius
 	_arrow.rotation = Vector2.RIGHT.direction_to(get_local_mouse_position()).angle()
@@ -42,20 +48,18 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse1"):
 		%HideElement.show()
-		_tween = get_tree().create_tween()
-		_radius = MIN_RADIUS
-		_tween.tween_property(self, "_radius", MAX_RADIUS, STARTUP_DURATION)
 		_pressing = true
 	elif event.is_action_released("mouse1") and _pressing:
 		_send_rush()
 		%HideElement.hide()
-		_radius = MIN_RADIUS
-		if _tween:
-			_tween.kill()
 		_pressing = false
 	elif event.is_action_pressed("mouse2"):
 		if _can_stomp:
 			_execute_stomp()
+	elif event.is_action_pressed("wheel_down"):
+		_radius = min(_radius + RADIUS_STEP, MAX_RADIUS)
+	elif event.is_action_pressed("wheel_up"):
+		_radius = max(_radius - RADIUS_STEP, MIN_RADIUS)
 
 
 func _send_rush():
