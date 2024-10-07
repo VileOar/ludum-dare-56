@@ -4,9 +4,9 @@ extends Node
 const INFECTED_SPAWN_ADDITIONAL = 1
 
 ## max number of creatures spawned when building is detroyed
-const MAX_CREATURES_PER_BUILDING = 10
+const MAX_CREATURES_PER_BUILDING = 5
 ## min number of creatures spawned when building is detroyed
-const MIN_CREATURES_PER_BUILDING = 3
+const MIN_CREATURES_PER_BUILDING = 2
 ## chance to spawn infected when building is destroyed
 const BUILDING_INFECTED_CHANCE = 0.3
 

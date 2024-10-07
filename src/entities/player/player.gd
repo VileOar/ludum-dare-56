@@ -56,9 +56,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("mouse2"):
 		if _can_stomp:
 			_execute_stomp()
-	elif event.is_action_pressed("wheel_down"):
-		_radius = min(_radius + RADIUS_STEP, MAX_RADIUS)
 	elif event.is_action_pressed("wheel_up"):
+		_radius = min(_radius + RADIUS_STEP, MAX_RADIUS)
+	elif event.is_action_pressed("wheel_down"):
 		_radius = max(_radius - RADIUS_STEP, MIN_RADIUS)
 
 

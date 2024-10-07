@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=19 format=4 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
 [ext_resource type="Script" path="res://src/stage/unpausable.gd" id="4_4iknr"]
 [ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
+[ext_resource type="TileSet" uid="uid://du2hqtx4h3wu0" path="res://assets/tileset/tileset.tres" id="4_jnxcs"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
 [ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
 [ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
 [ext_resource type="PackedScene" uid="uid://n0vg7anii1dg" path="res://src/entities/background/stage_hazard_2.tscn" id="9_6o73i"]
-[ext_resource type="PackedScene" uid="uid://bqx12xyw74hxk" path="res://src/entities/background/stage_hazard_1.tscn" id="10_73ei5"]
 [ext_resource type="PackedScene" uid="uid://my63wpi3ni73" path="res://src/entities/background/stage_hazard_3.tscn" id="11_ljxg4"]
+[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard_base.tscn" id="11_lqvrt"]
 [ext_resource type="PackedScene" uid="uid://dehm0o5fr6fkq" path="res://src/entities/background/stage_hazard_4.tscn" id="12_h5e6d"]
 [ext_resource type="PackedScene" uid="uid://b1r7wdy6b1upp" path="res://src/entities/background/stage_hazard_5.tscn" id="13_wml2a"]
 
@@ -32,6 +33,11 @@ script = ExtResource("1_iaxbk")
 healthy_scene = ExtResource("2_dpvoq")
 infected_scene = ExtResource("3_yguvu")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAP//AQABAAIAAAAAAAAAAQAAAAEAAAABAP//AQADAAAAAAACAP//AQACAAAAAAADAP//AQACAAAAAAAAAP7/AQAAAAEAAAAAAP3/AQADAAIAAAAAAAEAAQACAAMAAAABAP7/AQAHAAMAAAABAP3/AQAHAAIAAAABAPz/AQAHAAEAAAACAPz/AQAIAAEAAAADAPz/AQAJAAEAAAADAP3/AQAJAAIAAAADAP7/AQAJAAMAAAACAP7/AQAIAAMAAAACAP3/AQAIAAIAAAAAAPz/AQAAAAIAAAAEAP//AQAGAAAAAAAEAP7/AQAAAAMAAAAEAP3/AQAAAAEAAAAEAPz/AQAAAAMAAAADAPv/AQAEAAAAAAACAPv/AQACAAAAAAABAPv/AQADAAAAAAAAAPv/AQABAAEAAAAEAPr/AQAAAAMAAAAEAPn/AQABAAEAAAAFAPn/AQAEAAAAAAAGAPn/AQACAAAAAAAHAPn/AQAEAAAAAAAIAPn/AQAGAAAAAAAIAPr/AQAAAAMAAAAIAPv/AQADAAIAAAAHAPv/AQACAAAAAAAFAPv/AQAEAAAAAAAIAPz/AQAAAAEAAAAIAP3/AQABAAIAAAAIAP7/AQAAAAEAAAAHAP//AQADAAAAAAAGAP//AQADAAAAAAAFAP//AQACAAAAAAAIAPj/AQAAAAEAAAAIAPf/AQAAAAMAAAAIAPb/AQAAAAAAAAAJAPn/AQACAAAAAAAKAPn/AQADAAAAAAALAPn/AQAEAAAAAAAMAPn/AQACAAEAAAANAPn/AQADAAAAAAAOAPn/AQAGAAAAAAAOAPj/AQAAAAMAAAAOAPf/AQAAAAIAAAAOAPb/AQAAAAAAAAAPAPn/AQAEAAAAAAAQAPn/AQADAAAAAAARAPn/AQACAAAAAAASAPn/AQAFAAAAAAAOAPr/AQAAAAMAAAAOAPv/AQAAAAIAAAAOAPz/AQAAAAIAAAAOAP3/AQAGAAAAAAAPAP3/AQACAAAAAAAQAP3/AQADAAAAAAARAP3/AQADAAAAAAASAP3/AQAFAAAAAAANAP3/AQACAAAAAAAMAP3/AQAGAAAAAAALAP3/AQADAAAAAAAKAP3/AQACAAAAAAAJAP3/AQAEAAAAAAAMAPr/AQAAAAEAAAAMAPv/AQAAAAIAAAAMAPz/AQAAAAMAAAAMAP//AQAAAAIAAAAOAP7/AQAAAAEAAAAMAP7/AQAAAAIAAAAEAPv/AQAGAAAAAAAGAPv/AQADAAAAAAAIAAAAAQAAAAIAAAAIAAEAAQAGAAAAAAAMAAAAAQAAAAEAAAAJAAEAAQACAAAAAAAKAAEAAQACAAAAAAANAAEAAQADAAAAAAAOAAEAAQACAAIAAAAOAAAAAQAAAAEAAAAMAAIAAQAAAAIAAAAMAAMAAQAGAAAAAAAOAAIAAQAAAAIAAAAOAAMAAQADAAIAAAAHAAEAAQADAAAAAAAGAAEAAQADAAAAAAAFAAEAAQACAAEAAAAEAAEAAQACAAMAAAADAAEAAQACAAAAAAACAAEAAQACAAAAAAABAAEAAQACAAAAAAAEAAAAAQAAAAEAAAAIAP//AQADAAIAAAAMAAEAAQAGAAAAAAALAAEAAQAEAAAAAAAOAP//AQAAAAMAAAAFAP7/AQAFAAQAAAAFAP3/AQAFAAQAAAAFAPz/AQAFAAQAAAAGAPz/AQAFAAQAAAAHAPz/AQAFAAQAAAAHAP3/AQAFAAQAAAAGAP3/AQAFAAQAAAAGAP7/AQAFAAQAAAAHAP7/AQAFAAQAAAAPAAEAAQACAAAAAAARAAEAAQACAAAAAAASAAEAAQAFAAAAAAAOAAQAAQAAAAEAAAAOAAUAAQAAAAQAAAAMAAQAAQAAAAEAAAAMAAUAAQAAAAQAAAAJAAMAAQACAAAAAAALAAMAAQACAAAAAAANAAMAAQAEAAAAAAAQAAEAAQAEAAAAAAAIAAIAAQAAAAIAAAAIAAQAAQAAAAMAAAAIAAUAAQAAAAQAAAAFAAIAAQAAAAEAAAAFAAMAAQABAAIAAAAFAAQAAQAAAAIAAAAFAAUAAQAAAAQAAAAGAAMAAQACAAAAAAAHAAMAAQADAAAAAAAIAAMAAQAGAAAAAAAKAAMAAQACAAAAAAD//wEAAQACAAAAAAD+/wEAAQACAAAAAAD9/wEAAQACAAAAAAD8/wEAAQABAAMAAAD8/wAAAQAAAAEAAAD8////AQADAAIAAAD8//7/AQAAAAMAAAD8//3/AQABAAEAAAD9//3/AQACAAAAAAD+//3/AQADAAAAAAD///3/AQAEAAAAAAD5////AQACAAAAAAD4////AQABAAAAAAD6////AQADAAAAAAD7////AQACAAAAAAAFAPr/AQABAAQAAAAGAPr/AQACAAQAAAAHAPr/AQADAAQAAAABAAAAAQABAAQAAAACAAAAAQACAAQAAAADAAAAAQADAAQAAAD//wAAAQAJAAMAAAD+/wAAAQAIAAMAAAD9/wAAAQAHAAMAAAD9////AQAHAAIAAAD9//7/AQAHAAEAAAD+//7/AQAIAAEAAAD/////AQAJAAIAAAD+////AQAIAAIAAAD///7/AQAJAAEAAAANAP7/AQAKAAEAAAANAP//AQAKAAIAAAANAAAAAQAKAAMAAAAGAAIAAQAFAAQAAAAHAAIAAQAFAAQAAAAJAAIAAQAFAAQAAAAKAAIAAQAFAAQAAAALAAIAAQAFAAQAAAAJAAAAAQAFAAQAAAAJAP//AQAFAAQAAAAJAP7/AQAFAAQAAAAKAP7/AQAFAAQAAAALAP7/AQAFAAQAAAALAP//AQAFAAQAAAAKAP//AQAFAAQAAAAKAAAAAQAFAAQAAAALAAAAAQAFAAQAAAAJAPz/AQAFAAQAAAAJAPv/AQAFAAQAAAAJAPr/AQAFAAQAAAAKAPr/AQAFAAQAAAALAPr/AQAFAAQAAAALAPv/AQAFAAQAAAALAPz/AQAFAAQAAAAKAPz/AQAFAAQAAAAKAPv/AQAFAAQAAAAHAAUAAQAFAAQAAAAGAAUAAQAFAAQAAAAGAAQAAQAFAAQAAAAHAAQAAQAFAAQAAAAJAAUAAQAFAAQAAAAKAAUAAQAFAAQAAAALAAUAAQAFAAQAAAALAAQAAQAFAAQAAAAKAAQAAQAFAAQAAAAJAAQAAQAFAAQAAAANAAQAAQAFAAQAAAANAAUAAQAFAAQAAAANAAIAAQAFAAQAAAAPAAUAAQAFAAQAAAAPAAQAAQAFAAQAAAAPAAMAAQAFAAQAAAAPAAIAAQAFAAQAAAAQAAIAAQAFAAQAAAARAAIAAQAFAAQAAAARAAMAAQAFAAQAAAASAAMAAQAFAAQAAAASAAQAAQAFAAQAAAARAAQAAQAFAAQAAAAQAAQAAQAFAAQAAAAQAAMAAQAFAAQAAAARAAUAAQAFAAQAAAAQAAUAAQAFAAQAAAASAAUAAQAFAAQAAAASAAIAAQAFAAQAAAAPAAAAAQAFAAQAAAAPAP//AQAFAAQAAAAPAP7/AQAFAAQAAAAQAP7/AQAFAAQAAAARAP7/AQAFAAQAAAASAP7/AQAFAAQAAAASAP//AQAFAAQAAAARAP//AQAFAAQAAAAQAP//AQAFAAQAAAARAAAAAQAFAAQAAAAQAAAAAQAFAAQAAAASAAAAAQAFAAQAAAAPAPz/AQAFAAQAAAAPAPv/AQAFAAQAAAAPAPr/AQAFAAQAAAAQAPr/AQAFAAQAAAARAPr/AQAFAAQAAAASAPv/AQAFAAQAAAASAPz/AQAFAAQAAAARAPz/AQAFAAQAAAARAPv/AQAFAAQAAAAQAPv/AQAFAAQAAAASAPr/AQAFAAQAAAAQAPz/AQAFAAQAAAAJAPj/AQAFAAQAAAAJAPf/AQAFAAQAAAAKAPb/AQAFAAQAAAALAPb/AQAFAAQAAAAMAPb/AQAFAAQAAAAMAPf/AQAFAAQAAAANAPf/AQAFAAQAAAAMAPj/AQAFAAQAAAALAPj/AQAFAAQAAAALAPf/AQAFAAQAAAAKAPf/AQAFAAQAAAANAPj/AQAFAAQAAAAKAPj/AQAFAAQAAAAJAPb/AQAFAAQAAAANAPb/AQAFAAQAAAAQAPj/AQAFAAQAAAAQAPf/AQAFAAQAAAAPAPf/AQAFAAQAAAAPAPb/AQAFAAQAAAAQAPb/AQAFAAQAAAARAPb/AQAFAAQAAAARAPf/AQAFAAQAAAARAPj/AQAFAAQAAAAPAPj/AQAFAAQAAAASAPj/AQAFAAQAAAASAPf/AQAFAAQAAAASAPb/AQAFAAQAAAAHAPj/AQAFAAQAAAAGAPj/AQAFAAQAAAAFAPj/AQAFAAQAAAAFAPf/AQAFAAQAAAAFAPb/AQAFAAQAAAAGAPb/AQAFAAQAAAAGAPf/AQAFAAQAAAAHAPb/AQAFAAQAAAAHAPf/AQAFAAQAAAAEAPb/AQAFAAQAAAAEAPf/AQAFAAQAAAAEAPj/AQAFAAQAAAABAPr/AQAIAAMAAAABAPn/AQAIAAIAAAABAPj/AQAIAAIAAAACAPj/AQAIAAIAAAACAPf/AQAIAAIAAAADAPf/AQAJAAIAAAADAPj/AQAJAAIAAAADAPn/AQAJAAIAAAADAPr/AQAJAAMAAAACAPr/AQAIAAMAAAACAPn/AQAIAAIAAAABAPf/AQAIAAIAAAD8//z/AQAIAAMAAAD8//v/AQAIAAIAAAD8//r/AQAIAAIAAAD9//r/AQAIAAIAAAD+//r/AQAIAAIAAAD///r/AQAIAAIAAAD///v/AQAJAAIAAAD+//v/AQAIAAIAAAD+//z/AQAIAAMAAAD9//z/AQAIAAMAAAD9//v/AQAIAAIAAAD///z/AQAJAAMAAAD+//n/AQAIAAIAAAD///n/AQAIAAIAAAAAAPn/AQAIAAIAAAAAAPr/AQAIAAMAAAD7//7/AQAJAAMAAAD6//7/AQAIAAMAAAD5//7/AQAIAAMAAAD5//3/AQAIAAIAAAD4//3/AQAHAAIAAAD4//z/AQAHAAIAAAD5//z/AQAIAAIAAAD6//z/AQAIAAIAAAD7//z/AQAIAAIAAAD7//3/AQAJAAIAAAD6//3/AQAIAAIAAAD4//7/AQAHAAMAAAD7//v/AQAIAAIAAAD6//v/AQAIAAIAAAD5//v/AQAIAAIAAAD4//v/AQAHAAIAAAD4/wAAAQAHAAEAAAD4/wEAAQAHAAIAAAD5/wEAAQAIAAIAAAD6/wEAAQAIAAIAAAD7/wEAAQAJAAIAAAD7/wAAAQAJAAEAAAD6/wAAAQAIAAEAAAD5/wAAAQAIAAEAAAAEAAIAAQAJAAEAAAAEAAMAAQAJAAIAAAAEAAQAAQAJAAIAAAAEAAUAAQAJAAMAAAADAAUAAQAIAAMAAAACAAUAAQAIAAMAAAABAAUAAQAIAAMAAAABAAQAAQAIAAIAAAABAAMAAQAIAAIAAAABAAIAAQAIAAEAAAACAAIAAQAIAAEAAAADAAIAAQAIAAEAAAADAAMAAQAIAAIAAAADAAQAAQAIAAIAAAACAAQAAQAIAAIAAAACAAMAAQAIAAIAAAD//wIAAQAIAAEAAAD//wMAAQAIAAIAAAD//wQAAQAIAAIAAAD//wUAAQAIAAMAAAAAAAUAAQAIAAMAAAAAAAQAAQAIAAIAAAAAAAMAAQAIAAIAAAAAAAIAAQAIAAEAAAD+/wIAAQAIAAEAAAD+/wMAAQAIAAIAAAD8/wQAAQAIAAIAAAD7/wMAAQAIAAIAAAD9/wIAAQAIAAEAAAD9/wMAAQAIAAIAAAD8/wMAAQAIAAIAAAD8/wIAAQAIAAEAAAD+/wQAAQAIAAIAAAD9/wQAAQAIAAIAAAD7/wIAAQAIAAIAAAD6/wIAAQAIAAIAAAD6/wMAAQAIAAIAAAD4/wIAAQAHAAIAAAD4/wMAAQAHAAIAAAD5/wMAAQAIAAIAAAD5/wIAAQAIAAIAAAD4//r/AQAHAAIAAAD5//r/AQAIAAIAAAD6//r/AQAIAAIAAAD7//r/AQAIAAIAAAD7//n/AQAIAAIAAAD6//n/AQAIAAIAAAD5//n/AQAIAAIAAAD4//n/AQAHAAIAAAD5//j/AQAIAAIAAAD6//j/AQAIAAIAAAD7//j/AQAIAAIAAAD4//j/AQAHAAIAAAD4//f/AQAHAAIAAAD5//f/AQAIAAIAAAD6//f/AQAIAAIAAAD7//f/AQAIAAIAAAD8//f/AQAIAAIAAAD9//f/AQAIAAIAAAD+//f/AQAIAAIAAAD///f/AQAIAAIAAAAAAPf/AQAIAAIAAAABAPb/AQAIAAEAAAACAPb/AQAIAAEAAAADAPb/AQAJAAEAAAAAAPb/AQAIAAEAAAD///b/AQAIAAEAAAD+//b/AQAIAAEAAAD9//b/AQAIAAEAAAD8//b/AQAIAAEAAAD7//b/AQAIAAEAAAD6//b/AQAIAAEAAAD5//b/AQAIAAEAAAD4//b/AQAHAAEAAAD8//j/AQAIAAIAAAD9//j/AQAIAAIAAAD9//n/AQAIAAIAAAD+//j/AQAIAAIAAAD///j/AQAIAAIAAAAAAPj/AQAIAAIAAAD8//n/AQAIAAIAAAD4/wQAAQAHAAIAAAD5/wQAAQAIAAIAAAD6/wQAAQAIAAIAAAD7/wQAAQAIAAIAAAD4/wUAAQAHAAMAAAD5/wUAAQAIAAMAAAD6/wUAAQAIAAMAAAD7/wUAAQAIAAMAAAD8/wUAAQAIAAMAAAD9/wUAAQAIAAMAAAD+/wUAAQAIAAMAAAA=")
+tile_set = ExtResource("4_jnxcs")
+
 [node name="Unpausable" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("4_4iknr")
@@ -49,9 +55,10 @@ unique_name_in_owner = true
 [node name="Player" parent="." instance=ExtResource("3_haygi")]
 
 [node name="Goal" parent="." instance=ExtResource("5_27dnd")]
-position = Vector2(728, 0)
+position = Vector2(1720, -80)
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(2.67029e-05, 1.52588e-05)
 scale = Vector2(1.47126, 1.85666)
@@ -59,22 +66,211 @@ texture = ExtResource("6_f6d4e")
 
 [node name="Hazards" type="Node2D" parent="."]
 unique_name_in_owner = true
+metadata/_edit_group_ = true
 
 [node name="StageHazard2" parent="Hazards" instance=ExtResource("9_6o73i")]
-position = Vector2(-184, -245)
+position = Vector2(764, -331)
 
-[node name="StageHazard1" parent="Hazards" instance=ExtResource("10_73ei5")]
-position = Vector2(-200, 0)
+[node name="StageHazard16" parent="Hazards" instance=ExtResource("9_6o73i")]
+position = Vector2(684, -475)
+
+[node name="StageHazard17" parent="Hazards" instance=ExtResource("9_6o73i")]
+position = Vector2(844, -475)
+
+[node name="StageHazard18" parent="Hazards" instance=ExtResource("9_6o73i")]
+position = Vector2(980, -475)
+
+[node name="StageHazard19" parent="Hazards" instance=ExtResource("9_6o73i")]
+position = Vector2(684, -171)
+
+[node name="StageHazard20" parent="Hazards" instance=ExtResource("9_6o73i")]
+position = Vector2(844, -171)
+
+[node name="StageHazard21" parent="Hazards" instance=ExtResource("9_6o73i")]
+position = Vector2(980, -171)
+
+[node name="StageHazard" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1324, -27)
 
 [node name="StageHazard3" parent="Hazards" instance=ExtResource("11_ljxg4")]
-position = Vector2(-443, -286)
+position = Vector2(364, -283)
+rotation = 0.785398
+
+[node name="StageHazard32" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(356, -395)
+rotation = -0.785397
+
+[node name="StageHazard33" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(236, -395)
+rotation = -2.35619
+
+[node name="StageHazard34" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(244, -275)
+rotation = -3.92699
+
+[node name="StageHazard11" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1172, -475)
+rotation = 4.71238
+
+[node name="StageHazard30" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1188, -411)
+rotation = 6.28318
+
+[node name="StageHazard31" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1300, -411)
+rotation = 6.28318
+
+[node name="StageHazard35" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1508, -683)
+rotation = 1.57079
+
+[node name="StageHazard36" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1372, -747)
 rotation = 3.14159
 
-[node name="StageHazard4" parent="Hazards" instance=ExtResource("12_h5e6d")]
-position = Vector2(-534, -128)
+[node name="StageHazard62" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1740, -419)
+rotation = 3.14159
+
+[node name="StageHazard63" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1740, -739)
+rotation = 3.14159
+
+[node name="StageHazard64" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1740, -579)
+rotation = 3.14159
+
+[node name="StageHazard37" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(1492, -747)
+rotation = 3.14159
+
+[node name="StageHazard9" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(988, 13)
+rotation = 3.14159
+
+[node name="StageHazard39" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(804, 13)
+rotation = 3.14159
+
+[node name="StageHazard12" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(804, 117)
+rotation = 3.14159
+
+[node name="StageHazard13" parent="Hazards" instance=ExtResource("11_ljxg4")]
+position = Vector2(980, 117)
+rotation = 3.14159
+
+[node name="StageHazard14" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(668, -931)
+
+[node name="StageHazard25" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(828, -931)
+
+[node name="StageHazard26" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(980, -931)
+
+[node name="StageHazard41" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1188, -939)
+
+[node name="StageHazard42" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1348, -939)
+
+[node name="StageHazard43" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1500, -939)
+
+[node name="StageHazard59" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1724, -939)
+
+[node name="StageHazard44" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1692, 349)
+
+[node name="StageHazard45" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1748, 285)
+
+[node name="StageHazard60" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1956, -939)
+
+[node name="StageHazard61" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(2012, -1003)
+
+[node name="StageHazard27" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1188, 317)
+
+[node name="StageHazard28" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1348, 317)
+
+[node name="StageHazard29" parent="Hazards" instance=ExtResource("12_h5e6d")]
+position = Vector2(1500, 317)
 
 [node name="StageHazard5" parent="Hazards" instance=ExtResource("13_wml2a")]
-position = Vector2(52, -129)
+position = Vector2(972, -331)
+rotation = 1.57079
+
+[node name="StageHazard23" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(-60, -203)
+rotation = 1.57079
+
+[node name="StageHazard24" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(-340, -211)
+
+[node name="StageHazard65" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(204, 45)
+
+[node name="StageHazard68" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(-708, 93)
+rotation = -0.857053
+
+[node name="StageHazard69" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(-404, -515)
+rotation = 0.528303
+
+[node name="StageHazard70" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(348, -731)
+rotation = 0.951683
+
+[node name="StageHazard66" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(404, 45)
+
+[node name="StageHazard15" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(-44, 37)
+rotation = 3.14454
+
+[node name="StageHazard22" parent="Hazards" instance=ExtResource("13_wml2a")]
+position = Vector2(-340, 37)
+rotation = 4.71238
+
+[node name="StageHazard6" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1412, -27)
+
+[node name="StageHazard4" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(812, 317)
+
+[node name="StageHazard40" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(972, 317)
+
+[node name="StageHazard7" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1324, -115)
+
+[node name="StageHazard38" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1340, -579)
+
+[node name="StageHazard8" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1412, -115)
+
+[node name="StageHazard47" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1996, -155)
+
+[node name="StageHazard50" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1996, 21)
+
+[node name="StageHazard58" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1988, 333)
+
+[node name="StageHazard53" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1996, -675)
+
+[node name="StageHazard55" parent="Hazards" instance=ExtResource("11_lqvrt")]
+position = Vector2(1996, -491)
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("scene3d") instance=ExtResource("8_mnsto")]
 scene3d = NodePath("../SubViewport/CityScene")
