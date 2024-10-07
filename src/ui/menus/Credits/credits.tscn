@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://ce02e8qy3qo3n"]
 
 [ext_resource type="Script" path="res://src/ui/menus/Credits/credits.gd" id="1_kdji2"]
-[ext_resource type="Texture2D" uid="uid://chhqppvwhukok" path="res://assets/UI/Backgrounds/Artboard_1.png" id="2_56ik5"]
+[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_j4ro4"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="2_kfron"]
-[ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="2_ugg6g"]
+[ext_resource type="Theme" uid="uid://ccqk7u14l5r87" path="res://assets/UI/Themes/UI_Theme_dark.tres" id="3_bbmr7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goe55"]
 
@@ -26,17 +26,9 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_goe55")
 
-[node name="TextureRect" type="TextureRect" parent="Background"]
-visible = false
-modulate = Color(0.819608, 0.819608, 0.819608, 1)
+[node name="TextureRect3" type="TextureRect" parent="Background"]
 layout_mode = 2
-texture = ExtResource("2_56ik5")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="Background"]
-modulate = Color(0.819608, 0.819608, 0.819608, 1)
-layout_mode = 2
-texture = ExtResource("2_ugg6g")
+texture = ExtResource("2_j4ro4")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -52,7 +44,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_ds7vb")
 [node name="MainTitle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 60
 text = "YOU'VE JUST BEEN SOUPED"
 horizontal_alignment = 1
@@ -66,7 +58,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_ds7vb")
 [node name="LudumDare" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 60
 text = "for Ludum Dare 56"
 horizontal_alignment = 1
@@ -89,7 +81,7 @@ alignment = 1
 [node name="Art_animation" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 55
 text = "ART & ANIMATION"
 horizontal_alignment = 1
@@ -103,7 +95,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
 [node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 40
 text = "Inês Pinto"
 horizontal_alignment = 1
@@ -117,7 +109,7 @@ alignment = 1
 [node name="3D_Artist" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 50
 text = "BACKGROUND DESIGN
 & 3D MODELS"
@@ -132,7 +124,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
 [node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 40
 text = "Miguel Neto"
 horizontal_alignment = 1
@@ -154,7 +146,7 @@ size_flags_horizontal = 3
 [node name="Devs" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 50
 text = "DEVELOPERS"
 horizontal_alignment = 1
@@ -168,7 +160,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
 [node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 40
 text = "Francisco Pinto"
 horizontal_alignment = 1
@@ -177,7 +169,7 @@ vertical_alignment = 1
 [node name="Name2" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 40
 text = "Luís Chaves"
 horizontal_alignment = 1
@@ -186,7 +178,7 @@ vertical_alignment = 1
 [node name="Name3" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 40
 text = "Pedro Valério"
 horizontal_alignment = 1
@@ -195,7 +187,7 @@ vertical_alignment = 1
 [node name="Name4" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 40
 text = "Tomás Longo"
 horizontal_alignment = 1
@@ -208,7 +200,7 @@ size_flags_horizontal = 3
 [node name="UI" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 55
 text = "USER INTERFACE"
 horizontal_alignment = 1
@@ -222,7 +214,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_efrrf")
 [node name="Name1" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_kfron")
+theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 40
 text = "Inês Pinto
 Tomás Longo"
