@@ -22,9 +22,8 @@ func stomped():
 
 	if unbroken:
 		AudioManager.play_audio("Demolition")
-		if _rubble_particles:
-			_rubble_particles.emitting = true
-			_smoke_particles.emitting = true
+		_rubble_particles.emitting = true
+		_smoke_particles.emitting = true
 		_asset.ravage_building()
 		unbroken = false
 		_spawn_creatures()
