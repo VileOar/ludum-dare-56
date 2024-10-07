@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name CustomCamera
 
 @export var scene3d: CityScene
 
@@ -103,3 +103,9 @@ func _add_noise(trauma_amount : float):
 func _get_noise_from_seed(_seed : int) -> float:
 	noise.seed = _seed
 	return noise.get_noise_1d(time * noise_speed)
+
+
+func get_map_rect() -> Rect2:
+	var viewport_rect = get_viewport_rect()
+	viewport_rect.position = cam_anchor.global_position - viewport_rect.size/2
+	return viewport_rect

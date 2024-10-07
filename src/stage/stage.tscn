@@ -67,8 +67,9 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("3_haygi")]
 
-[node name="Goal" parent="." instance=ExtResource("5_27dnd")]
+[node name="Goal" parent="." node_paths=PackedStringArray("cam") instance=ExtResource("5_27dnd")]
 position = Vector2(1720, -80)
+cam = NodePath("../CameraController")
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
