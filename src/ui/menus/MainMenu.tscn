@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_5b668"]
 [ext_resource type="PackedScene" uid="uid://bg420r4xdcc8c" path="res://src/ui/menus/Options/options_menu.tscn" id="6_m5jxg"]
 [ext_resource type="PackedScene" uid="uid://ce02e8qy3qo3n" path="res://src/ui/menus/Credits/credits.tscn" id="8_tk6qp"]
-[ext_resource type="PackedScene" uid="uid://ce02e8qy3qo3n" path="res://src/ui/menus/HowToPlay/HowToPlay.tscn" id="8_xox1t"]
+[ext_resource type="PackedScene" uid="uid://ri0jiysecba4" path="res://src/ui/menus/HowToPlay/HowToPlay.tscn" id="8_xox1t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36kx8"]
 

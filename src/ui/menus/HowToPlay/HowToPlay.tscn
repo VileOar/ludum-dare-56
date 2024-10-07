@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce02e8qy3qo3n"]
+[gd_scene load_steps=5 format=3 uid="uid://ri0jiysecba4"]
 
 [ext_resource type="Script" path="res://src/ui/menus/HowToPlay/how_to_play.gd" id="1_qyepd"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="2_kfron"]
@@ -50,7 +50,7 @@ theme_override_colors/font_pressed_color = Color(1, 0.568627, 0.192157, 1)
 theme_override_colors/font_focus_color = Color(1, 0.568627, 0.192157, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
-text = "Back to Main Menu
+text = "Back
 "
 
 [connection signal="pressed" from="MarginContainer/HorizontalContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
