@@ -7,6 +7,9 @@ const SPAWN_OFFSET = 96
 
 @export var obj_type: int = 0
 
+@onready var _rubble_particles: GPUParticles2D = %RubbleParticles
+@onready var _smoke_particles: GPUParticles2D = %SmokeParticles
+
 var unbroken = true
 
 
@@ -19,6 +22,9 @@ func stomped():
 
 	if unbroken:
 		AudioManager.play_audio("Demolition")
+		if _rubble_particles:
+			_rubble_particles.emitting = true
+			_smoke_particles.emitting = true
 		_asset.ravage_building()
 		unbroken = false
 		_spawn_creatures()
