@@ -12,17 +12,21 @@ class_name WanderState
 var _mov_dir: Vector2 = Vector2.RIGHT
 var _moving = false # whether still moving
 
+var _collision_info
+
 
 func activate():
 	get_tree().create_timer(STATE_DURATION).timeout.connect(_on_timer_timeout)
 	_mov_dir = Vector2.from_angle(randf() * 2 * PI) # choose random direction vector
 	_moving = true
+	_controller.sprite.play("wander")
 
 
 func _physics_process(delta: float) -> void:
-	var collision_info = _controller.body.move_and_collide(SPEED_MULTIPLIER * SPEED * _mov_dir * delta)
-	if collision_info:
-		_mov_dir = _mov_dir.bounce(collision_info.get_normal())
+	_collision_info = _controller.body.move_and_collide(SPEED_MULTIPLIER * SPEED * _mov_dir * delta)
+	if _collision_info:
+		_mov_dir = _mov_dir.bounce(_collision_info.get_normal())
+	_controller.set_hdir(1 if _mov_dir.x >= 0 else -1)
 
 
 func _on_timer_timeout() -> void:

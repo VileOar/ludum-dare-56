@@ -3,7 +3,7 @@ class_name StageHazard
 
 var _asset: Node3D
 
-const SPAWN_OFFSET = 64
+const SPAWN_OFFSET = 96
 
 var unbroken = true
 
@@ -15,9 +15,9 @@ func _ready() -> void:
 
 func stomped():
 	# TODO: do something else
-	AudioManager.play_audio("Demolition")
 
 	if unbroken:
+		AudioManager.play_audio("Demolition")
 		unbroken = false
 		_spawn_creatures()
 

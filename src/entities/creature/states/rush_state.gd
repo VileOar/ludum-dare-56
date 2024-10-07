@@ -11,6 +11,15 @@ func activate():
 	_dir_changed = false
 	_can_cross_mem = _controller.get_can_cross_gate()
 	_controller.set_can_cross_gate(true)
+	_controller.sprite.play("rush")
+
+
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	if _collision_info:
+		var other = _collision_info.get_collider()
+		if other is Creature:
+			other.controller.rush_towards(-_mov_dir)
 
 
 func deactivate():

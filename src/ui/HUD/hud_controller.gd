@@ -2,7 +2,6 @@ extends MarginContainer
 
 
 ##Godzilla
-var _tween
 const MOVEMENT_START :float = 75.0
 const MOVEMENT_END :float = 1630.0
 

@@ -13,6 +13,7 @@ func activate():
 	var dur = randf_range(IDLE_MIN_DURATION, IDLE_MAX_DURATION)
 	get_tree().create_timer(dur).timeout.connect(_on_timer_timeout)
 	_mov_dir = Vector2.from_angle(randf() * 2 * PI) # choose random direction vector
+	_controller.sprite.play("idle")
 
 
 func _on_timer_timeout() -> void:

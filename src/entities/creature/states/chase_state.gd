@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	if is_instance_valid(_target):
 		var diff_vector = _target.position - _controller.body.position
 		_controller.body.move_and_collide(SPEED_MULTIPLIER * SPEED * diff_vector.normalized() * delta)
+		_controller.set_hdir(1 if diff_vector.x >= 0 else -1)
 		
 		# if a certain distance from target, give up
 		if diff_vector.length() >= GIVEUP_RANGE:
