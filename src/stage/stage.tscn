@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=19 format=3 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
 [ext_resource type="Script" path="res://src/stage/unpausable.gd" id="4_4iknr"]
 [ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
+[ext_resource type="TileSet" uid="uid://du2hqtx4h3wu0" path="res://assets/tileset/tileset.tres" id="4_jnxcs"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
 [ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
@@ -31,6 +32,9 @@ viewport_path = NodePath("SubViewport")
 script = ExtResource("1_iaxbk")
 healthy_scene = ExtResource("2_dpvoq")
 infected_scene = ExtResource("3_yguvu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("4_jnxcs")
 
 [node name="Unpausable" type="Node" parent="."]
 process_mode = 3
