@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://dknfhais6weqa"]
+
+[ext_resource type="Script" path="res://src/entities/background/stage_hazard.gd" id="1_0qndf"]
+[ext_resource type="Texture2D" uid="uid://er60vgoncty0" path="res://assets/vfx/rubble.png" id="2_nddui"]
+[ext_resource type="Material" uid="uid://c3m01v8xu1fmy" path="res://assets/vfx/smoke_building_particles.tres" id="3_x8g68"]
+[ext_resource type="Texture2D" uid="uid://btpgnp8t3o8ot" path="res://assets/vfx/smoke.png" id="4_rktow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l5jv"]
+size = Vector2(100, 100)
+
+[sub_resource type="Curve" id="Curve_ka745"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.634703, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t6f4q"]
+curve = SubResource("Curve_ka745")
+
+[sub_resource type="Gradient" id="Gradient_d6fwh"]
+offsets = PackedFloat32Array(0.0052356, 1)
+colors = PackedColorArray(0.548963, 0.548963, 0.548963, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8o8qx"]
+gradient = SubResource("Gradient_d6fwh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_702wp"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_min = 1.07288e-05
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 25.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+angular_velocity_min = 50.0
+angular_velocity_max = 150.0
+gravity = Vector3(0, 3500, 0)
+scale_min = 0.4
+scale_max = 0.7
+color_initial_ramp = SubResource("GradientTexture1D_8o8qx")
+alpha_curve = SubResource("CurveTexture_t6f4q")
+turbulence_noise_strength = 2.47
+turbulence_influence_min = 0.322
+turbulence_influence_max = 0.65
+
+[node name="StageHazard" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_0qndf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2l5jv")
+
+[node name="RubbleParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = 4
+scale = Vector2(2, 2)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_702wp")
+texture = ExtResource("2_nddui")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+draw_order = 0
+
+[node name="SmokeParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 30
+process_material = ExtResource("3_x8g68")
+texture = ExtResource("4_rktow")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+draw_order = 0
