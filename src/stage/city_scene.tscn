@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqkcad7t71pwt"]
+[gd_scene load_steps=8 format=3 uid="uid://cqkcad7t71pwt"]
 
 [ext_resource type="Script" path="res://src/stage/city_scene.gd" id="1_wd5oc"]
-[ext_resource type="PackedScene" uid="uid://clfywg86h6e32" path="res://assets/ingame_building.tscn" id="2_ef1f0"]
+[ext_resource type="PackedScene" uid="uid://clfywg86h6e32" path="res://src/entities/background/buildings/ingame_building1.tscn" id="2_ef1f0"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="2_oi6yw"]
+[ext_resource type="PackedScene" uid="uid://rdmn1erq005w" path="res://src/entities/background/buildings/ingame_building2.tscn" id="3_mbtlx"]
+[ext_resource type="PackedScene" uid="uid://dfnvetwl6nqmv" path="res://src/entities/background/buildings/ingame_building3.tscn" id="4_sajdq"]
+[ext_resource type="PackedScene" uid="uid://dq3f2f7pkhvxm" path="res://src/entities/background/buildings/ingame_building4.tscn" id="5_ff4w1"]
+[ext_resource type="PackedScene" uid="uid://c37tt3am2anll" path="res://src/entities/background/buildings/ingame_building5.tscn" id="6_gr7yt"]
 
 [node name="CityScene" type="Node3D"]
 script = ExtResource("1_wd5oc")
-building_asset = ExtResource("2_ef1f0")
+building_asset1 = ExtResource("2_ef1f0")
+building_asset2 = ExtResource("3_mbtlx")
+building_asset3 = ExtResource("4_sajdq")
+building_asset4 = ExtResource("5_ff4w1")
+building_asset5 = ExtResource("6_gr7yt")
 
 [node name="Buildings" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -15,8 +23,9 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0.212834)
-omni_range = 200.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+omni_range = 650.0
+omni_attenuation = 0.0
 
 [node name="CamAnchor" type="Node3D" parent="."]
 unique_name_in_owner = true

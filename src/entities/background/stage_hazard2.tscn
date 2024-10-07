@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dknfhais6weqa"]
+[gd_scene load_steps=3 format=3 uid="uid://ci60qjlrea1yt"]
 
-[ext_resource type="Script" path="res://src/entities/background/stage_hazard.gd" id="1_0qndf"]
+[ext_resource type="Script" path="res://src/entities/background/stage_hazard.gd" id="1_kyf8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2l5jv"]
-size = Vector2(100, 100)
+size = Vector2(80, 70)
 
 [node name="StageHazard" type="StaticBody2D"]
 collision_mask = 0
-script = ExtResource("1_0qndf")
+script = ExtResource("1_kyf8e")
+obj_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2l5jv")

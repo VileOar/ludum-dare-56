@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c37tt3am2anll"]
+
+[ext_resource type="PackedScene" uid="uid://huy447xbikp2" path="res://assets/models/buildings/3D_Building_11.fbx" id="1_ruiyv"]
+
+[node name="IngameBuilding" type="Node3D"]
+
+[node name="3D_Building_11" parent="." instance=ExtResource("1_ruiyv")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

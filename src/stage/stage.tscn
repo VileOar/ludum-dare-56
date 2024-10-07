@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=18 format=3 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
 [ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
 [ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard.tscn" id="8_sj7rg"]
+[ext_resource type="PackedScene" uid="uid://ci60qjlrea1yt" path="res://src/entities/background/stage_hazard2.tscn" id="9_d7rrn"]
+[ext_resource type="PackedScene" uid="uid://b1u3n0k81xcft" path="res://src/entities/background/stage_hazard3.tscn" id="11_5dwva"]
+[ext_resource type="PackedScene" uid="uid://dd6mtvhpu4njv" path="res://src/entities/background/stage_hazard4.tscn" id="12_vng7v"]
+[ext_resource type="PackedScene" uid="uid://dodl3g1smpiq1" path="res://src/entities/background/stage_hazard5.tscn" id="13_fji1s"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3iao6"]
 noise_type = 3
@@ -56,8 +60,21 @@ texture = ExtResource("6_f6d4e")
 [node name="Hazards" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="StageHazard2" parent="Hazards" instance=ExtResource("9_d7rrn")]
+position = Vector2(-184, -245)
+
 [node name="StageHazard" parent="Hazards" instance=ExtResource("8_sj7rg")]
 position = Vector2(-200, 0)
+
+[node name="StageHazard3" parent="Hazards" instance=ExtResource("11_5dwva")]
+position = Vector2(-443, -286)
+rotation = 3.14159
+
+[node name="StageHazard4" parent="Hazards" instance=ExtResource("12_vng7v")]
+position = Vector2(-534, -128)
+
+[node name="StageHazard5" parent="Hazards" instance=ExtResource("13_fji1s")]
+position = Vector2(52, -129)
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("scene3d") instance=ExtResource("8_mnsto")]
 scene3d = NodePath("../SubViewport/CityScene")

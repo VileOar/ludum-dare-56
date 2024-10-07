@@ -5,12 +5,14 @@ var _asset: Node3D
 
 const SPAWN_OFFSET = 96
 
+@export var obj_type: int = 0
+
 var unbroken = true
 
 
 func _ready() -> void:
 	await Signals.toplevel_ready
-	_asset = Locator.factory_assets3d.spawn_3d_object(position)
+	_asset = Locator.factory_assets3d.spawn_3d_object(position, rotation, obj_type)
 
 
 func stomped():
