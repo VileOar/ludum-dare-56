@@ -1,7 +1,18 @@
 extends Node
 
 
-const ROUND_TIME = 60.0
+const ROUND_TIME = 180.0
+const INFECTED_PENALTY = 3
+
+var score: int = 0
+
+var score_thresholds = {
+	0: "D",
+	25: "C",
+	60: "B",
+	100: "A",
+	150: "S",
+}
 
 ## Stat IDs
 enum GameStats {
@@ -44,6 +55,19 @@ func _on_timer_end():
 	Signals.round_end.emit()
 
 
+func get_rank() -> String:
+	var temp_string
+
+	for threshold in score_thresholds:
+		if score >= threshold:
+			print(score)
+			
+			temp_string = score_thresholds[threshold]
+			print(temp_string)
+
+	return temp_string
+
+
 func get_game_stat(stat: int) -> int:
 	if _game_stats.has(stat):
 		return _game_stats[stat]
@@ -66,6 +90,10 @@ func add_game_stat(stat: int, delta: int):
 ## should be called whenever a creature reaches the clear state
 func creature_clear(infected: bool):
 	add_game_stat(GameStats.SOUP_INFECTED if infected else GameStats.SOUP_HEALTHY, 1)
+	if infected:
+		score = max(score - INFECTED_PENALTY, 0)
+	else:
+		score += 1
 
 
 ## should be called whenever a creature reaches the death state
