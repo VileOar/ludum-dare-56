@@ -1,9 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7qdnfpx0cdak"]
+[gd_scene load_steps=23 format=3 uid="uid://b7qdnfpx0cdak"]
 
 [ext_resource type="PackedScene" uid="uid://bu1smsxi2dc5g" path="res://src/entities/creature/creature.tscn" id="1_n7jtd"]
 [ext_resource type="Script" path="res://src/entities/creature/infected_controller.gd" id="2_2puis"]
 [ext_resource type="Texture2D" uid="uid://cldfkhhvrm8ll" path="res://assets/spreadsheet.png" id="2_8nuoh"]
 [ext_resource type="Script" path="res://src/entities/creature/states/chase_state.gd" id="2_fp84w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsl71"]
+atlas = ExtResource("2_8nuoh")
+region = Rect2(800, 400, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbech"]
 atlas = ExtResource("2_8nuoh")
@@ -71,6 +75,14 @@ region = Rect2(2000, 800, 400, 400)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_li4iy"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsl71")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lbech")
@@ -143,7 +155,6 @@ color = Color(1, 0.6, 0.2, 1)
 
 [node name="Sprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_li4iy")
-animation = &"rush"
 
 [node name="Controller" parent="." index="4"]
 script = ExtResource("2_2puis")

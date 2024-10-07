@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bu1smsxi2dc5g"]
+[gd_scene load_steps=30 format=3 uid="uid://bu1smsxi2dc5g"]
 
 [ext_resource type="Script" path="res://src/entities/creature/base_controller.gd" id="1_euc34"]
 [ext_resource type="Script" path="res://src/entities/creature/creature.gd" id="1_on0e4"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://src/entities/creature/states/rush_state.gd" id="4_sqeli"]
 [ext_resource type="Script" path="res://src/entities/creature/states/clear_state.gd" id="6_r888y"]
 [ext_resource type="Script" path="res://src/entities/creature/states/death_state.gd" id="7_2b6as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_733r4"]
+atlas = ExtResource("2_ed6ug")
+region = Rect2(800, 1600, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8q6v"]
 atlas = ExtResource("2_ed6ug")
@@ -75,6 +79,14 @@ region = Rect2(2000, 2000, 400, 400)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q2xou"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_733r4")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t8q6v")
@@ -165,7 +177,7 @@ unique_name_in_owner = true
 position = Vector2(-2, -24)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_q2xou")
-animation = &"idle"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

@@ -15,6 +15,8 @@ func activate():
 	await tween.tween_property(_controller.body, "modulate", Color(Color.WHITE, 0), ANIM_DURATION).finished
 	GameData.creature_died(_controller.body.get_infected())
 	_controller.body.destroy()
+	
+	_controller.sprite.play("death")
 
 
 func allow_next_state(_state: String):
