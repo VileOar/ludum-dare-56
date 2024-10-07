@@ -11,6 +11,7 @@ radius = 248.0
 [node name="Player" type="Node2D"]
 script = ExtResource("1_40d6q")
 _stomp_scene = ExtResource("2_3cbko")
+COOLDOWN_COLOUR = Color(1, 0.2, 0.4, 0.6)
 
 [node name="DottedCircle" type="Sprite2D" parent="."]
 unique_name_in_owner = true

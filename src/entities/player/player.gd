@@ -2,6 +2,7 @@ extends Node2D
 class_name Player
 
 @export var _stomp_scene: PackedScene
+@export var COOLDOWN_COLOUR: Color = Color(Color.RED, 0.6)
 
 const STARTUP_DURATION: float = 0.2 ## (sec) time it takes for startup animation
 const STOMP_COOLDOWN: float = 4.0
@@ -84,7 +85,7 @@ func _end_stomp_cooldown():
 func _draw() -> void:
 	if _stomp_timer.time_left > 0:
 		var segment_portion = _stomp_timer.time_left*360.0/STOMP_COOLDOWN
-		draw_circle_arc_poly(Vector2.ZERO, (_radius/2)*%FullCircle.texture.get_width(), -segment_portion, -360, Color(Color.RED, 0.6))
+		draw_circle_arc_poly(Vector2.ZERO, (_radius/2)*%FullCircle.texture.get_width(), -segment_portion, -360, COOLDOWN_COLOUR)
 
 
 func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
