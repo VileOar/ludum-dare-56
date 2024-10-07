@@ -1,0 +1,223 @@
+[gd_scene load_steps=11 format=3 uid="uid://bg420r4xdcc8c"]
+
+[ext_resource type="Script" path="res://src/ui/menus/Options/options_menu.gd" id="1_cvsc5"]
+[ext_resource type="Script" path="res://src/ui/menus/Options/volume_slider.gd" id="2_7jgwb"]
+[ext_resource type="Texture2D" uid="uid://s1mggee772bq" path="res://assets/UI/Square.png" id="2_unnhi"]
+[ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_6wdbu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5eqj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmax6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hry04"]
+
+[sub_resource type="FontFile" id="FontFile_6rnir"]
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbfo5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aadbt"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cvsc5")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_f5eqj")
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+modulate = Color(0.819608, 0.819608, 0.819608, 1)
+layout_mode = 2
+texture = ExtResource("2_unnhi")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 176
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 117
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_6wdbu")
+theme_override_font_sizes/font_size = 60
+text = "OPTIONS"
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HorizontalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 116
+
+[node name="VButtonsContainer" type="VBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 280
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+layout_mode = 2
+
+[node name="MasterVolume" type="Label" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_6wdbu")
+theme_override_font_sizes/font_size = 60
+text = "Master Volume
+"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MasterVolumeContainer"]
+layout_mode = 2
+theme_override_constants/separation = 215
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hry04")
+
+[node name="SliderContainer" type="VBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MasterVolumeContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MasterVolumeContainer/SliderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MasterVolumeContainer/SliderContainer"]
+layout_mode = 2
+theme = ExtResource("3_6wdbu")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_7jgwb")
+bus_name = "Master"
+
+[node name="MusicVolumeContainer3" type="HBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MusicVolumeContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_6wdbu")
+theme_override_font_sizes/font_size = 60
+text = "Music Volume "
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MusicVolumeContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 215
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hry04")
+
+[node name="SliderContainer" type="VBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MusicVolumeContainer3"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MusicVolumeContainer3/SliderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 19
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MusicVolumeContainer3/SliderContainer"]
+layout_mode = 2
+theme = ExtResource("3_6wdbu")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_7jgwb")
+bus_name = "Music"
+
+[node name="SoundVolume" type="HBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+layout_mode = 2
+
+[node name="SoundVolume" type="Label" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/SoundVolume"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_6wdbu")
+theme_override_font_sizes/font_size = 60
+text = "Sound Effects"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/SoundVolume"]
+layout_mode = 2
+theme_override_constants/separation = 215
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hry04")
+
+[node name="SliderContainer" type="VBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/SoundVolume"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/SoundVolume/SliderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="SoundSlider" type="HSlider" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/SoundVolume/SliderContainer"]
+layout_mode = 2
+theme = ExtResource("3_6wdbu")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_7jgwb")
+bus_name = "Sound Effects"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jmax6")
+
+[node name="BackContainer" type="VBoxContainer" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/BackContainer"]
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_pressed_color = Color(1, 0.568627, 0.192157, 1)
+theme_override_colors/font_hover_color = Color(1, 0.568627, 0.192157, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.568627, 0.192157, 1)
+theme_override_colors/font_focus_color = Color(1, 0.568627, 0.192157, 1)
+theme_override_colors/font_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_fonts/font = SubResource("FontFile_6rnir")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dbfo5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aadbt")
+text = "BACK"
+alignment = 0
+
+[connection signal="changed" from="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MasterVolumeContainer/SliderContainer/MasterSlider" to="." method="_on_master_volume_slider_changed"]
+[connection signal="changed" from="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/MusicVolumeContainer3/SliderContainer/MusicSlider" to="." method="_on_music_volume_slider_changed"]
+[connection signal="changed" from="MarginContainer/HorizontalContainer/MarginContainer/VButtonsContainer/SoundVolume/SliderContainer/SoundSlider" to="." method="_on_sound_volume_slider_changed"]

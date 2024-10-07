@@ -10,7 +10,7 @@ extends Control
 @onready var credits_button : Button = %CreditsButton
 @onready var exit_button : Button = %ExitButton
 
-#@onready var options_menu_node : OptionsMenu = $OptionsMenu
+@onready var options_menu_node: OptionsMenu = $OptionsMenu
 #@onready var credits = $Credits
 #@onready var how_to_play = $HowToPlay
 
@@ -50,7 +50,7 @@ func _on_how_to_play_button_pressed():
 
 func _on_options_pressed() -> void:
 	_play_click_sfx()
-	#options_menu_node.visible = true
+	options_menu_node.visible = true
 	
 func _on_credits_button_pressed():
 	_play_click_sfx()
