@@ -4,8 +4,6 @@ class_name Stage
 @export var healthy_scene: PackedScene
 @export var infected_scene: PackedScene
 
-const CREATURE_NUM = 10
-
 @onready var creatures: Node = %Creatures
 @onready var _spawn_area: TileMapLayer = %SpawnArea
 
@@ -14,10 +12,18 @@ const CREATURE_NUM = 10
 func _ready() -> void:
 	Locator.factory_creature = self
 	
-	var rect = get_viewport_rect()
-	for i in CREATURE_NUM:
-		var infected = i == CREATURE_NUM - 1
-		var pos = Vector2(randf_range(rect.position.x + 64, rect.end.x - 64), randf_range(rect.position.y + 64, rect.end.y - 64))
+	var spawn_tiles = _spawn_area.get_used_cells()
+	
+	for i in Global.INITIAL_CREATURES:
+		var infected = i >= Global.INITIAL_CREATURES - Global.INITIAL_INFECTED
+		
+		var ix = randi() % spawn_tiles.size()
+		var cell = spawn_tiles[ix] as Vector2
+		var cellsize = (_spawn_area.tile_set.tile_size as Vector2) * _spawn_area.scale
+		cell *= cellsize
+		
+		#var pos = Vector2(randf_range(rect.position.x + 64, rect.end.x - 64), randf_range(rect.position.y + 64, rect.end.y - 64))
+		var pos = cell + Vector2(randf() * cellsize.x, randf() * cellsize.y)
 		spawn_creature(pos, infected)
 	
 	GameData.start_timer()

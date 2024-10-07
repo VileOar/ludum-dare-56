@@ -1,7 +1,7 @@
 extends Node
 
 ## how many infected to spawn when a healthy is infected (OTHER thatn itself)
-const INFECTED_SPAWN_ADDITIONAL = 1
+const INFECTED_SPAWN_ADDITIONAL = 0
 
 ## max number of creatures spawned when building is detroyed
 const MAX_CREATURES_PER_BUILDING = 5
@@ -9,6 +9,9 @@ const MAX_CREATURES_PER_BUILDING = 5
 const MIN_CREATURES_PER_BUILDING = 2
 ## chance to spawn infected when building is destroyed
 const BUILDING_INFECTED_CHANCE = 0.3
+
+const INITIAL_CREATURES = 40
+const INITIAL_INFECTED = 2
 
 ## a global scope RNG
 var rng := RandomNumberGenerator.new()
