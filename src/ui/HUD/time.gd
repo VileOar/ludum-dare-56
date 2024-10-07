@@ -33,7 +33,6 @@ func _recalculate_time() -> void:
 
 	if past_second != second:
 		past_second = second
-		#print(hour, "h:", minute, "m:", second, "s" )
 		#time_tick.emit(day, hour, minute)
 		time_tick.emit(total_seconds)
 		
