@@ -185,7 +185,9 @@ script = ExtResource("1_agrx8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_n6dqy")
-frame_progress = 0.982174
+autoplay = "default"
+frame = 8
+frame_progress = 0.304564
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_le42r")
