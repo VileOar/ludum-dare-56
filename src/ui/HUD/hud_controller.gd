@@ -5,6 +5,8 @@ extends MarginContainer
 const MOVEMENT_START :float = 75.0
 const MOVEMENT_END :float = 1630.0
 
+@onready var how_to_play: Control = %HowToPlay
+
 @onready var stat_labels:= {
 	GameData.GameStats.CITY_INFECTED: %CityInfected,
 	GameData.GameStats.CITY_HEALTHY: %CityGood,
@@ -34,3 +36,15 @@ func _on_stat_update(stat, new_value):
 	var soup_healthy = GameData.get_game_stat(GameData.GameStats.SOUP_HEALTHY)
 	%CityTotal.text = str(city_healthy + city_infected)
 	%SoupTotal.text = str(soup_healthy + soup_infected)
+
+
+func _on_btn_pause_pressed() -> void:
+	how_to_play.toggle_visibility(true)
+
+
+func _on_btn_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_how_to_play_hide_toggle(vis: Variant) -> void:
+	get_tree().paused = vis

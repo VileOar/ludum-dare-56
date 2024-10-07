@@ -60,10 +60,8 @@ func get_rank() -> String:
 
 	for threshold in score_thresholds:
 		if score >= threshold:
-			print(score)
 			
 			temp_string = score_thresholds[threshold]
-			print(temp_string)
 
 	return temp_string
 

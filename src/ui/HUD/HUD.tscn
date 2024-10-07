@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://6ghh3v87x3px"]
+[gd_scene load_steps=10 format=3 uid="uid://6ghh3v87x3px"]
 
 [ext_resource type="Script" path="res://src/ui/HUD/hud_controller.gd" id="1_lx3u3"]
 [ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_ajc0p"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_wvp4g"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_cb35d"]
 [ext_resource type="Texture2D" uid="uid://dl7hnhnly77cm" path="res://assets/UI/Illustration51_14.png" id="6_dvoap"]
+[ext_resource type="PackedScene" uid="uid://ce02e8qy3qo3n" path="res://src/ui/menus/HowToPlay/HowToPlay.tscn" id="6_vwuwl"]
 
 [sub_resource type="Animation" id="Animation_24tve"]
 length = 0.001
@@ -44,7 +45,15 @@ _data = {
 "WalkAnim": SubResource("Animation_nt771")
 }
 
-[node name="Hud" type="MarginContainer"]
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1921.0
+offset_bottom = 200.0
+
+[node name="Hud" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -55,223 +64,229 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_lx3u3")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Hud"]
 layout_mode = 2
 texture = ExtResource("2_ajc0p")
 expand_mode = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="TextureRect"]
+[node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect"]
 position = Vector2(0, -73)
 texture = ExtResource("2_ajc0p")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
-[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
 texture = ExtResource("2_ajc0p")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
-[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D/Polygon2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
 texture = ExtResource("2_ajc0p")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
-[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D/Polygon2D/Polygon2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D/Polygon2D/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
 texture = ExtResource("2_ajc0p")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
-[node name="Polygon2D" type="Polygon2D" parent="TextureRect/Polygon2D/Polygon2D/Polygon2D/Polygon2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D/Polygon2D/Polygon2D/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
 texture = ExtResource("2_ajc0p")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="Hud"]
 layout_mode = 2
 theme_override_constants/margin_right = 250
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Hud/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/MarginContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="BtnPause" type="Button" parent="Hud/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
-text = "Pause"
+text = " How to Play "
 
-[node name="Button2" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="BtnQuit" type="Button" parent="Hud/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
-text = "How-to"
+text = "Quit Game"
 
-[node name="Button3" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_wvp4g")
-text = "Menu
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Hud/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Hud/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 theme_override_font_sizes/font_size = 100
 text = "CITY
 "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="CityStats" type="GridContainer" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="CityStats" type="GridContainer" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="LabelCityTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityTotal" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Total:"
 
-[node name="CityTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityTotal" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityInfected" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Infected:"
 
-[node name="CityInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityInfected" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityGood" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Healthy:"
 
-[node name="CityGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityGood" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityDeath" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="LabelCityDeath" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Dead:"
 
-[node name="CityDeath" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
+[node name="CityDeath" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer/CityStats"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Hud/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 theme_override_font_sizes/font_size = 100
 text = "SOUP"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="CityStats2" type="GridContainer" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="CityStats2" type="GridContainer" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="LabelSoupTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="LabelSoupTotal" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Total:"
 
-[node name="SoupTotal" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="SoupTotal" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelSoupInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="LabelSoupInfected" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Infected:"
 
-[node name="SoupInfected" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="SoupInfected" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelSoupGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="LabelSoupGood" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Healthy:"
 
-[node name="SoupGood" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="SoupGood" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="LabelCityTime" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="LabelCityTime" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 visible = false
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 text = "Time:"
 
-[node name="SoupTime" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
+[node name="SoupTime" type="Label" parent="Hud/MarginContainer/HBoxContainer/HBoxContainer2/VBoxContainer2/CityStats2"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme = ExtResource("3_wvp4g")
 horizontal_alignment = 2
 
-[node name="GodzillaPosition" type="Node2D" parent="."]
+[node name="GodzillaPosition" type="Node2D" parent="Hud"]
 unique_name_in_owner = true
 position = Vector2(1630, -67)
 scale = Vector2(0.2, 0.2)
 
-[node name="Sprite2D" type="Sprite2D" parent="GodzillaPosition"]
+[node name="Sprite2D" type="Sprite2D" parent="Hud/GodzillaPosition"]
 z_index = 1
 texture = ExtResource("5_cb35d")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GodzillaPosition/Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hud/GodzillaPosition/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_x38l7")
 }
 autoplay = "WalkAnim"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="Hud"]
 position = Vector2(1807, -92)
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_dvoap")
+
+[node name="HowToPlay" parent="." instance=ExtResource("6_vwuwl")]
+unique_name_in_owner = true
+visible = false
+z_index = 5
+layout_mode = 1
+offset_top = -848.0
+offset_bottom = -848.0
+
+[connection signal="pressed" from="Hud/MarginContainer/MarginContainer/VBoxContainer/BtnPause" to="Hud" method="_on_btn_pause_pressed"]
+[connection signal="pressed" from="Hud/MarginContainer/MarginContainer/VBoxContainer/BtnQuit" to="Hud" method="_on_btn_quit_pressed"]
+[connection signal="hide_toggle" from="HowToPlay" to="Hud" method="_on_how_to_play_hide_toggle"]

@@ -184,6 +184,6 @@ offset_top = 657.76
 offset_right = 625.0
 offset_bottom = 721.76
 theme = ExtResource("3_sp466")
-text = "Main Menu"
+text = "Quit Game"
 
 [connection signal="pressed" from="MainMenuBTN" to="." method="_on_main_menu_btn_pressed"]

@@ -27,4 +27,5 @@ func _ready() -> void:
 func _on_main_menu_btn_pressed() -> void:
 	AudioManager.stop_audio("Vomit")
 	AudioManager.stop_audio("GoodSoup")
-	get_tree().change_scene_to_packed(game_scene)
+	#get_tree().change_scene_to_packed(game_scene)
+	get_tree().quit()

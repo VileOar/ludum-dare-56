@@ -54,7 +54,6 @@ func _ready():
 	# half screen size margin on bottom and right (do NOT divide by 2,
 	# because end was shifted by half screen size after previous line of code, so must compensate)
 	_total_area.end -= screen_size
-	print(_total_area)
 
 
 func _process(delta):

@@ -5,7 +5,7 @@ class_name Player
 @export var COOLDOWN_COLOUR: Color = Color(Color.RED, 0.6)
 
 const STARTUP_DURATION: float = 0.2 ## (sec) time it takes for startup animation
-const STOMP_COOLDOWN: float = 4.0
+const STOMP_COOLDOWN: float = 2.0
 const MAX_RADIUS: float = 0.51
 const MIN_RADIUS: float = 0.15
 
