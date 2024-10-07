@@ -10,11 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
 [ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
 [ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
-[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard.tscn" id="8_sj7rg"]
-[ext_resource type="PackedScene" uid="uid://ci60qjlrea1yt" path="res://src/entities/background/stage_hazard2.tscn" id="9_d7rrn"]
-[ext_resource type="PackedScene" uid="uid://b1u3n0k81xcft" path="res://src/entities/background/stage_hazard3.tscn" id="11_5dwva"]
-[ext_resource type="PackedScene" uid="uid://dd6mtvhpu4njv" path="res://src/entities/background/stage_hazard4.tscn" id="12_vng7v"]
-[ext_resource type="PackedScene" uid="uid://dodl3g1smpiq1" path="res://src/entities/background/stage_hazard5.tscn" id="13_fji1s"]
+[ext_resource type="PackedScene" uid="uid://n0vg7anii1dg" path="res://src/entities/background/stage_hazard_2.tscn" id="9_6o73i"]
+[ext_resource type="PackedScene" uid="uid://bqx12xyw74hxk" path="res://src/entities/background/stage_hazard_1.tscn" id="10_73ei5"]
+[ext_resource type="PackedScene" uid="uid://my63wpi3ni73" path="res://src/entities/background/stage_hazard_3.tscn" id="11_ljxg4"]
+[ext_resource type="PackedScene" uid="uid://dehm0o5fr6fkq" path="res://src/entities/background/stage_hazard_4.tscn" id="12_h5e6d"]
+[ext_resource type="PackedScene" uid="uid://b1r7wdy6b1upp" path="res://src/entities/background/stage_hazard_5.tscn" id="13_wml2a"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3iao6"]
 noise_type = 3
@@ -60,20 +60,20 @@ texture = ExtResource("6_f6d4e")
 [node name="Hazards" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="StageHazard2" parent="Hazards" instance=ExtResource("9_d7rrn")]
+[node name="StageHazard2" parent="Hazards" instance=ExtResource("9_6o73i")]
 position = Vector2(-184, -245)
 
-[node name="StageHazard" parent="Hazards" instance=ExtResource("8_sj7rg")]
+[node name="StageHazard1" parent="Hazards" instance=ExtResource("10_73ei5")]
 position = Vector2(-200, 0)
 
-[node name="StageHazard3" parent="Hazards" instance=ExtResource("11_5dwva")]
+[node name="StageHazard3" parent="Hazards" instance=ExtResource("11_ljxg4")]
 position = Vector2(-443, -286)
 rotation = 3.14159
 
-[node name="StageHazard4" parent="Hazards" instance=ExtResource("12_vng7v")]
+[node name="StageHazard4" parent="Hazards" instance=ExtResource("12_h5e6d")]
 position = Vector2(-534, -128)
 
-[node name="StageHazard5" parent="Hazards" instance=ExtResource("13_fji1s")]
+[node name="StageHazard5" parent="Hazards" instance=ExtResource("13_wml2a")]
 position = Vector2(52, -129)
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("scene3d") instance=ExtResource("8_mnsto")]
@@ -82,6 +82,7 @@ noise = SubResource("FastNoiseLite_3iao6")
 
 [node name="3DSprite" parent="CameraController/CameraAnchor" index="1"]
 texture = SubResource("ViewportTexture_elk8j")
+metadata/_edit_lock_ = true
 
 [node name="Hud" parent="CameraController/CameraAnchor" index="2" instance=ExtResource("6_thxyv")]
 anchors_preset = 15

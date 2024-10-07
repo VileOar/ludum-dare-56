@@ -16,7 +16,6 @@ func _ready() -> void:
 
 
 func stomped():
-	# TODO: do something else
 
 	if unbroken:
 		AudioManager.play_audio("Demolition")
