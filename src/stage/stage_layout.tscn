@@ -1,0 +1,2265 @@
+[gd_scene load_steps=21 format=3 uid="uid://dbu0ylhf5utt3"]
+
+[ext_resource type="Script" path="res://src/stage/stage.gd" id="1_vnfr1"]
+[ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_nsdve"]
+[ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_hiwtu"]
+[ext_resource type="Script" path="res://src/stage/unpausable.gd" id="4_nbw0t"]
+[ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="5_8d1ch"]
+[ext_resource type="Texture2D" uid="uid://dqqte5568mdha" path="res://assets/Road.png" id="6_m23uv"]
+[ext_resource type="Texture2D" uid="uid://b4ic6jls5sqiy" path="res://assets/Pavement.png" id="7_qwsvu"]
+[ext_resource type="Texture2D" uid="uid://c41fly0r4hlq8" path="res://assets/Grass.png" id="8_shdrt"]
+[ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="9_5w6r6"]
+[ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="10_ao54l"]
+[ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="11_x3nn3"]
+[ext_resource type="PackedScene" uid="uid://ci60qjlrea1yt" path="res://src/entities/background/stage_hazard2.tscn" id="12_43ivw"]
+[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard.tscn" id="13_yo4q2"]
+[ext_resource type="PackedScene" uid="uid://b1u3n0k81xcft" path="res://src/entities/background/stage_hazard3.tscn" id="14_oac2h"]
+[ext_resource type="PackedScene" uid="uid://dd6mtvhpu4njv" path="res://src/entities/background/stage_hazard4.tscn" id="15_wkejg"]
+[ext_resource type="PackedScene" uid="uid://dodl3g1smpiq1" path="res://src/entities/background/stage_hazard5.tscn" id="16_0f3bq"]
+[ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/camera_controller.tscn" id="17_d32s4"]
+[ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="18_y6361"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3iao6"]
+noise_type = 3
+frequency = 0.017
+fractal_octaves = 2
+fractal_lacunarity = 1.0
+fractal_gain = 0.1
+fractal_weighted_strength = 0.41
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_elk8j"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Stage" type="Node2D"]
+script = ExtResource("1_vnfr1")
+healthy_scene = ExtResource("2_nsdve")
+infected_scene = ExtResource("3_hiwtu")
+
+[node name="Unpausable" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("4_nbw0t")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="CityScene" parent="SubViewport" instance=ExtResource("5_8d1ch")]
+unique_name_in_owner = true
+
+[node name="Roads" type="Node2D" parent="."]
+position = Vector2(-200, 112)
+rotation = 1.57079
+scale = Vector2(0.5, 0.5)
+
+[node name="SpriteRoad" type="Sprite2D" parent="Roads"]
+position = Vector2(-303.996, -1952)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad6" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-303.994, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad9" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.994, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad10" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-831.996, -1824)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad99" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-671.995, -2032)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad45" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-64.0008, 352)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad46" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-64.0002, 96.0004)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad47" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-63.9996, -160)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad55" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-320.001, 352)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad56" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-320, 95.9994)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad57" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-320, -160)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad108" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.992, -3744)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad109" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-303.992, -3744)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad110" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9917, -3744)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad68" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1584, -1696)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad69" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1584, -1952)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad70" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1584, -2208)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad58" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-576.001, 367.999)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad59" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-576, 111.999)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad60" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-576, -144.001)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad86" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.999, -672.001)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad87" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.998, -928.001)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad88" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.997, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad277" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-31.9985, -672)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad278" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-31.9979, -928)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad279" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-31.9973, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad280" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.002, -927.999)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad281" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.003, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad282" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.003, -1440)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad283" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.002, -927.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad284" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.003, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad285" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.003, -1440)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad286" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.002, -927.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad287" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.003, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad288" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.003, -1440)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad289" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232, -927.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad290" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad291" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232, -1440)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad292" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464, -159.999)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad293" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.001, -415.999)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad294" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.001, -671.999)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad295" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720, -159.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad296" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.001, -415.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad297" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.001, -671.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad298" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976, -159.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad299" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.001, -415.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad300" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.001, -671.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad301" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232, -159.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad302" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232, -415.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad303" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232, -671.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad348" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, 1136)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad355" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, 879.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad356" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-848.003, 1136)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad357" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-848.002, 879.998)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad358" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-592.003, 1136)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad359" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-592.002, 879.999)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad360" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, 1648)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad361" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, 1392)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad362" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-848.004, 1648)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad363" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-848.003, 1392)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad364" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-592.004, 1648)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad365" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-592.003, 1392)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad366" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1584, 95.9967)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad367" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1584, -160.003)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad368" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1360, 95.9971)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad369" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1360, -160.003)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad370" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, 95.9978)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad371" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, -160.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad372" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1584, 607.996)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad373" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1600, 351.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad374" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1360, 607.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad375" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1360, 351.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad376" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, 607.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad377" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1104, 351.997)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad331" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(479.999, 368.001)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad332" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(480, 112.001)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad333" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(735.999, 368.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad334" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(736, 112.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad335" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(991.999, 368.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad336" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(992, 112.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad337" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(479.998, 880.001)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad338" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(479.999, 624.001)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad339" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(735.998, 880.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad340" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(735.999, 624.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad341" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(991.998, 880.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad342" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(991.999, 624.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad343" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-48.0024, 1136)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad344" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-48.0018, 880)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad345" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(207.997, 1136)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad346" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(207.998, 880)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad347" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(463.998, 1136)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad349" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-48.0035, 1648)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad350" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-48.0031, 1392)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad351" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(207.996, 1648)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad352" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(207.997, 1392)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad353" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(463.996, 1648)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad354" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(463.997, 1392)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad304" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2336, -656.005)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad305" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2336, -912.005)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad306" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2336, -1168.01)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad318" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1584, -400.004)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad307" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2080, -656.004)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad308" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2080, -912.005)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad309" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2080, -1168)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad310" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1824, -656.004)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad311" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1824, -912.004)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad312" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1824, -1168)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad316" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1824, 111.996)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad317" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1824, -144.004)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad378" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1824, -400.004)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad313" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1568, -656.003)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad314" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1568, -912.003)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad315" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1568, -1168)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad89" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-815.998, -672.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad90" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-815.998, -928.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad91" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-815.997, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad92" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1072, -672.002)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad93" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1072, -928.003)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad94" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1072, -1184)
+rotation = -1.57079
+texture = ExtResource("8_shdrt")
+
+[node name="SpriteRoad11" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.993, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad111" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.994, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad12" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.993, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad143" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2096, -1952)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad144" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2096, -1696)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad145" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -2208)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad146" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2352, -1952.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad147" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2352, -1696.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad149" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2096, -1440)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad150" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2352, -1440.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad148" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -2208.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad166" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2608, -1952.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad167" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2608, -1696.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad168" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2608, -1440.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad169" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -2208.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad151" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad152" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad153" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -3488)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad154" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -3232.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad155" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -2976.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad156" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad157" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -2720.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad158" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -3488.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad159" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -3744)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad160" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -3744.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad161" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -3232.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad162" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -2976.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad163" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -2720.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad164" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -3488.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad165" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -3744.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad226" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -4256)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad227" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -4512)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad228" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -4256.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad229" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -4512.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad230" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -4768)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad231" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -4768.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad232" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -4256.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad233" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -4512.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad234" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -4768.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad13" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-303.993, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad14" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9928, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad238" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1583.99, -3744)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad239" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1327.99, -3744)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad240" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1071.99, -3744)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad15" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9934, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad265" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.996, -1696)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad266" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9948, -2208)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad267" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9954, -1952)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad183" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.01, -4256)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad184" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.01, -4256)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad185" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.01, -4512)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad186" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.01, -4256)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad187" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.011, -4768)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad188" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.011, -4768)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad191" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.01, -4512)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad189" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.011, -4768)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad190" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.01, -4512)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad193" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -4256)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad194" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -4768)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad196" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.011, -5024)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad197" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(720.011, -5024)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad198" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.011, -5024)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad200" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-303.99, -4272)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad201" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9902, -4272)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad202" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.99, -4528)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad203" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.99, -4272)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad204" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.989, -4784)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad205" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-303.989, -4784)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad206" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-303.99, -4528)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad207" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.989, -4784)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad208" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9896, -4528)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad247" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1311.99, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad248" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1055.99, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad249" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1567.99, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad250" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1567.99, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad251" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1567.99, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad252" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1311.99, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad253" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1311.99, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad254" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1055.99, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad255" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1055.99, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad256" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-799.996, -1680)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad257" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-543.996, -1680)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad258" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1056, -1936)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad259" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1056, -1680)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad260" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1055.99, -2192)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad261" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-799.995, -2192)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad262" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-799.996, -1936)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad263" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-543.995, -2192)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad264" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-543.995, -1936)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad209" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-559.988, -5040)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad210" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-303.988, -5040)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad211" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-47.9884, -5040)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad213" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1327.99, -4272)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad214" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1071.99, -4272)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad215" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1583.99, -4528)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad216" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1583.99, -4272)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad217" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1583.99, -4784)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad218" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1327.99, -4784)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad219" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1327.99, -4528)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad220" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1071.99, -4784)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad221" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1071.99, -4528)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad222" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1583.99, -5040)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad223" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1327.99, -5040)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad224" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-1071.99, -5040)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad235" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2607.99, -5024.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad236" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2351.99, -5024.01)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad237" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2095.99, -5024)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad199" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -5024)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad195" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -4512)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad170" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.006, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad171" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.007, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad172" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.007, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad177" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.005, -2208)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad178" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.005, -1952)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad179" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -2208)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad180" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232, -1952)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad173" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad174" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad181" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(976.009, -3744)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad182" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -3744)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad175" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1232.01, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad83" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.006, -2720)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad84" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.008, -3232)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad130" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.008, -3744)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad85" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.007, -2976)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad268" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.005, -1952)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad269" type="Sprite2D" parent="Roads"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(464.005, -2208)
+texture = ExtResource("7_qwsvu")
+
+[node name="SpriteRoad5" type="Sprite2D" parent="Roads"]
+position = Vector2(-303.996, -1696)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad42" type="Sprite2D" parent="Roads"]
+position = Vector2(-1328, -1184)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad2" type="Sprite2D" parent="Roads"]
+position = Vector2(-303.995, -2208)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad3" type="Sprite2D" parent="Roads"]
+position = Vector2(-303.995, -2464)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad72" type="Sprite2D" parent="Roads"]
+position = Vector2(-287.998, -672.001)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad73" type="Sprite2D" parent="Roads"]
+position = Vector2(-287.999, -416.001)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad74" type="Sprite2D" parent="Roads"]
+position = Vector2(-287.998, -928.001)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad75" type="Sprite2D" parent="Roads"]
+position = Vector2(-287.997, -1184)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad319" type="Sprite2D" parent="Roads"]
+position = Vector2(-320.003, 1392)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad320" type="Sprite2D" parent="Roads"]
+position = Vector2(-320.003, 1648)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad321" type="Sprite2D" parent="Roads"]
+position = Vector2(-320.002, 1136)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad322" type="Sprite2D" parent="Roads"]
+position = Vector2(-320.002, 879.999)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad37" type="Sprite2D" parent="Roads"]
+position = Vector2(-1328, -1696)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad38" type="Sprite2D" parent="Roads"]
+position = Vector2(-1328, -1440)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad39" type="Sprite2D" parent="Roads"]
+position = Vector2(-1328, -1952)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad40" type="Sprite2D" parent="Roads"]
+position = Vector2(-1327.99, -2208)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad41" type="Sprite2D" parent="Roads"]
+position = Vector2(-1327.99, -2464)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad50" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -2464)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad51" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -2720)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad52" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -2976)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad53" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -3232)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad54" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -3488)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad123" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -3744)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad137" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -4256)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad138" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -4512)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad139" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -4768)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad225" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -5040)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad63" type="Sprite2D" parent="Roads"]
+position = Vector2(-1328, -928.003)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad241" type="Sprite2D" parent="Roads"]
+position = Vector2(-1328, -672.003)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad242" type="Sprite2D" parent="Roads"]
+position = Vector2(-1328, -416.003)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad330" type="Sprite2D" parent="Roads"]
+position = Vector2(-832.001, 623.998)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad327" type="Sprite2D" parent="Roads"]
+position = Vector2(-831.999, -128.002)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad328" type="Sprite2D" parent="Roads"]
+position = Vector2(-832, 127.998)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad329" type="Sprite2D" parent="Roads"]
+position = Vector2(-832.001, 383.998)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad64" type="Sprite2D" parent="Roads"]
+position = Vector2(-1840, -1440)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad65" type="Sprite2D" parent="Roads"]
+position = Vector2(-1840, -1696)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad66" type="Sprite2D" parent="Roads"]
+position = Vector2(-1840, -1952)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad67" type="Sprite2D" parent="Roads"]
+position = Vector2(-1839.99, -2208)
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad49" type="Sprite2D" parent="Roads"]
+position = Vector2(-1583.99, -2464)
+rotation = -1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad100" type="Sprite2D" parent="Roads"]
+position = Vector2(-2095.99, -2464)
+rotation = -1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad101" type="Sprite2D" parent="Roads"]
+position = Vector2(-2351.99, -2464.01)
+rotation = -1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad4" type="Sprite2D" parent="Roads"]
+position = Vector2(-559.995, -2464)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad36" type="Sprite2D" parent="Roads"]
+position = Vector2(-1071.99, -2464)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad30" type="Sprite2D" parent="Roads"]
+position = Vector2(-303.997, -1440)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad31" type="Sprite2D" parent="Roads"]
+position = Vector2(-47.9968, -1440)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad32" type="Sprite2D" parent="Roads"]
+position = Vector2(208.003, -1440)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad97" type="Sprite2D" parent="Roads"]
+position = Vector2(464.004, -1696)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad98" type="Sprite2D" parent="Roads"]
+position = Vector2(720.004, -1696)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad104" type="Sprite2D" parent="Roads"]
+position = Vector2(976.004, -1696)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad105" type="Sprite2D" parent="Roads"]
+position = Vector2(1232, -1696)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad33" type="Sprite2D" parent="Roads"]
+position = Vector2(-1072, -1440)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad71" type="Sprite2D" parent="Roads"]
+position = Vector2(-1584, -1440)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad34" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.996, -1440)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad35" type="Sprite2D" parent="Roads"]
+position = Vector2(-559.996, -1440)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad273" type="Sprite2D" parent="Roads"]
+position = Vector2(-1072, -400.003)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad274" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.999, -400.002)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad275" type="Sprite2D" parent="Roads"]
+position = Vector2(-559.999, -400.002)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad323" type="Sprite2D" parent="Roads"]
+position = Vector2(-576.001, 623.998)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad324" type="Sprite2D" parent="Roads"]
+position = Vector2(-320.001, 623.999)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad325" type="Sprite2D" parent="Roads"]
+position = Vector2(-64.0008, 623.999)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad276" type="Sprite2D" parent="Roads"]
+position = Vector2(-31.9991, -416)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad7" type="Sprite2D" parent="Roads"]
+position = Vector2(-47.9945, -2464)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad77" type="Sprite2D" parent="Roads"]
+position = Vector2(720.005, -2464)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad76" type="Sprite2D" parent="Roads"]
+position = Vector2(464.005, -2464)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad102" type="Sprite2D" parent="Roads"]
+position = Vector2(1232.01, -2464)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad103" type="Sprite2D" parent="Roads"]
+position = Vector2(976.006, -2464)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad20" type="Sprite2D" parent="Roads"]
+position = Vector2(-47.9922, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad43" type="Sprite2D" parent="Roads"]
+position = Vector2(-303.992, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad81" type="Sprite2D" parent="Roads"]
+position = Vector2(720.008, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad82" type="Sprite2D" parent="Roads"]
+position = Vector2(464.008, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad106" type="Sprite2D" parent="Roads"]
+position = Vector2(1232.01, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad107" type="Sprite2D" parent="Roads"]
+position = Vector2(976.008, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad44" type="Sprite2D" parent="Roads"]
+position = Vector2(-559.992, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad114" type="Sprite2D" parent="Roads"]
+position = Vector2(-31.9905, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad115" type="Sprite2D" parent="Roads"]
+position = Vector2(-287.991, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad116" type="Sprite2D" parent="Roads"]
+position = Vector2(-543.991, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad117" type="Sprite2D" parent="Roads"]
+position = Vector2(-799.991, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad118" type="Sprite2D" parent="Roads"]
+position = Vector2(-1055.99, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad124" type="Sprite2D" parent="Roads"]
+position = Vector2(1248.01, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad125" type="Sprite2D" parent="Roads"]
+position = Vector2(992.009, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad126" type="Sprite2D" parent="Roads"]
+position = Vector2(736.009, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad127" type="Sprite2D" parent="Roads"]
+position = Vector2(480.01, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad128" type="Sprite2D" parent="Roads"]
+position = Vector2(224.009, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad119" type="Sprite2D" parent="Roads"]
+position = Vector2(-1311.99, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad120" type="Sprite2D" parent="Roads"]
+position = Vector2(-1567.99, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad121" type="Sprite2D" parent="Roads"]
+position = Vector2(-1823.99, -4000)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad122" type="Sprite2D" parent="Roads"]
+position = Vector2(-2079.99, -4000.01)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad140" type="Sprite2D" parent="Roads"]
+position = Vector2(-2335.99, -4000.01)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad141" type="Sprite2D" parent="Roads"]
+position = Vector2(-2607.99, -2464.01)
+rotation = -1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad142" type="Sprite2D" parent="Roads"]
+position = Vector2(-2591.99, -4000.01)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad61" type="Sprite2D" parent="Roads"]
+position = Vector2(-1327.99, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad62" type="Sprite2D" parent="Roads"]
+position = Vector2(-1583.99, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad48" type="Sprite2D" parent="Roads"]
+position = Vector2(-1071.99, -3488)
+rotation = 1.57079
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad16" type="Sprite2D" parent="Roads"]
+position = Vector2(208.005, -2464)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad17" type="Sprite2D" parent="Roads"]
+position = Vector2(208.006, -2720)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad18" type="Sprite2D" parent="Roads"]
+position = Vector2(208.007, -2976)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad27" type="Sprite2D" parent="Roads"]
+position = Vector2(208.004, -1696)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad28" type="Sprite2D" parent="Roads"]
+position = Vector2(208.004, -1952)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad29" type="Sprite2D" parent="Roads"]
+position = Vector2(208.005, -2208)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad270" type="Sprite2D" parent="Roads"]
+position = Vector2(208, 352)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad326" type="Sprite2D" parent="Roads"]
+position = Vector2(207.999, 608.001)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad271" type="Sprite2D" parent="Roads"]
+position = Vector2(208.001, 95.9999)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad272" type="Sprite2D" parent="Roads"]
+position = Vector2(208.001, -160)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad243" type="Sprite2D" parent="Roads"]
+position = Vector2(208.004, -1184)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad244" type="Sprite2D" parent="Roads"]
+position = Vector2(208.002, -416)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad245" type="Sprite2D" parent="Roads"]
+position = Vector2(208.002, -672)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad246" type="Sprite2D" parent="Roads"]
+position = Vector2(208.003, -928)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad19" type="Sprite2D" parent="Roads"]
+position = Vector2(208.007, -3232)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad78" type="Sprite2D" parent="Roads"]
+position = Vector2(720.007, -2720)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad79" type="Sprite2D" parent="Roads"]
+position = Vector2(720.008, -2976)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad95" type="Sprite2D" parent="Roads"]
+position = Vector2(720.005, -1952)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad96" type="Sprite2D" parent="Roads"]
+position = Vector2(720.006, -2208)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad80" type="Sprite2D" parent="Roads"]
+position = Vector2(720.008, -3232)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad129" type="Sprite2D" parent="Roads"]
+position = Vector2(720.008, -3744)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad21" type="Sprite2D" parent="Roads"]
+position = Vector2(208.008, -3488)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad113" type="Sprite2D" parent="Roads"]
+position = Vector2(208.008, -3744)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad131" type="Sprite2D" parent="Roads"]
+position = Vector2(208.01, -4256)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad132" type="Sprite2D" parent="Roads"]
+position = Vector2(208.011, -4512)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad133" type="Sprite2D" parent="Roads"]
+position = Vector2(208.011, -4768)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad192" type="Sprite2D" parent="Roads"]
+position = Vector2(208.011, -5008)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad134" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.99, -4256)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad135" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.989, -4512)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad136" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.989, -4768)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad212" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.989, -5040)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad22" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.994, -2464)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad23" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.993, -2720)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad24" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.992, -2976)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad25" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.992, -3232)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad26" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.991, -3488)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="SpriteRoad112" type="Sprite2D" parent="Roads"]
+position = Vector2(-815.992, -3728)
+rotation = 3.14159
+texture = ExtResource("6_m23uv")
+
+[node name="Creatures" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("9_5w6r6")]
+
+[node name="Goal" parent="." instance=ExtResource("10_ao54l")]
+position = Vector2(704, 120)
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(2.67029e-05, 1.52588e-05)
+scale = Vector2(1.47126, 1.85666)
+texture = ExtResource("11_x3nn3")
+
+[node name="Hazards" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+
+[node name="StageHazard2" parent="Hazards" instance=ExtResource("12_43ivw")]
+position = Vector2(704, -296)
+
+[node name="StageHazard16" parent="Hazards" instance=ExtResource("12_43ivw")]
+position = Vector2(624, -440)
+
+[node name="StageHazard17" parent="Hazards" instance=ExtResource("12_43ivw")]
+position = Vector2(784, -440)
+
+[node name="StageHazard18" parent="Hazards" instance=ExtResource("12_43ivw")]
+position = Vector2(920, -440)
+
+[node name="StageHazard19" parent="Hazards" instance=ExtResource("12_43ivw")]
+position = Vector2(624, -136)
+
+[node name="StageHazard20" parent="Hazards" instance=ExtResource("12_43ivw")]
+position = Vector2(784, -136)
+
+[node name="StageHazard21" parent="Hazards" instance=ExtResource("12_43ivw")]
+position = Vector2(920, -136)
+
+[node name="StageHazard" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1264, 8)
+
+[node name="StageHazard3" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(304, -248)
+rotation = 0.785398
+
+[node name="StageHazard32" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(296, -360)
+rotation = -0.785397
+
+[node name="StageHazard33" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(176, -360)
+rotation = -2.35619
+
+[node name="StageHazard34" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(184, -240)
+rotation = -3.92699
+
+[node name="StageHazard11" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1112, -440)
+rotation = 4.71238
+
+[node name="StageHazard30" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1128, -376)
+rotation = 6.28318
+
+[node name="StageHazard31" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1240, -376)
+rotation = 6.28318
+
+[node name="StageHazard35" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1448, -648)
+rotation = 1.57079
+
+[node name="StageHazard36" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1312, -712)
+rotation = 3.14159
+
+[node name="StageHazard62" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1680, -384)
+rotation = 3.14159
+
+[node name="StageHazard63" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1680, -704)
+rotation = 3.14159
+
+[node name="StageHazard64" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1680, -544)
+rotation = 3.14159
+
+[node name="StageHazard37" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(1432, -712)
+rotation = 3.14159
+
+[node name="StageHazard9" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(928, 48)
+rotation = 3.14159
+
+[node name="StageHazard39" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(744, 48)
+rotation = 3.14159
+
+[node name="StageHazard12" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(744, 152)
+rotation = 3.14159
+
+[node name="StageHazard13" parent="Hazards" instance=ExtResource("14_oac2h")]
+position = Vector2(920, 152)
+rotation = 3.14159
+
+[node name="StageHazard14" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(608, -896)
+
+[node name="StageHazard25" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(768, -896)
+
+[node name="StageHazard26" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(920, -896)
+
+[node name="StageHazard41" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1128, -904)
+
+[node name="StageHazard42" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1288, -904)
+
+[node name="StageHazard43" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1440, -904)
+
+[node name="StageHazard59" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1664, -904)
+
+[node name="StageHazard44" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1632, 384)
+
+[node name="StageHazard45" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1688, 320)
+
+[node name="StageHazard60" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1896, -904)
+
+[node name="StageHazard61" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1952, -968)
+
+[node name="StageHazard27" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1128, 352)
+
+[node name="StageHazard28" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1288, 352)
+
+[node name="StageHazard29" parent="Hazards" instance=ExtResource("15_wkejg")]
+position = Vector2(1440, 352)
+
+[node name="StageHazard5" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(912, -296)
+rotation = 1.57079
+
+[node name="StageHazard23" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(-120, -168)
+rotation = 1.57079
+
+[node name="StageHazard24" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(-400, -176)
+
+[node name="StageHazard65" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(144, 80)
+
+[node name="StageHazard68" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(-768, 128)
+rotation = -0.857053
+
+[node name="StageHazard69" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(-464, -480)
+rotation = 0.528303
+
+[node name="StageHazard70" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(288, -696)
+rotation = 0.951683
+
+[node name="StageHazard66" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(344, 80)
+
+[node name="StageHazard15" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(-104, 72)
+rotation = 3.14454
+
+[node name="StageHazard22" parent="Hazards" instance=ExtResource("16_0f3bq")]
+position = Vector2(-400, 72)
+rotation = 4.71238
+
+[node name="StageHazard6" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1352, 8)
+
+[node name="StageHazard4" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(752, 352)
+
+[node name="StageHazard40" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(912, 352)
+
+[node name="StageHazard7" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1264, -80)
+
+[node name="StageHazard38" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1280, -544)
+
+[node name="StageHazard8" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1352, -80)
+
+[node name="StageHazard47" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1936, -120)
+
+[node name="StageHazard50" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1936, 56)
+
+[node name="StageHazard58" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1928, 368)
+
+[node name="StageHazard53" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1936, -640)
+
+[node name="StageHazard55" parent="Hazards" instance=ExtResource("13_yo4q2")]
+position = Vector2(1936, -456)
+
+[node name="CameraController" parent="." node_paths=PackedStringArray("scene3d") instance=ExtResource("17_d32s4")]
+scene3d = NodePath("../SubViewport/CityScene")
+noise = SubResource("FastNoiseLite_3iao6")
+
+[node name="3DSprite" parent="CameraController/CameraAnchor" index="1"]
+texture = SubResource("ViewportTexture_elk8j")
+
+[node name="Hud" parent="CameraController/CameraAnchor" index="2" instance=ExtResource("18_y6361")]
+anchors_preset = 15
+anchor_top = 0.0
+offset_left = -960.0
+offset_top = 281.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[editable path="CameraController"]
