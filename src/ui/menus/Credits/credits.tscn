@@ -46,7 +46,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_bbmr7")
 theme_override_font_sizes/font_size = 60
-text = "YOU'VE JUST BEEN SOUPED"
+text = "Get Souped!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -243,4 +243,5 @@ theme_override_font_sizes/font_size = 60
 text = "Back
 "
 
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/HorizontalContainer/BackMenuButton" to="." method="_on_back_menu_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HorizontalContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]

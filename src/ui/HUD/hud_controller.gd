@@ -39,12 +39,9 @@ func _on_stat_update(stat, new_value):
 
 
 func _on_btn_pause_pressed() -> void:
-	how_to_play.toggle_visibility(true)
+	how_to_play.visible = true
 
 
 func _on_btn_quit_pressed() -> void:
 	get_tree().quit()
 
-
-func _on_how_to_play_hide_toggle(vis: Variant) -> void:
-	get_tree().paused = vis

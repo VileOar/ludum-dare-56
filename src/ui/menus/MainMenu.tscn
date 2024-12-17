@@ -137,7 +137,7 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_k4pud")
 theme_override_font_sizes/font_size = 60
-text = "YOU'VE JUST BEEN SOUPED"
+text = "Get Souped!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -245,6 +245,7 @@ autoplay = "MainMenuGodzilla"
 
 [node name="OptionsMenu" parent="." instance=ExtResource("6_m5jxg")]
 visible = false
+layout_mode = 1
 
 [node name="Credits" parent="." instance=ExtResource("8_tk6qp")]
 visible = false

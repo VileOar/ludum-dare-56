@@ -34,19 +34,23 @@ texture = ExtResource("3_rjvjq")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -1062.0
+offset_right = 216.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 913
+theme_override_constants/margin_top = 923
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_bottom = 60
 
-[node name="HorizontalContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="BackMenuButton" type="Button" parent="MarginContainer/HorizontalContainer"]
+[node name="BackMenuButton" type="Button" parent="MarginContainer"]
 custom_minimum_size = Vector2(400, 64)
 layout_mode = 2
 theme = ExtResource("2_kfron")
@@ -59,4 +63,5 @@ theme_override_font_sizes/font_size = 60
 text = "Back
 "
 
-[connection signal="pressed" from="MarginContainer/HorizontalContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/BackMenuButton" to="." method="_on_back_menu_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/BackMenuButton" to="." method="_on_back_menu_button_pressed"]

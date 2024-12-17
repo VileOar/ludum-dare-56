@@ -1,14 +1,10 @@
 extends Control
 
-signal hide_toggle(vis)
-
-@onready var how_to_play = $"."
-
 
 func _on_back_menu_button_pressed():
-	toggle_visibility(false)
+	AudioManager.play_audio("ButtonPress")
+	self.visible = false
 
 
-func toggle_visibility(vis):
-	how_to_play.visible = vis
-	hide_toggle.emit(how_to_play.visible)
+func _on_back_menu_button_mouse_entered():
+	AudioManager.play_audio("ButtonHover")

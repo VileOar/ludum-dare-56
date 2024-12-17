@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ludum_dare_56"
+config/name="Get Souped"
 run/main_scene="res://src/ui/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/UI/zilla_icon.png"
