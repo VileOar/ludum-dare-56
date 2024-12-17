@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/ui/menus/main_menu.gd" id="1_1gw4v"]
 [ext_resource type="PackedScene" uid="uid://e7jihf677gx2" path="res://src/stage/stage.tscn" id="2_07hcq"]
+[ext_resource type="Texture2D" uid="uid://7h10mo7xk1w2" path="res://assets/UI/Backgrounds/PaperTexture.png" id="3_80e58"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_bo5u3"]
-[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="3_enqbl"]
 [ext_resource type="Theme" uid="uid://ccqk7u14l5r87" path="res://assets/UI/Themes/UI_Theme_dark.tres" id="4_k4pud"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_5b668"]
 [ext_resource type="PackedScene" uid="uid://bg420r4xdcc8c" path="res://src/ui/menus/Options/options_menu.tscn" id="6_m5jxg"]
@@ -121,7 +121,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_36kx8")
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 2
-texture = ExtResource("3_enqbl")
+texture = ExtResource("3_80e58")
 expand_mode = 1
 
 [node name="Title2" type="Label" parent="."]

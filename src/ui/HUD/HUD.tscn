@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://6ghh3v87x3px"]
+[gd_scene load_steps=9 format=3 uid="uid://6ghh3v87x3px"]
 
 [ext_resource type="Script" path="res://src/ui/HUD/hud_controller.gd" id="1_lx3u3"]
-[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_ajc0p"]
+[ext_resource type="Texture2D" uid="uid://7h10mo7xk1w2" path="res://assets/UI/Backgrounds/PaperTexture.png" id="2_vg5qg"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_wvp4g"]
 [ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_cb35d"]
-[ext_resource type="PackedScene" uid="uid://ri0jiysecba4" path="res://src/ui/menus/HowToPlay/HowToPlay.tscn" id="6_1a15e"]
 [ext_resource type="Texture2D" uid="uid://dl7hnhnly77cm" path="res://assets/UI/Illustration51_14.png" id="6_dvoap"]
 
 [sub_resource type="Animation" id="Animation_24tve"]
@@ -66,36 +65,38 @@ script = ExtResource("1_lx3u3")
 
 [node name="TextureRect" type="TextureRect" parent="Hud"]
 layout_mode = 2
-texture = ExtResource("2_ajc0p")
+texture = ExtResource("2_vg5qg")
 expand_mode = 1
+stretch_mode = 6
+flip_h = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect"]
 position = Vector2(0, -73)
-texture = ExtResource("2_ajc0p")
+texture = ExtResource("2_vg5qg")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
 [node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
-texture = ExtResource("2_ajc0p")
+texture = ExtResource("2_vg5qg")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
 [node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
-texture = ExtResource("2_ajc0p")
+texture = ExtResource("2_vg5qg")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
 [node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D/Polygon2D/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
-texture = ExtResource("2_ajc0p")
+texture = ExtResource("2_vg5qg")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
 [node name="Polygon2D" type="Polygon2D" parent="Hud/TextureRect/Polygon2D/Polygon2D/Polygon2D/Polygon2D"]
 position = Vector2(418.84, 0.75)
 scale = Vector2(1.02594, 1)
-texture = ExtResource("2_ajc0p")
+texture = ExtResource("2_vg5qg")
 polygon = PackedVector2Array(2, 37, 23, 37, 23, 73, 34, 73, 34, 61, 46, 61, 46, 73, 61.4975, 73.0613, 60, 56, 81, 56, 81, 38, 104, 37, 104, 73, 136, 73, 136, 58, 156, 58, 157, 73, 170, 74, 170, 39, 187, 39, 186, 73, 207, 73, 207, 44, 220, 44, 220, 60, 234, 60, 234, 73, 256, 73, 256, 49, 274, 49, 274, 72, 318, 72, 318, 54, 335, 54, 336, 71, 348, 71, 348, 42, 367, 42, 367, 72, 383, 72, 383, 59, 399, 59, 399, 72, 423, 72, 425, 83, 1, 79)
 
 [node name="MarginContainer" type="MarginContainer" parent="Hud"]
@@ -279,18 +280,5 @@ position = Vector2(1807, -92)
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_dvoap")
 
-[node name="HowToPlay" parent="." instance=ExtResource("6_1a15e")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-offset_top = -856.0
-offset_bottom = -856.0
-
-[node name="MarginContainer" parent="HowToPlay" index="1"]
-theme_override_constants/margin_top = 1773
-theme_override_constants/margin_bottom = -810
-
 [connection signal="pressed" from="Hud/MarginContainer/MarginContainer/VBoxContainer/BtnPause" to="Hud" method="_on_btn_pause_pressed"]
 [connection signal="pressed" from="Hud/MarginContainer/MarginContainer/VBoxContainer/BtnQuit" to="Hud" method="_on_btn_quit_pressed"]
-
-[editable path="HowToPlay"]

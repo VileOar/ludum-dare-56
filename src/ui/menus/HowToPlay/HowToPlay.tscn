@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ri0jiysecba4"]
 
 [ext_resource type="Script" path="res://src/ui/menus/HowToPlay/how_to_play.gd" id="1_qyepd"]
+[ext_resource type="Texture2D" uid="uid://7h10mo7xk1w2" path="res://assets/UI/Backgrounds/PaperTexture.png" id="2_3r8t2"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="2_kfron"]
-[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_tahii"]
 [ext_resource type="Texture2D" uid="uid://gtcolay6upxu" path="res://assets/UI/Backgrounds/hot_to.png" id="3_rjvjq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goe55"]
@@ -25,7 +25,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_goe55")
 
 [node name="TextureRect3" type="TextureRect" parent="Background"]
 layout_mode = 2
-texture = ExtResource("2_tahii")
+texture = ExtResource("2_3r8t2")
 expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="Background"]

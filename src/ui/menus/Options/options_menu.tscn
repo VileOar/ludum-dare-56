@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/menus/Options/options_menu.gd" id="1_cvsc5"]
 [ext_resource type="Script" path="res://src/ui/menus/Options/volume_slider.gd" id="2_7jgwb"]
-[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_v8gob"]
+[ext_resource type="Texture2D" uid="uid://7h10mo7xk1w2" path="res://assets/UI/Backgrounds/PaperTexture.png" id="2_bsbwo"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_6wdbu"]
 [ext_resource type="Theme" uid="uid://ccqk7u14l5r87" path="res://assets/UI/Themes/UI_Theme_dark.tres" id="3_iboqa"]
 
@@ -34,7 +34,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_f5eqj")
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 2
-texture = ExtResource("2_v8gob")
+texture = ExtResource("2_bsbwo")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

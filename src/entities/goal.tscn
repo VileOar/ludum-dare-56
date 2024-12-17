@@ -195,6 +195,7 @@ shape = SubResource("CircleShape2D_le42r")
 [node name="ArrowAnchor" type="Node2D" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowAnchor"]
 unique_name_in_owner = true

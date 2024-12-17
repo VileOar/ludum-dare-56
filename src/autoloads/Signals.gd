@@ -15,3 +15,6 @@ signal screen_shake(intesity)
 
 @warning_ignore("unused_signal")
 signal round_end
+
+@warning_ignore("unused_signal")
+signal pause

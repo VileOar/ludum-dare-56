@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbd54mtbluw6e"]
+[gd_scene load_steps=3 format=3 uid="uid://bbd54mtbluw6e"]
 
 [ext_resource type="Script" path="res://src/stage/camera_controller.gd" id="1_2adib"]
+[ext_resource type="PackedScene" uid="uid://ri0jiysecba4" path="res://src/ui/menus/HowToPlay/HowToPlay.tscn" id="2_m2blx"]
 
 [node name="CameraController" type="Node2D"]
 script = ExtResource("1_2adib")
@@ -12,3 +13,20 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="3DSprite" type="Sprite2D" parent="CameraAnchor"]
+
+[node name="HowToPlay" parent="CameraAnchor" instance=ExtResource("2_m2blx")]
+unique_name_in_owner = true
+visible = false
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" parent="CameraAnchor/HowToPlay" index="1"]
+theme_override_constants/margin_left = 991
+theme_override_constants/margin_top = 2068
+theme_override_constants/margin_right = -919
+theme_override_constants/margin_bottom = -1035
+
+[editable path="CameraAnchor/HowToPlay"]

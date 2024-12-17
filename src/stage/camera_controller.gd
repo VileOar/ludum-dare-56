@@ -22,6 +22,7 @@ var _allow_mouse_cam = false
 
 @onready var cam_anchor: Node2D = %CameraAnchor
 @onready var cam: Camera2D = %MainCam
+@onready var how_to_play: Control = %HowToPlay
 
 
 # Screen shake vars
@@ -43,6 +44,7 @@ func _ready():
 	screen_size_pan_margins = screen_size.x / MARGIN_RATE
 
 	Signals.screen_shake.connect(_add_noise)
+	Signals.pause.connect(_show_how_to)
 	
 	_total_area = _tilemap.get_used_rect() as Rect2
 	var cellsize = (_tilemap.tile_set.tile_size as Vector2) * _tilemap.scale
@@ -110,3 +112,6 @@ func get_map_rect(account_hud: bool = false) -> Rect2:
 	if account_hud:
 		viewport_rect.end.y -= HUD_HEIGHT
 	return viewport_rect
+
+func _show_how_to():
+	how_to_play.visible = true
