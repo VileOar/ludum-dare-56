@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwkkf34eu5n86"]
+[gd_scene load_steps=9 format=3 uid="uid://bwkkf34eu5n86"]
 
 [ext_resource type="Script" path="res://src/ui/menus/end_menu.gd" id="1_1deu0"]
-[ext_resource type="Texture2D" uid="uid://bolh3oo7nn6b4" path="res://assets/UI/UIBackground.png" id="2_71h88"]
-[ext_resource type="PackedScene" uid="uid://bbqsnbw7blhf2" path="res://src/ui/menus/MainMenu.tscn" id="2_bc4b8"]
+[ext_resource type="Texture2D" uid="uid://7h10mo7xk1w2" path="res://assets/UI/Backgrounds/PaperTexture.png" id="3_3mo86"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_sp466"]
 [ext_resource type="Texture2D" uid="uid://81fvptf1yi3y" path="res://assets/UI/BadEnding.png" id="4_h8t8l"]
 [ext_resource type="Texture2D" uid="uid://nldv6e8o5fph" path="res://assets/UI/GoodEnding.png" id="5_ejx25"]
@@ -51,13 +50,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1deu0")
-game_scene = ExtResource("2_bc4b8")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_71h88")
+texture = ExtResource("3_3mo86")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
