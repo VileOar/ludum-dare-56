@@ -82,7 +82,7 @@ func set_game_stat(stat: int, value: int):
 
 
 func add_game_stat(stat: int, delta: int):
-	set_game_stat(stat, get_game_stat(stat) + delta)
+	set_game_stat(stat, max(get_game_stat(stat) + delta, 0))
 
 
 ## should be called whenever a creature reaches the clear state

@@ -266,6 +266,7 @@ position = Vector2(1630, -67)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Hud/GodzillaPosition"]
+process_mode = 1
 z_index = 1
 texture = ExtResource("5_cb35d")
 

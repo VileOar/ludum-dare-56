@@ -1,22 +1,21 @@
-[gd_scene load_steps=24 format=4 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=23 format=4 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
-[ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/healthy_creature.tscn" id="2_dpvoq"]
+[ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/HealthyCreature.tscn" id="2_dpvoq"]
 [ext_resource type="PackedScene" uid="uid://6f3hygpsdmwo" path="res://src/entities/player/player.tscn" id="3_haygi"]
-[ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/infected_creature.tscn" id="3_yguvu"]
-[ext_resource type="Script" path="res://src/stage/unpausable.gd" id="4_4iknr"]
-[ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/city_scene.tscn" id="4_7q7vx"]
+[ext_resource type="PackedScene" uid="uid://b7qdnfpx0cdak" path="res://src/entities/creature/InfectedCreature.tscn" id="3_yguvu"]
+[ext_resource type="Script" path="res://src/stage/round_end_manager.gd" id="4_4iknr"]
+[ext_resource type="PackedScene" uid="uid://cqkcad7t71pwt" path="res://src/stage/CityScene.tscn" id="4_7q7vx"]
 [ext_resource type="TileSet" uid="uid://du2hqtx4h3wu0" path="res://assets/tileset/tileset.tres" id="4_jnxcs"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="TileSet" uid="uid://cxlip3lhds32w" path="res://assets/tileset/spawn_area_tileset.tres" id="5_t50fd"]
 [ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
-[ext_resource type="PackedScene" uid="uid://6ghh3v87x3px" path="res://src/ui/HUD/HUD.tscn" id="6_thxyv"]
-[ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/camera_controller.tscn" id="8_mnsto"]
-[ext_resource type="PackedScene" uid="uid://n0vg7anii1dg" path="res://src/entities/background/stage_hazard_2.tscn" id="9_6o73i"]
-[ext_resource type="PackedScene" uid="uid://my63wpi3ni73" path="res://src/entities/background/stage_hazard_3.tscn" id="11_ljxg4"]
-[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/stage_hazard_base.tscn" id="11_lqvrt"]
-[ext_resource type="PackedScene" uid="uid://dehm0o5fr6fkq" path="res://src/entities/background/stage_hazard_4.tscn" id="12_h5e6d"]
-[ext_resource type="PackedScene" uid="uid://b1r7wdy6b1upp" path="res://src/entities/background/stage_hazard_5.tscn" id="13_wml2a"]
+[ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/CameraController.tscn" id="8_mnsto"]
+[ext_resource type="PackedScene" uid="uid://n0vg7anii1dg" path="res://src/entities/background/StageHazard2.tscn" id="9_6o73i"]
+[ext_resource type="PackedScene" uid="uid://my63wpi3ni73" path="res://src/entities/background/StageHazard3.tscn" id="11_ljxg4"]
+[ext_resource type="PackedScene" uid="uid://dknfhais6weqa" path="res://src/entities/background/StageHazardBase.tscn" id="11_lqvrt"]
+[ext_resource type="PackedScene" uid="uid://dehm0o5fr6fkq" path="res://src/entities/background/StageHazard4.tscn" id="12_h5e6d"]
+[ext_resource type="PackedScene" uid="uid://b1r7wdy6b1upp" path="res://src/entities/background/StageHazard5.tscn" id="13_wml2a"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3iao6"]
 noise_type = 3
@@ -58,7 +57,7 @@ visible = false
 tile_map_data = PackedByteArray("AAAIAP3/AAAAAAAAAAAJAP3/AAAAAAAAAAAKAP3/AAAAAAAAAAALAP3/AAAAAAAAAAAMAP3/AAAAAAAAAAANAP3/AAAAAAAAAAAOAP3/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPr/AAAAAAAAAAAMAPn/AAAAAAAAAAANAPn/AAAAAAAAAAAOAPn/AAAAAAAAAAAOAPr/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAIAAAAAAAAAAAANAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAHAP//AAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAPz/AAAAAAAAAAAEAPv/AAAAAAAAAAAEAPr/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAAAAAAAAAAIAPn/AAAAAAAAAAAJAPn/AAAAAAAAAAAKAPn/AAAAAAAAAAALAPn/AAAAAAAAAAAIAPr/AAAAAAAAAAAIAPv/AAAAAAAAAAAIAPz/AAAAAAAAAAAHAPv/AAAAAAAAAAAGAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wAAAAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAA=")
 tile_set = ExtResource("5_t50fd")
 
-[node name="Unpausable" type="Node" parent="."]
+[node name="RoundEndManager" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("4_4iknr")
 
@@ -304,25 +303,13 @@ noise = SubResource("FastNoiseLite_3iao6")
 texture = SubResource("ViewportTexture_elk8j")
 metadata/_edit_lock_ = true
 
-[node name="Hud" parent="CameraController/CameraAnchor" index="2" instance=ExtResource("6_thxyv")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -960.0
-offset_top = 281.0
-offset_right = 960.0
-offset_bottom = 540.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="HowToPlay" parent="CameraController/CameraAnchor" index="3"]
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+[node name="EndGameFade" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
