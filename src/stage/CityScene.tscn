@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqkcad7t71pwt"]
+[gd_scene load_steps=7 format=3 uid="uid://cqkcad7t71pwt"]
 
 [ext_resource type="Script" path="res://src/stage/city_scene.gd" id="1_wd5oc"]
 [ext_resource type="PackedScene" uid="uid://clfywg86h6e32" path="res://src/entities/background/buildings/IngameBuilding1.tscn" id="2_ef1f0"]
-[ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="2_oi6yw"]
 [ext_resource type="PackedScene" uid="uid://rdmn1erq005w" path="res://src/entities/background/buildings/IngameBuilding2.tscn" id="3_mbtlx"]
 [ext_resource type="PackedScene" uid="uid://dfnvetwl6nqmv" path="res://src/entities/background/buildings/IngameBuilding3.tscn" id="4_sajdq"]
 [ext_resource type="PackedScene" uid="uid://dq3f2f7pkhvxm" path="res://src/entities/background/buildings/IngameBuilding4.tscn" id="5_ff4w1"]
@@ -29,8 +28,3 @@ unique_name_in_owner = true
 [node name="Camera3D" type="Camera3D" parent="CamAnchor"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7, 0)
-
-[node name="Scene2D" type="Sprite3D" parent="CamAnchor"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-visible = false
-texture = ExtResource("2_oi6yw")

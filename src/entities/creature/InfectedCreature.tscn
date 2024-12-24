@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bu1smsxi2dc5g" path="res://src/entities/creature/creature.tscn" id="1_n7jtd"]
 [ext_resource type="Script" path="res://src/entities/creature/infected_controller.gd" id="2_2puis"]
-[ext_resource type="Texture2D" uid="uid://cldfkhhvrm8ll" path="res://assets/spreadsheet.png" id="2_8nuoh"]
+[ext_resource type="Texture2D" uid="uid://cldfkhhvrm8ll" path="res://assets/entities/creature_sheet.png" id="2_8nuoh"]
 [ext_resource type="Script" path="res://src/entities/creature/states/chase_state.gd" id="2_fp84w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfgu3"]

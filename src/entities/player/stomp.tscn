@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dl4l2iyufxhx5"]
 
 [ext_resource type="Script" path="res://src/entities/player/stomp.gd" id="1_bhk33"]
-[ext_resource type="Texture2D" uid="uid://dl1oabdmqxoll" path="res://assets/zilla_leg.png" id="2_polek"]
+[ext_resource type="Texture2D" uid="uid://dl1oabdmqxoll" path="res://assets/entities/zilla_leg.png" id="2_polek"]
 [ext_resource type="Material" uid="uid://clk4v1j183x8o" path="res://assets/vfx/smoke_stomp_particles.tres" id="3_qrbmq"]
 [ext_resource type="Texture2D" uid="uid://btpgnp8t3o8ot" path="res://assets/vfx/smoke.png" id="4_n71yo"]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=3 uid="uid://cpysboj23eaxd"]
 
 [ext_resource type="Script" path="res://src/entities/goal.gd" id="1_agrx8"]
-[ext_resource type="Texture2D" uid="uid://cmbru2yleo5a" path="res://assets/soup.png" id="2_vghmw"]
-[ext_resource type="Texture2D" uid="uid://bsqqnxsnngelt" path="res://assets/goal_arrow.png" id="2_vj5kp"]
+[ext_resource type="Texture2D" uid="uid://cmbru2yleo5a" path="res://assets/entities/soup_sheet.png" id="2_vghmw"]
+[ext_resource type="Texture2D" uid="uid://bsqqnxsnngelt" path="res://assets/UI/goal_arrow.png" id="2_vj5kp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idg6f"]
 atlas = ExtResource("2_vghmw")

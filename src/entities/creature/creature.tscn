@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/entities/creature/base_controller.gd" id="1_euc34"]
 [ext_resource type="Script" path="res://src/entities/creature/creature.gd" id="1_on0e4"]
-[ext_resource type="Texture2D" uid="uid://cldfkhhvrm8ll" path="res://assets/spreadsheet.png" id="2_ed6ug"]
+[ext_resource type="Texture2D" uid="uid://cldfkhhvrm8ll" path="res://assets/entities/creature_sheet.png" id="2_ed6ug"]
 [ext_resource type="Script" path="res://src/entities/creature/states/wander_state.gd" id="2_ua7dj"]
 [ext_resource type="Script" path="res://src/entities/creature/states/idle_state.gd" id="3_bs3bk"]
 [ext_resource type="Script" path="res://src/entities/creature/states/rush_state.gd" id="4_sqeli"]

@@ -1,13 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://vnjk3m0lopu1"]
+[gd_scene load_steps=17 format=3 uid="uid://vnjk3m0lopu1"]
 
 [ext_resource type="Script" path="res://src/autoloads/AudioManager.gd" id="1_asmxu"]
 [ext_resource type="AudioStream" uid="uid://bolso7kn3wjf2" path="res://assets/Audio/ui/ButtonHover.wav" id="1_krhah"]
 [ext_resource type="AudioStream" uid="uid://gi0x3qcnuw43" path="res://assets/Audio/ui/ButtonPress.wav" id="2_6kj28"]
 [ext_resource type="AudioStream" uid="uid://bg2qm7jdxvdbl" path="res://assets/Audio/creatures/Dying.wav" id="4_nel7w"]
 [ext_resource type="AudioStream" uid="uid://qi4uely7ig21" path="res://assets/Audio/creatures/Infect.wav" id="5_efc23"]
-[ext_resource type="AudioStream" uid="uid://cqc4i1qbs7l5h" path="res://assets/Audio/creatures/Multiplying.wav" id="6_l10bl"]
 [ext_resource type="AudioStream" uid="uid://djpcy6imvmlpc" path="res://assets/Audio/creatures/Scream.wav" id="7_dujt0"]
-[ext_resource type="AudioStream" uid="uid://cvs68ida7u5l7" path="res://assets/Audio/creatures/Trip.wav" id="8_ch7do"]
 [ext_resource type="AudioStream" uid="uid://7g8mt10c3o15" path="res://assets/Audio/creatures/Yippee.wav" id="9_ym5b7"]
 [ext_resource type="AudioStream" uid="uid://bv0bmiihn4km" path="res://assets/Audio/godzilla/Demolition.wav" id="10_4fa5v"]
 [ext_resource type="AudioStream" uid="uid://psvc1j2eqjcv" path="res://assets/Audio/godzilla/FireBreath.wav" id="11_irqod"]
@@ -48,20 +46,10 @@ volume_db = -20.0
 max_polyphony = 10
 bus = &"Sound Effects"
 
-[node name="Multiply" type="AudioStreamPlayer" parent="Creatures"]
-stream = ExtResource("6_l10bl")
-max_polyphony = 10
-bus = &"Sound Effects"
-
 [node name="Scream" type="AudioStreamPlayer" parent="Creatures"]
 stream = ExtResource("7_dujt0")
 volume_db = -30.0
 pitch_scale = 1.39
-max_polyphony = 10
-bus = &"Sound Effects"
-
-[node name="Trip" type="AudioStreamPlayer" parent="Creatures"]
-stream = ExtResource("8_ch7do")
 max_polyphony = 10
 bus = &"Sound Effects"
 

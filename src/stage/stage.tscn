@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://e7jihf677gx2"]
+[gd_scene load_steps=22 format=4 uid="uid://e7jihf677gx2"]
 
 [ext_resource type="Script" path="res://src/stage/stage.gd" id="1_iaxbk"]
 [ext_resource type="PackedScene" uid="uid://b0bxiobvelbs0" path="res://src/entities/creature/HealthyCreature.tscn" id="2_dpvoq"]
@@ -9,7 +9,6 @@
 [ext_resource type="TileSet" uid="uid://du2hqtx4h3wu0" path="res://assets/tileset/tileset.tres" id="4_jnxcs"]
 [ext_resource type="PackedScene" uid="uid://cpysboj23eaxd" path="res://src/entities/goal.tscn" id="5_27dnd"]
 [ext_resource type="TileSet" uid="uid://cxlip3lhds32w" path="res://assets/tileset/spawn_area_tileset.tres" id="5_t50fd"]
-[ext_resource type="Texture2D" uid="uid://ukpu3buflwcm" path="res://assets/city_mat.png" id="6_f6d4e"]
 [ext_resource type="PackedScene" uid="uid://bbd54mtbluw6e" path="res://src/stage/CameraController.tscn" id="8_mnsto"]
 [ext_resource type="PackedScene" uid="uid://n0vg7anii1dg" path="res://src/entities/background/StageHazard2.tscn" id="9_6o73i"]
 [ext_resource type="PackedScene" uid="uid://my63wpi3ni73" path="res://src/entities/background/StageHazard3.tscn" id="11_ljxg4"]
@@ -78,13 +77,6 @@ COOLDOWN_COLOUR = Color(1, 0, 0, 0.6)
 z_index = 0
 position = Vector2(1720, -80)
 cam = NodePath("../CameraController")
-
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(2.67029e-05, 1.52588e-05)
-scale = Vector2(1.47126, 1.85666)
-texture = ExtResource("6_f6d4e")
 
 [node name="Hazards" type="Node2D" parent="."]
 unique_name_in_owner = true

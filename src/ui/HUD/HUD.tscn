@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://src/ui/HUD/hud_controller.gd" id="1_lx3u3"]
 [ext_resource type="Texture2D" uid="uid://7h10mo7xk1w2" path="res://assets/UI/Backgrounds/PaperTexture.png" id="2_vg5qg"]
 [ext_resource type="Theme" uid="uid://6uaa4ea3yn5x" path="res://assets/UI/Themes/UI_Theme.tres" id="3_wvp4g"]
-[ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/Illustration51_12.png" id="5_cb35d"]
-[ext_resource type="Texture2D" uid="uid://dl7hnhnly77cm" path="res://assets/UI/Illustration51_14.png" id="6_dvoap"]
+[ext_resource type="Texture2D" uid="uid://tsdi3ybb5qjd" path="res://assets/UI/ZillaIllustration.png" id="5_cb35d"]
+[ext_resource type="Texture2D" uid="uid://dl7hnhnly77cm" path="res://assets/UI/SoupIllustration.png" id="6_dvoap"]
 
 [sub_resource type="Animation" id="Animation_24tve"]
 length = 0.001

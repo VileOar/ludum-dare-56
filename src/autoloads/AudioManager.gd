@@ -16,9 +16,7 @@ func _ready():
 	#creatures
 	add_to_sound_player_dictionary("Dying", $Creatures/Dying)
 	add_to_sound_player_dictionary("Infect", $Creatures/Infect)
-	add_to_sound_player_dictionary("Multiply", $Creatures/Multiply)	
 	add_to_sound_player_dictionary("Scream", $Creatures/Scream)	
-	add_to_sound_player_dictionary("Trip", $Creatures/Trip)	
 	add_to_sound_player_dictionary("Yippee", $Creatures/Yippee)	
 	#Godzilla
 	add_to_sound_player_dictionary("Demolition", $Godzilla/Demolition)	
